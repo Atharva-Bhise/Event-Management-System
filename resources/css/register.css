@@ -1,0 +1,100 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: #F3EDE5; /* Light beige background */
+    color: #5A3E2B; /* Dark brown text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Container styles */
+.container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Title and subtitle */
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #5A3E2B;
+}
+
+/* Button container */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Brown box (styled as button) */
+.brown-box {
+    background-color: #B78C63; /* Light brown */
+    color: #FFFFFF; /* White text */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-align: center;
+}
+
+.brown-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.brown-box p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Hover and active effects */
+.brown-box:hover {
+    background-color: #9E704F; /* Darker brown */
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.brown-box:active {
+    background-color: #81573C; /* Even darker brown on click */
+    transform: scale(0.98); /* Slight shrink on click */
+}
+.bg
+{
+     position:  absolute;
+    top:-1vh;
+    z-index: -1;
+    height:38vh;
+    width:35%;
+    margin-top: 29%;
+    margin-left: 65%;
+    margin-bottom: -2%;
+
+}
+.up
+{
+    position:  absolute;
+    top:-1vh;
+    z-index: -1;
+    height:40vh;
+    width:35%;
+    margin-top: -8%;
+    margin-left: 65%;
+    margin-bottom: 29%;
+}
