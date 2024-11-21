@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+background-attachment: fixed;
+     /* Optional background for the body */
+}
+
+header{
+    width:100%;
+    height:70vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.logo
+{
+    position:  absolute;
+    top:-1vh;
+    z-index: -1;
+    height:40vh;
+    width:16%;
+    margin-left: 3%;
+}
+.navbar-nav
+{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    color:rgb(59, 52, 11);
+    font-size: 1em;
+    margin-left: 60%;
+    align-items: left;
+    position: relative;
+    float: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    justify-content: space-between;
+
+}
+
+.nav-item{
+    justify-content: space-between;
+     color:rgb(96, 83, 8);
+     top:9vh;
+     z-index: 6;
+     height:70vh;
+     width:16%;
+     margin-top: 5%;
+     margin-left: 3%;
+
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.h
+{
+    margin-right: 70%;
+    top:16vh;
+    position: relative;
+height:11cm;
+  width:9000px;
+  
+
+}
+.p1
+{
+    position: relative;
+    top: -1px;
+    margin-right: 40%;
+    font-size: 28pt;
+    
+}
+.p2
+{
+    margin-left: 20%;
+    font-size: 28pt;
+    top:-1px;
+    
+}
+
+.para
+{
+    position: absolute;
+   
+    width:500px;
+    
+
+}
+
+.bottom-section {
+    flex: 1;
+    background-color: #e5d5cb; /* Brown */
+    top:-20vh;
+    z-index: -1;
+    object-fit: cover;
+    width:100%;
+}
+
+.balloon
+{
+    
+    position:  absolute;
+    top:-1vh;
+    z-index: -1;
+    height:78vh;
+    width:22%;
+    margin-top: 9%;
+    margin-left:4%;
+}
+.celeb
+{
+    position:  absolute;
+    top:-1vh;
+    z-index: -1;
+    height:35vh;
+    width:24%;
+    margin-top: 29%;
+    margin-left: 58%;
+
+}
+.decor
+{
+    position:  absolute;
+    top:-1vh;
+    z-index: -1;
+    height:39vh;
+    width:24%;
+    margin-top: 9%;
+    margin-left: 58%;
+}

@@ -7,6 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    
   }
   
   .signup-container { 
@@ -58,15 +59,15 @@ body {
   button {
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50; /* Same as login page */
+    background-color: #916851; /* Same as login page */
     color: #fff;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
   }
   
   button:hover {
-    background-color: #3e8e41; /* Same as login page */
+    background-color: #835e49; /* Same as login page */
   }
   
   a {

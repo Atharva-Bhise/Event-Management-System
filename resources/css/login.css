@@ -1,75 +1,155 @@
+/* General Body Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   
-  .login-container {
-    width: 350px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-  }
+}
+
+/* Login Container Styles */
+.login-container {
+  width: 350px;
+  padding: 20px;
+  background-color: #E5D5CB;
   
-  header {
-    margin-bottom: 20px;
-  }
-  
-  h1 {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-  }
-  
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0,0.1);
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  color: #926B51;
+}
+
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="password"] {
+      width: 100%;
+      padding: 20px 10px 10px 10px;  /* Extra padding at the top for the floating label */
+      border: 2.5px solid #ccc;
+      border-radius: 3px;
+      font-size: 16px;
+      box-sizing: border-box;
+      background-color: #E5D5CB;
+      border-color: #fff;
+      position: relative;
+}
+/* Style for the placeholder text */
+input::placeholder {
+    color: #916851;
+    font-size: 16px;
+    position: absolute;
+    top: 50%; /* Initially place in the center */
+    left: 10px;
+    transform: translateY(-50%);  /* Center vertically */
+    transition: all 0.2s ease-out;
+    pointer-events: none;
+}
+
+/* Floating effect when the input is focused or contains value */
+input:focus::placeholder,
+input:not(:placeholder-shown)::placeholder {
+    top: -1px;   /* Move the placeholder text to the top */
+    left: 5px;
+    font-size: 12px;
+    color: #916851;
+    transform: translateY(0);  /* Remove vertical centering */
+}
+/* Wrapper to position placeholder text */
   .input-field {
-    margin-bottom: 15px;
-  }
+    position: relative;
+    margin-bottom: 20px;
+}
+input::placeholder{
+  color: #916851;
+}
+
+/* Emoji Icon for Password Toggle */
+.emoji-icon {
+  position: absolute;
+  right: 10px; /* Adjust to keep it inside the input field */
+  top: 50%; /* Slightly below the center */
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+}
+
+.emoji-icon:hover {
+  color: #000;
+}
+
+
+/* Checkbox Styles */
+.checkbox-field {
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Button Styles */
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #916851;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #835e49;
+}
+
+/* Links */
+a {
+  color: #823d15;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+#msg{
+  color: #916851;
   
-  label {
-    display: block;
-    margin-bottom: 5px;
+}
+.forgot-password,
+.sign-in {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+  .login-container {
+    width: 90%;
+    padding: 15px;
   }
-  
-  input[type="text"], input[type="password"] {
-    width: 95%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  .checkbox-field {
-    margin-bottom: 15px;
-  }
-  
-  input[type="checkbox"] {
-    margin-right: 5px;
-  }
-  
-  button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #3e8e41;
-  }
-  
-  a {
-    color: #4CAF50;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
+}

@@ -6,41 +6,46 @@
   <title>Login Page</title>
   <link rel="stylesheet" href="../css/login.css">
 </head>
-<body>
+<body style="background-image: url('../images/LoginBG.png');background-repeat: no-repeat;background-size: cover;background-position: center;">
 <div class="login-container">
   <header>
     <h1>User-Login</h1>
   </header>
   <form>
+    <!-- Username Input -->
     <div class="input-field">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required="required" placeholder="username">
-    </div>
-    <div class="input-field">
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required="required" placeholder="password">
+      <!--<label for="username">Username:</label>-->
+      <input type="text" id="username" name="username" required placeholder="Username">
     </div>
 
+    <!-- Password Input with Toggle -->
+    <div class="input-field">
+      <!--<label for="password">Password:</label>-->
+      <input type="password" id="password" name="password" required placeholder="Password" oninput="togglePasswordIcon()">
+      <span class="emoji-icon" onclick="togglePasswordVisibility()">👁️</span>
+    </div>
+
+    <!-- Remember Me Checkbox
     <div class="checkbox-field">
-      <input type="checkbox" onclick="showPassword()">Show Password
-    </div>
-
-     <div class="checkbox-field">
       <input type="checkbox" id="remember-me">
       <label for="remember-me">Remember Me</label>
-    </div> 
-
+    </div>
+    -->
+    <!-- Submit Button -->
     <button type="submit">Login</button>
 
-     <a href="#">Forget Password?</a> 
+    <!-- Forget Password Link -->
+    <div class="forgot-password">
+      <a href="#">Forgot Password?</a>
+    </div>
 
-    <br><br>
-    <div class="signIn">
-      Don't have an account? <a href="userSignup.html">Sign Up!</a>
+    <!-- Sign-Up Prompt -->
+    <div class="sign-in">
+    <p id="msg">Don't have an account? <a href="userSignup.html">Sign Up!</a>
     </div>
   </form>
 </div>
 
-<script src="../js/login.js"></script>
+<script src="../js/userLogin.js"></script>
 </body>
 </html>
