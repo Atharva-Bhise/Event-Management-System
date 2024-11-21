@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             pg_query($conn, "BEGIN");
 
                 try {
-                    // Step 1: Insert into Organizer table
+                    //Insert into Organizer table
                     $organizerInsertionQuery = "INSERT INTO organizer(
                                 organizer_name, organizer_phone, organizer_password, 
                                 organizer_address, organizer_city, organizer_dob, organizer_gender)
@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                     // Retrieve the generated organizer_id
                     $organizerId = pg_fetch_result($organizerResult, 0, "organizer_id");
 
-                    // Step 2: Insert into organizer_login table
+                    //Insert into organizer_login table
                     $organizerLoginInsertionQuery = "INSERT INTO organizer_login(
                             organizer_id, organizer_login_id, organizer_login_password)
                             VALUES ($1, $2, $3);";
@@ -49,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                         throw new Exception("Error inserting into User_Login table: " . pg_last_error($conn));
                     }
 
-                    // Step 3: Insert into organizer_emails table
+                    //Insert into organizer_emails table
                     $organizerEmailInsertionQuery = "INSERT INTO organizer_emails(
                                         organizer_id, organizer_email)
                                         VALUES ($1, $2);";

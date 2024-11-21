@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             pg_query($conn, "BEGIN");
 
                 try {
-                    // Step 1: Insert into Users table
+                    //Insert into Users table
                     $userInsertionQuery = "INSERT INTO users(user_name, user_password, user_address, user_city, user_dob, user_gender) 
                                         VALUES ($1, $2, $3, $4, $5, $6) RETURNING user_id;";
                     $userResult = pg_query_params($conn, $userInsertionQuery, [$name, $password, $address, $city, $dob, $gender]);
@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                     // Retrieve the generated user_id
                     $userId = pg_fetch_result($userResult, 0, "user_id");
 
-                    // Step 2: Insert into User_Login table
+                    //Insert into User_Login table
                     $userLoginInsertionQuery = "INSERT INTO user_login(user_id, user_login_id, user_login_password) 
                                                 VALUES ($1, $2, $3);";
                     $userLoginResult = pg_query_params($conn, $userLoginInsertionQuery, [$userId, $username, $password]);
@@ -46,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                         throw new Exception("Error inserting into User_Login table: " . pg_last_error($conn));
                     }
 
-                    // Step 3: Insert into Users_Emails table
+                    //Insert into Users_Emails table
                     $userEmailInsertionQuery = "INSERT INTO users_emails(user_id, user_email) VALUES ($1, $2);";
                     $userEmailResult = pg_query_params($conn, $userEmailInsertionQuery, [$userId, $email]);
 
@@ -54,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                         throw new Exception("Error inserting into Users_Emails table: " . pg_last_error($conn));
                     }
 
-                    // Step 4: Insert into Users_Phone_numbers table
+                    //Insert into Users_Phone_numbers table
                     $userPhoneInsertionQuery = "INSERT INTO users_phone_numbers(user_id, user_phone_no) VALUES ($1, $2);";
                     $userPhoneResult = pg_query_params($conn, $userPhoneInsertionQuery, [$userId, $phoneNo]);
 
