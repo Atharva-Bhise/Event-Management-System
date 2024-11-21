@@ -17,17 +17,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             $dob = $formData['dob'] ?? '';
             $gender = $formData['gender'] ?? '';
             $password = $formData['password'] ?? '';
-            /*
-            echo "Received the following data: <br>";
-            echo "Name: $name<br>";
-            echo "Email: $email<br>";
-            echo "Username: $username<br>";
-            echo "Phone: $phoneNo<br>";
-            echo "Address: $address<br>";
-            echo "City: $city<br>";
-            echo "DoB: $dob<br>";
-            echo "Gender: $gender<br>";
-            echo "Password: $password<br>";*/
+            
             if(!$conn){
                 die("Connection failed: " . pg_last_error());
             }
