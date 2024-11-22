@@ -1,33 +1,61 @@
 const username = document.getElementById("username");
 const password = document.getElementById("password");
 const form = document.querySelector("form");
-const icon = document.querySelector('.emoji-icon');
-
+const img = document.getElementById("toggleIcon");
+// Function to toggle password visibility
 function togglePasswordVisibility() {
   const passwordField = document.getElementById('password');
-  const icon = document.querySelector('.emoji-icon');
+  const img = document.getElementById('toggleIcon');
+
+  if (!passwordField || !img) {
+    console.error("Element with id 'password' or 'toggleIcon' not found.");
+    return;
+  }
 
   if (passwordField.type === 'password') {
-    passwordField.type = 'text';
-    icon.textContent = '🙈'; // Change to "hide" icon
+    passwordField.type = 'text'; // Show the password
+    img.src = '../images/hide.png'; // Change the icon to 'hide'
   } else {
-    passwordField.type = 'password';
-    icon.textContent = '👁️'; // Change to "show" icon
+    passwordField.type = 'password'; // Hide the password
+    img.src = '../images/show.png'; // Change the icon to 'show'
   }
 }
 
+// Function to update the icon visibility based on input field value
 function togglePasswordIcon() {
   const passwordField = document.getElementById('password');
-  const icon = document.querySelector('.emoji-icon');
-  
-  // Adjust icon based on input length
-  if (passwordField.value.length > 0) {
-    icon.textContent = '🙈'; // Show "visible" icon
-    passwordField.type = 'text';    
-  } else {
-    icon.textContent = '👁️'; // Reset icon if input is empty
+  const img = document.getElementById('toggleIcon');
+
+  if (!passwordField || !img) {
+    console.error("Element with id 'password' or 'toggleIcon' not found.");
+    return;
   }
+
+  // Update the icon based on input field value
+  passwordField.addEventListener('input', () => {
+    if (passwordField.value.length > 0) {
+      passwordField.type = 'text'; // Show the password
+      img.src = '../images/hide.png';
+    } else {
+      passwordField.type = 'password'; // Hide the password
+      img.src = '../images/show.png';
+    }
+  });
 }
+
+// Event listener for the toggle icon click
+document.addEventListener('DOMContentLoaded', () => {
+  const img = document.getElementById('toggleIcon');
+  if (img) {
+    img.addEventListener('click', togglePasswordVisibility);
+  } else {
+    console.error("Element with id 'toggleIcon' not found.");
+  }
+  
+  // Call togglePasswordIcon to set up input event listener
+  togglePasswordIcon();
+});
+
 
 function showPassword(){
     if(password.type === "password")

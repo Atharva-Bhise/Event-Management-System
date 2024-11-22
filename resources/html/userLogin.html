@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
+  <title>User Login Page</title>
   <link rel="stylesheet" href="../css/login.css">
 </head>
-<body style="background-image: url('../images/LoginBG.png');background-repeat: no-repeat;background-size: cover;background-position: center;">
+<body style="background-image: url('../images/FORM_BG.png');background-repeat: no-repeat;background-size: cover;background-position: center;">
 <div class="login-container">
   <header>
     <h1>User-Login</h1>
@@ -14,15 +14,15 @@
   <form>
     <!-- Username Input -->
     <div class="input-field">
-      <!--<label for="username">Username:</label>-->
-      <input type="text" id="username" name="username" required placeholder="Username">
+      <input type="text" id="username" name="username" required placeholder=" ">
+      <label for="username">Username</label>
     </div>
 
     <!-- Password Input with Toggle -->
     <div class="input-field">
-      <!--<label for="password">Password:</label>-->
-      <input type="password" id="password" name="password" required placeholder="Password" oninput="togglePasswordIcon()">
-      <span class="emoji-icon" onclick="togglePasswordVisibility()">👁️</span>
+      <input type="password" id="password" name="password" required placeholder=" ">
+      <label for="password">Password</label>
+      <span class="toggle-password"><img src="../images/show.png" alt="Show Password" id="toggleIcon"></span>
     </div>
 
     <!-- Remember Me Checkbox
