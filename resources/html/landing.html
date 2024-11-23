@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="icon" href="../images/logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MapTheEvents</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+                body {
+              margin: 0;
+              padding: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              overflow: hidden;
+          background-attachment: fixed;
+              /* Optional background for the body */
+          }
+
+          header{
+              width:100%;
+              height:70vh;
+              overflow: hidden;
+              position: relative;
+          }
+
+          .logo
+          {
+              position:  absolute;
+              top:-1vh;
+              z-index: -1;
+              height:40vh;
+              width:16%;
+              margin-left: 3%;
+          }
+          .navbar-nav
+          {
+              display: flex;
+              list-style: none;
+              justify-content: space-between;
+              color:rgb(59, 52, 11);
+              font-size: 1em;
+              margin-left: 60%;
+              align-items: left;
+              position: relative;
+              float: left;
+              font-family: Verdana, Geneva, Tahoma, sans-serif;
+              justify-content: space-between;
+
+          }
+
+          .nav-item{
+              justify-content: space-between;
+              color:rgb(96, 83, 8);
+              top:9vh;
+              z-index: 6;
+              height:70vh;
+              width:16%;
+              margin-top: 5%;
+              margin-left: 3%;
+
+          }
+
+          .container {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+          }
+
+          .h
+          {
+              margin-right: 70%;
+              top:16vh;
+              position: relative;
+          height:11cm;
+            width:9000px;
+            
+
+          }
+          .p1
+          {
+              position: relative;
+              top: -1px;
+              margin-right: 40%;
+              font-size: 28pt;
+              
+          }
+          .p2
+          {
+              margin-left: 20%;
+              font-size: 28pt;
+              top:-1px;
+              
+          }
+
+          .para
+          {
+              position: absolute;
+            
+              width:500px;
+              
+
+          }
+
+          .bottom-section {
+              flex: 1;
+              background-color: #e5d5cb; /* Brown */
+              top:-20vh;
+              z-index: -1;
+              object-fit: cover;
+              width:100%;
+          }
+
+          .balloon
+          {
+              
+              position:  absolute;
+              top:-1vh;
+              z-index: -1;
+              height:78vh;
+              width:22%;
+              margin-top: 9%;
+              margin-left:4%;
+          }
+          .celeb
+          {
+              position:  absolute;
+              top:-1vh;
+              z-index: -1;
+              height:35vh;
+              width:24%;
+              margin-top: 29%;
+              margin-left: 58%;
+
+          }
+          .decor
+          {
+              position:  absolute;
+              top:-1vh;
+              z-index: -1;
+              height:39vh;
+              width:24%;
+              margin-top: 9%;
+              margin-left: 58%;
+          }
+    </style>
+  </head>
+<body background="../images/bg.png">
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+       <img class="logo" src="../images/logo.jpg" alt="MapTheEvent"> 
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link mx-lg-2" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link mx-lg-2" href="register.html">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link mx-lg-2" href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <a href="#" class="ForPropertyOwner-button"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+      <div class="container">
+      
+        <div class="bottom-section"></div>
+    </div>
+      <div class="h">
+        <div>
+          <h4 class="p1"><b>PLAN YOUR</b> </h4>
+          <h4 class="p2"> <b>DREAM EVENT</b></h4>
+      </div>
+      <div class="p">
+        <div>
+          <p class="para">This website will simplify the task of 
+            organizers and more efficiently
+            communicate with participants. In essence,
+             this event management system aims to 
+             make the entire event lifecycle more
+              manageable efficient and enjoyable for 
+              organizers as well as attendees. Its unique
+               feature of offering rentals borrowing 
+               alongside event booking demonstrates its adaptability and responsiveness to customer 
+               needs, setting it apart from conventional event management solutions</p>
+        </div>
+      </div>
+      </div>
+      <img class="balloon" src="../images/balloons.png" alt="img">
+      <img class="decor" src="../images/decor.jpg" alt="img">
+      <img class="celeb" src="../images/celeb.jpg" alt="img">
+
+</body>
+</html>
