@@ -90,7 +90,12 @@ form.addEventListener("submit", (e) => {
       if(xhr.readyState === 4 && xhr.status === 200)
       {
         const response = JSON.parse(xhr.responseText);
-        document.write(xhr.responseText);
+        if(response.status === "success"){
+          alert(response.message);
+          window.location.href="../html/after.html";
+        }else{
+          console.log(response.message);
+        }
       }
     }
     xhr.send(JSON.stringify(formData));   

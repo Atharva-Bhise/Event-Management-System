@@ -64,15 +64,16 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
 
                     // Commit the transaction if all queries succeed
                     pg_query($conn, "COMMIT");
-                    echo "User registration successful!";
+                    echo json_encode(["status" => "success", "message" => "Signup successful."]);                  
+
                 } catch (Exception $e) {
                     // Rollback the transaction on any failure
                     pg_query($conn, "ROLLBACK");
-                    echo $e->getMessage();
+                    echo json_encode(["error" => "$e->getMessage()"]);
                 }
 
         } else {
-            echo "Error decoding JSON data!";
+            echo json_encode(["error" => "Error decoding JSON data!"]);
         }
         
         
