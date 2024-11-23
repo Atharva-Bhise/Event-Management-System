@@ -83,13 +83,19 @@ form.addEventListener("submit", (e) => {
     
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "../php/UserSignupFormProcess.php", true);
-    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    xhr.setRequestHeader("Content-Type","application/json");
     xhr.onreadystatechange = function() {
       console.log("Ready State = "+ xhr.readyState);
       console.log("Status = "+ xhr.status);
       if(xhr.readyState === 4 && xhr.status === 200)
       {
-        document.write(xhr.responseText);
+        const response = JSON.parse(xhr.responseText);
+        if(response.status === "success"){
+          alert(response.message);
+          window.location.href="../html/after.html";
+        }else{
+          console.log(response.message);
+        }
       }
     }
     xhr.send(JSON.stringify(formData));   

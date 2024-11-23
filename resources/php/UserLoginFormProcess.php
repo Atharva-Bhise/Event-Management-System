@@ -1,5 +1,5 @@
 <?php
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=ab18");
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
 
 if (!$conn) {
     die("Error: Unable to connect to the database.");
@@ -23,23 +23,32 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         }
 
         // Query to validate user credentials
-        $query = "SELECT users.user_name 
+        $query = "SELECT users.user_name, user_login.user_login_password 
                   FROM users
                   JOIN user_login ON users.user_id = user_login.user_id 
-                  WHERE user_login.user_login_id = $1 AND user_login.user_login_password = $2";
+                  WHERE user_login.user_login_id = $1";
 
         // Execute the query
-        $result = pg_query_params($conn, $query, [$username, $password]);
+        $result = pg_query_params($conn, $query, [$username]);
 
         if ($result) {
-            $row = pg_fetch_row($result);
+            $row = pg_fetch_assoc($result); 
 
             if ($row) {
-                // User found
-                echo "Hello, " . htmlspecialchars($row[0]) . "<br>";
+                // Debugging: Check the result structure
+                 // This will show the available columns in the result
+
+                // Verify password
+                if ($password === $row['user_login_password']) {
+                    // User found and password matched
+                    echo json_encode(["user" => $row['user_name'], "status" => "success", "message" => "Login successful."]);                  
+                } else {
+                    // Invalid credentials
+                    echo json_encode(["status" => "failure", "message" => "Invalid username or password."]);
+                }
             } else {
-                // Invalid credentials
-                echo "Invalid username or password.";
+                // No user found
+                echo json_encode(["status" => "failure", "message" => "Invalid username or password."]);
             }
         } else {
             // Query execution failed
