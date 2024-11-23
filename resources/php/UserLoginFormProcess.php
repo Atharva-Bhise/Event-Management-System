@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 // Verify password
                 if ($password === $row['user_login_password']) {
                     // User found and password matched
-                    print json_encode(["user" => $row['user_name'], "status" => "success", "message" => "Login successful."]);                  
+                    echo json_encode(["user" => $row['user_name'], "status" => "success", "message" => "Login successful."]);                  
                 } else {
                     // Invalid credentials
                     echo json_encode(["status" => "failure", "message" => "Invalid username or password."]);
