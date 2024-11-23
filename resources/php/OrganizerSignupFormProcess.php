@@ -1,5 +1,5 @@
 <?php
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=ab18");
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
 if($_SERVER['REQUEST_METHOD'] === "POST"){
          // Get the raw POST data
         $jsonData = file_get_contents('php://input');
