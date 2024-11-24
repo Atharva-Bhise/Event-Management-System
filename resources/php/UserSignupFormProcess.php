@@ -69,7 +69,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                 } catch (Exception $e) {
                     // Rollback the transaction on any failure
                     pg_query($conn, "ROLLBACK");
-                    echo json_encode(["error" => "$e->getMessage()"]);
+                    echo json_encode(["error" => '$e->getMessage()']);
                 }
 
         } else {
