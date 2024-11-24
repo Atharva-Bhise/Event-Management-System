@@ -1,7 +1,8 @@
+console.log("Script loaded successfully.");
+
 // Basic validation for password matching
-const name = document.getElementById("name");
-const email = document.getElementById("email");
-const username = document.getElementById("username");
+
+const form = document.getElementById("signUp");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirm-password");
 
@@ -61,41 +62,38 @@ function displayErrorMessage(message) {
 }
 
 // Form submission event listener
-const form = document.querySelector("form");
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // Prevents the page from reloading
+  console.log("Submit event triggered.");
+
   if (validatePassword()) {
-    event.preventDefault();  // Prevent form submission if validation fails
-
-      // Collect form data
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-
-      // Trim whitespace from name
-       const trimmedName = name.trim();
-
-      // Construct the data to send in the request
-      var data = {"name": trimmedName,"email": email,"userName": username,"password": password};
-
-    console.log(data);
-      // Make the POST request using Fetch API
-      fetch("http://localhost:8081/register", {
-        method: "POST",
-        mode: "cors", // Add this line to allow cross-origin requests
-        body: JSON.stringify(data),
-        headers:{
-            "Content-Type": "application/json"}
-      }).then(response => {
-        if (response.ok) {
-
-          console.log("Registration successful!");
-         // window.location.href = "/URL of WebsocketApp"; // Place the URL of WebsocketAPP
-        } else {
-          console.log("Registration failed");
-        }
-      }).catch(error => {
-        console.error("Error:", error);
-      });
+    
+    const formData = {
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      username: document.getElementById("username").value.trim(),
+      phoneNo: document.getElementById("phoneNumber").value.trim(),
+      address: document.getElementById("address").value.trim(),
+      city: document.getElementById("city").value.trim(),
+      dob: document.getElementById("dob").value,
+      gender: document.getElementById("gender").value,
+      password: password.value.trim()
+    };
+    
+    
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "../php/OrganizerSignupFormProcess.php", true);
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+      console.log("Ready State = "+ xhr.readyState);
+      console.log("Status = "+ xhr.status);
+      if(xhr.readyState === 4 && xhr.status === 200)
+      {
+        document.write(xhr.responseText);
+      }
+    }
+    xhr.send(JSON.stringify(formData));   
+   
   }
 });
+
