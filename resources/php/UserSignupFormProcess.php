@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 $conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=ab18");
+=======
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
+>>>>>>> b9d2f5b4052b2578a8e3d233f3cfc84874514882
 if($_SERVER['REQUEST_METHOD'] === "POST"){
          // Get the raw POST data
         $jsonData = file_get_contents('php://input');
@@ -64,6 +68,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
 
                     // Commit the transaction if all queries succeed
                     pg_query($conn, "COMMIT");
+<<<<<<< HEAD
                     echo "User registration successful!";
                 } catch (Exception $e) {
                     // Rollback the transaction on any failure
@@ -73,6 +78,18 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
 
         } else {
             echo "Error decoding JSON data!";
+=======
+                    echo json_encode(["status" => "success", "message" => "Signup successful."]);                  
+
+                } catch (Exception $e) {
+                    // Rollback the transaction on any failure
+                    pg_query($conn, "ROLLBACK");
+                    echo json_encode(["error" => "$e->getMessage()"]);
+                }
+
+        } else {
+            echo json_encode(["error" => "Error decoding JSON data!"]);
+>>>>>>> b9d2f5b4052b2578a8e3d233f3cfc84874514882
         }
         
         

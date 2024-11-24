@@ -82,14 +82,29 @@ form.addEventListener("submit", (e) => {
     
     
     const xhr = new XMLHttpRequest();
+<<<<<<<< HEAD:resources/js/organizerSignup.js
     xhr.open("POST", "../php/OrganizerSignupFormProcess.php", true);
     xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+========
+    xhr.open("POST", "../php/UserSignupFormProcess.php", true);
+    xhr.setRequestHeader("Content-Type","application/json");
+>>>>>>>> b9d2f5b4052b2578a8e3d233f3cfc84874514882:resources/js/userSignup.js
     xhr.onreadystatechange = function() {
       console.log("Ready State = "+ xhr.readyState);
       console.log("Status = "+ xhr.status);
       if(xhr.readyState === 4 && xhr.status === 200)
       {
+<<<<<<<< HEAD:resources/js/organizerSignup.js
         document.write(xhr.responseText);
+========
+        const response = JSON.parse(xhr.responseText);
+        if(response.status === "success"){
+          alert(response.message);
+          window.location.href="../html/after.html";
+        }else{
+          console.log(response.message);
+        }
+>>>>>>>> b9d2f5b4052b2578a8e3d233f3cfc84874514882:resources/js/userSignup.js
       }
     }
     xhr.send(JSON.stringify(formData));   
