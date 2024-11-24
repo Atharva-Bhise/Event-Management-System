@@ -1,9 +1,6 @@
 <?php
-<<<<<<< HEAD
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=ab18");
-=======
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=cloud");
 $conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
->>>>>>> b9d2f5b4052b2578a8e3d233f3cfc84874514882
 
 if (!$conn) {
     die("Error: Unable to connect to the database.");
