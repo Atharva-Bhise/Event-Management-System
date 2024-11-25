@@ -180,6 +180,7 @@ form.addEventListener("submit", (e) => {
     };
     
     console.log(formData);
+
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "../php/UserSignupFormProcess.php", true);
     xhr.setRequestHeader("Content-Type","application/json");
@@ -188,17 +189,24 @@ form.addEventListener("submit", (e) => {
       console.log("Status = "+ xhr.status);
       if(xhr.readyState === 4 && xhr.status === 200)
       {
-        const response = JSON.parse(xhr.responseText);
-        if(response.status === "success"){
-          alert(response.message);
-          window.location.href="../html/after.html";
-        }else{
-          console.log(response.message);
-        }
+        try{
+            const response = JSON.parse(xhr.responseText);
+            console.log(response.message);
+            /*if(response.status === "exists"){
+              alert("Username already exists.");
+            }*/
+            if(response.status === "success"){
+              alert(response.message);
+              window.location.href="../html/after.html";
+            }else{
+              console.log(response.message);
+            }
+      }catch(error){
+        console.error("Error parsing JSON:", error.message);
       }
     }
     xhr.send(JSON.stringify(formData));   
    
   }
-});
+}});
 
