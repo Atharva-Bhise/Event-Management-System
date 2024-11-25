@@ -1,6 +1,5 @@
 <?php
 $conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=cloud");
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
 
 if (!$conn) {
     die("Error: Unable to connect to the database.");
@@ -24,23 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         }
 
         // Query to validate user credentials
-        $query = "SELECT users.user_name 
-                  FROM users
-                  JOIN user_login ON users.user_id = user_login.user_id 
-                  WHERE user_login.user_login_id = $1 AND user_login.user_login_password = $2";
-
-        // Execute the query
-        $result = pg_query_params($conn, $query, [$username, $password]);
-
-        if ($result) {
-            $row = pg_fetch_row($result);
-
-            if ($row) {
-                // User found
-                echo "Hello, " . htmlspecialchars($row[0]) . "<br>";
-            } else {
-                // Invalid credentials
-                echo "Invalid username or password.";
         $query = "SELECT users.user_name, user_login.user_login_password 
                   FROM users
                   JOIN user_login ON users.user_id = user_login.user_id 

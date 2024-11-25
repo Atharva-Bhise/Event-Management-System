@@ -83,11 +83,7 @@ form.addEventListener("submit", (e) => {
     
     const xhr = new XMLHttpRequest();
 
-    xhr.open("POST", "../php/UserSignupFormProcess.php", true);
-    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-
-    xhr.open("POST", "../php/OrganizerSignupFormProcess.php", true);
-    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+   
 
     xhr.open("POST", "../php/UserSignupFormProcess.php", true);
     xhr.setRequestHeader("Content-Type","application/json");
