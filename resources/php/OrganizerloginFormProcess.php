@@ -6,6 +6,7 @@ ini_set('error_log', 'C:/xampp/php/logs/php_error_log'); //PHP Errors are Stored
 error_reporting(E_ALL); 
 $conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
 
+
 if (!$conn) {
     echo json_encode(["status" => "error", "message" => "Unable to connect to the database."]);
     exit;}

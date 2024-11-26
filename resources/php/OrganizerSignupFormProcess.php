@@ -2,11 +2,11 @@
 header('Content-Type: application/json');
 ini_set('display_errors', 0); // Do not display errors in the browser
 ini_set('log_errors', 1);    // Log errors to the server's error log
-
 ini_set('error_log', 'C:/xampp/php/logs/php_error_log'); //PHP Errors are Stored in this path
 error_reporting(E_ALL);      // Report all errors
 
 $conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
+
 if($_SERVER['REQUEST_METHOD'] === "POST"){
     ob_start(); // Start output buffering
          // Get the raw POST data

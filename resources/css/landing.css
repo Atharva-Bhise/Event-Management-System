@@ -137,3 +137,11 @@ height:11cm;
     margin-top: 9%;
     margin-left: 58%;
 }
+
+@media (max-width: 400px) {
+    .login-container {
+      width: 90%;
+      padding: 15px;
+    }
+  }
+  
