@@ -222,5 +222,5 @@ form.addEventListener("submit", (e) => {
       }   
    
   }
-}});
+});
 
