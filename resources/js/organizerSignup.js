@@ -202,8 +202,11 @@ form.addEventListener("submit", (e) => {
                       alert(response.message);
                       window.location.href="../html/after.html";
                     }else{
-                          if(response.status === "exists"){
+                          if(response.status === "exists" || response.status === "invalid"){
                             displayErrorMessage(response.message);
+                          }
+                          if(response.status === "failure"){
+                            alert(response.message);
                           }
                           if(response.status === "error"){
                             console.log(response.message);

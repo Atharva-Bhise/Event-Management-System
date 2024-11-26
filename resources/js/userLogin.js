@@ -87,14 +87,16 @@ form.addEventListener("submit", (event) => {
       console.log("Readystate: "+ xhr.readyState);
       if (xhr.readyState === 4 && xhr.status === 200) {
         const response = JSON.parse(xhr.responseText);
-        
-        
+
           if(response.status === "success"){
             alert(response.message + " Hello, " + response.user); 
             window.location.href="../html/after.html";
           }
           if(response.status === "failure"){
             alert(response.message);
+          }
+          if(response.status === "error"){
+            console.log(response.message);
           }
         }
       }

@@ -9,7 +9,8 @@ $conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=p
 
 if (!$conn) {
     echo json_encode(["status" => "error", "message" => "Unable to connect to the database."]);
-    exit;}
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // Get the raw POST data

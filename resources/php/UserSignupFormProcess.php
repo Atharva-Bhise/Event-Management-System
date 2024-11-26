@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             }
             // Validate email format
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                echo json_encode(["status" => "error", "message" => "Invalid email format."]);
+                echo json_encode(["status" => "invalid", "message" => "Invalid email format."]);
                 exit;
             }
             // Start a transaction
@@ -96,7 +96,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                     // Rollback the transaction on any failure
                     pg_query($conn, "ROLLBACK");
                     error_log("Signup Error: " . $e->getMessage());
-                    echo json_encode(["status" => "error", "message" => "Sigup Failed"]);
+                    echo json_encode(["status" => "failure", "message" => "Signup Failed"]);
                 }
             }else {
                 echo json_encode(["status" => "error", "message" => "Invalid input data."]);

@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             // Validate email format
 
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                echo json_encode(["status" => "error", "message" => "Invalid email format."]);
+                echo json_encode(["status" => "invalid", "message" => "Invalid email format."]);
                 exit;
             }
             // Start a transaction
@@ -60,7 +60,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                     }
                     //Insert into Organizer table
                     $organizerInsertionQuery = "INSERT INTO organizer(
-                                organizer_name, organizer_phone, organizer_password, 
+                                organizer_name, organizer_phone, organizer_login_password, 
                                 organizer_address, organizer_city, organizer_dob, organizer_gender)
                                 VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING organizer_id;";
                     $organizerResult = pg_query_params($conn, $organizerInsertionQuery, [$name, $phoneNo, $hashedPassword, $address, $city, $dob, $gender]);
@@ -100,7 +100,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                     // Rollback the transaction on any failure
                     pg_query($conn, "ROLLBACK");
                     error_log("Signup Error: " . $e->getMessage());
-                    echo json_encode(["status" => "error", "message" => "Sigup Failed"]);
+                    echo json_encode(["status" => "failure", "message" => "Signup Failed"]);
                 }
 
             }else {

@@ -85,6 +85,9 @@ form.addEventListener("submit", (event) => {
           if(response.status === "failure"){
             alert(response.message);
           }
+          if(response.status === "error"){
+            console.log(response.message);
+          }
 
 
         }

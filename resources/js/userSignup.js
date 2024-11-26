@@ -186,7 +186,7 @@ form.addEventListener("submit", (e) => {
       password: password.value.trim()
     };
     
-    console.log(formData);
+    
 
     const xhr = new XMLHttpRequest();
 
@@ -206,6 +206,9 @@ form.addEventListener("submit", (e) => {
                 }else{
                   if(response.status === "exists"){
                     displayErrorMessage(response.message);
+                  }
+                  if(response.status === "failure" || response.status === "invalid"){
+                    alert(response.message);
                   }
                   if(response.status === "error"){
                     console.log(response.message);
