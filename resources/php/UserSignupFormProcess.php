@@ -1,34 +1,10 @@
 <?php
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=cloud");
-if($_SERVER['REQUEST_METHOD'] === "POST"){
-         // Get the raw POST data
-        $jsonData = file_get_contents('php://input');
-        // Decode the JSON data
-        $formData = json_decode($jsonData, true);
-        
-        // Check if data was decoded successfully
-        if ($formData !== null) {
-            $name = $formData['name'] ?? '';
-            $email = $formData['email'] ?? '';
-            $username = $formData['username'] ?? '';
-            $phoneNo = $formData['phoneNo'] ?? '';
-            $address = $formData['address'] ?? '';
-            $city = $formData['city'] ?? '';
-            $dob = $formData['dob'] ?? '';
-            $gender = $formData['gender'] ?? '';
-            $password = $formData['password'] ?? '';
-            
-            if(!$conn){
-                die("Connection failed: " . pg_last_error());
-            }
-            // Start a transaction
-            pg_query($conn, "BEGIN");
 header('Content-Type: application/json');
 ini_set('display_errors', 0); // Do not display errors in the browser
 ini_set('log_errors', 1);    // Log errors to the server's error log
 error_reporting(E_ALL);      // Report all errors
 
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=cloud");
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     ob_start(); // Start output buffering

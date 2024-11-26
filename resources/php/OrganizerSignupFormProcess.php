@@ -1,10 +1,9 @@
 <?php
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=cloud");
 header('Content-Type: application/json');
 ini_set('display_errors', 0); // Do not display errors in the browser
 ini_set('log_errors', 1);    // Log errors to the server's error log
 error_reporting(E_ALL);
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=cloud");
 if($_SERVER['REQUEST_METHOD'] === "POST"){
     ob_start(); // Start output buffering
          // Get the raw POST data

@@ -182,29 +182,12 @@ form.addEventListener("submit", (e) => {
     
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "../php/OrganizerSignupFormProcess.php", true);
-<<<<<<< HEAD
-    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-
-    xhr.open("POST", "../php/UserSignupFormProcess.php", true);
-=======
->>>>>>> d589d1d69911f4066fbd895ebe7f0f6d55def85c
     xhr.setRequestHeader("Content-Type","application/json");
     xhr.onreadystatechange = function() {
       console.log("Ready State = "+ xhr.readyState);
       console.log("Status = "+ xhr.status);
       if(xhr.readyState === 4 && xhr.status === 200)
       {
-<<<<<<< HEAD
-
-        const response = JSON.parse(xhr.responseText);
-        if(response.status === "success"){
-          alert(response.message);
-          window.location.href="../html/after.html";
-        }else{
-          console.log(response.message);
-        }
-
-=======
         const response = JSON.parse(xhr.responseText);
         //console.log(response);
         //console.log(response.message);
@@ -217,11 +200,9 @@ form.addEventListener("submit", (e) => {
             }else{
               console.log(response.message);
             }
->>>>>>> d589d1d69911f4066fbd895ebe7f0f6d55def85c
       }
     }
     xhr.send(JSON.stringify(formData));   
    
   }
 });
-
