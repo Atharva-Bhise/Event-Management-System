@@ -2,10 +2,13 @@
 header('Content-Type: application/json');
 ini_set('display_errors', 0); // Do not display errors in the browser
 ini_set('log_errors', 1);    // Log errors to the server's error log
+
 ini_set('error_log', 'C:/xampp/php/logs/php_error_log'); //PHP Errors are Stored in this path
 error_reporting(E_ALL);      // Report all errors
+
 $conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
 if($_SERVER['REQUEST_METHOD'] === "POST"){
+    ob_start(); // Start output buffering
          // Get the raw POST data
         $jsonData = file_get_contents('php://input');
         // Decode the JSON data
@@ -28,6 +31,9 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                 echo json_encode(["status" => "error", "message" => "Database connection failed."]);
                 exit;
             }
+
+            // Validate email format
+
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 echo json_encode(["status" => "error", "message" => "Invalid email format."]);
                 exit;
@@ -36,6 +42,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             pg_query($conn, "BEGIN");
 
                 try {
+
                     $hashedPassword = password_hash($password, PASSWORD_BCRYPT); //Encoded Password
                     $organizerExistsQuery = "SELECT COUNT(*) FROM organizer_login WHERE LOWER(organizer_login_id) = LOWER($1);";
                     $organizerExistsResult = pg_query_params($conn, $organizerExistsQuery, [$username]);
@@ -44,6 +51,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                          if ($count > 0) {
                             // Rollback the transaction on if the Username Already exists.
                             pg_query($conn, "ROLLBACK");
+
                             echo json_encode(["status" => "exists", "message" => "Username already exists."]);
                             exit;
                         }/*else{
@@ -94,8 +102,10 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                     error_log("Signup Error: " . $e->getMessage());
                     echo json_encode(["status" => "error", "message" => "Sigup Failed"]);
                 }
+
             }else {
                 echo json_encode(["status" => "error", "message" => "Invalid input data."]);
+
         }
         
         

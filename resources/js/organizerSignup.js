@@ -108,7 +108,9 @@ function validations() {
   const phoneRegex = /^(\+?\d{1,4})?[-.\s]?(\d{10})$/;
 
   if(!namePattern.test(name)){
+
     displayErrorMessage("Name Should Contain Atlest First-Last Name With Space In-Between And, Capitalized");
+
     return false;
   }
   if(!emailRegex.test(email)){
@@ -116,7 +118,9 @@ function validations() {
     return false;
   }
   if(!usernameRegex.test(username)){
+
     displayErrorMessage("Username Should Contain Alphanumeric Characters OR Only '@' Symbol.");
+
     return false;
   }
   if(!phoneRegex.test(phoneNo)){
@@ -131,7 +135,9 @@ function validations() {
 
   // Alphanumeric validation
   if (!alphanumericRegex.test(passwordValue)) {
+
     displayErrorMessage("Password Must Contain Only Letters And Numbers OR Only '@' Symbol.");
+
     return false;
   }
 
@@ -181,6 +187,7 @@ form.addEventListener("submit", (e) => {
     
     
     const xhr = new XMLHttpRequest();
+
       try{
           xhr.open("POST", "../php/OrganizerSignupFormProcess.php", true);
           xhr.setRequestHeader("Content-Type","application/json");
@@ -211,6 +218,7 @@ form.addEventListener("submit", (e) => {
         }catch(error){
           console.error("Error XMLHttpRequest:", error.message);
         } 
+
    
   }
 });
