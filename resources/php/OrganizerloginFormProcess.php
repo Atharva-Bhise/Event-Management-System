@@ -1,9 +1,15 @@
 <?php
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=cloud");
+header('Content-Type: application/json');
+ini_set('display_errors', 0); // Do not display errors in the browser
+ini_set('log_errors', 1);    // Log errors to the server's error log
+ini_set('error_log', 'C:/xampp/php/logs/php_error_log'); //PHP Errors are Stored in this path
+error_reporting(E_ALL); 
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
+
 
 if (!$conn) {
-    die("Error: Unable to connect to the database.");
-}
+    echo json_encode(["status" => "error", "message" => "Unable to connect to the database."]);
+    exit;}
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     // Get the raw POST data
@@ -18,39 +24,49 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $password = trim($formData['password'] ?? '');
 
         if (empty($username) || empty($password)) {
-            echo "Error: Username and password must not be empty.";
+            echo json_encode(["status" => "error", "message" => "Username and password are required."]);
             exit;
         }
 
         // Query to validate user credentials
-        $query = "SELECT organizer.organizer_name 
+        $query = "SELECT organizer.organizer_name, organizer_login.organizer_login_password 
                   FROM organizer
                   JOIN organizer_login ON organizer.organizer_id = organizer_login.organizer_id 
-                  WHERE organizer_login.organizer_login_id = $1 AND organizer_login.organizer_login_password = $2";
+                  WHERE organizer_login.organizer_login_id = $1";
 
         // Execute the query
-        $result = pg_query_params($conn, $query, [$username, $password]);
+        $result = pg_query_params($conn, $query, [$username]);
 
         if ($result) {
-            $row = pg_fetch_row($result);
+            $row = pg_fetch_assoc($result);
 
             if ($row) {
-                // User found
-                echo "Hello, Organizer: " . htmlspecialchars($row[0]) . "<br>";
+                // Debugging: Check the result structure
+                 // This will show the available columns in the result
+
+                // Verify password
+                if (password_verify($password, $row['organizer_login_password'])) {
+                    // User found and password matched
+                    echo json_encode(["user" => $row['organizer_name'], "status" => "success", "message" => "Login successful."]);                  
+                } else {
+                    // Invalid credentials
+                    echo json_encode(["status" => "failure", "message" => "Invalid username or password."]);
+                }
             } else {
                 // Invalid credentials
-                echo "Invalid username or password.";
+                echo json_encode(["status" => "failure", "message" => "Invalid username or password."]);
             }
-        } else {
+        }else {
             // Query execution failed
-            echo "Error executing query: " . pg_last_error($conn);
+            error_log("Query Error: " . pg_last_error($conn));
+            echo json_encode(["status" => "error", "message" => "Error executing query."]);
         }
     } else {
         // Invalid JSON data
-        echo "Error: Invalid data received.";
+        echo json_encode(["status" => "error", "message" => "Invalid data received."]);
     }
 } else {
-    echo "Error: Invalid request method.";
+    echo json_encode(["status" => "error", "message" => "Invalid request method."]);
 }
 
 // Close the database connection

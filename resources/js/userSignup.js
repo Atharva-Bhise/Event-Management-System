@@ -108,7 +108,9 @@ function validations() {
   const phoneRegex = /^(\+?\d{1,4})?[-.\s]?(\d{10})$/;
 
   if(!namePattern.test(name)){
-    displayErrorMessage("Name Should Contain Atlest First-Last Name And, Capitalized And There Should Be Space.");
+
+    displayErrorMessage("Name Should Contain Atlest First-Last Name With Space In-Between And, Capitalized");
+
     return false;
   }
   if(!emailRegex.test(email)){
@@ -116,7 +118,9 @@ function validations() {
     return false;
   }
   if(!usernameRegex.test(username)){
-    displayErrorMessage("Username Should Contain Alphanumeric Characters OR '@' Symbol.");
+
+    displayErrorMessage("Username Should Contain Alphanumeric Characters OR Only '@' Symbol.");
+
     return false;
   }
   if(!phoneRegex.test(phoneNo)){
@@ -131,7 +135,9 @@ function validations() {
 
   // Alphanumeric validation
   if (!alphanumericRegex.test(passwordValue)) {
-    displayErrorMessage("Password Must Contain Only Letters And Numbers Or '@' Symbol.");
+
+    displayErrorMessage("Password Must Contain Only Letters And Numbers Or Only '@' Symbol.");
+
     return false;
   }
 
@@ -160,6 +166,7 @@ function displayErrorMessage(message) {
   password.form.insertBefore(errorMessage, password.form.querySelector("button"));
 }
 
+
 // Form submission event listener
 form.addEventListener("submit", (e) => {
   e.preventDefault(); // Prevents the page from reloading
@@ -182,30 +189,40 @@ form.addEventListener("submit", (e) => {
     console.log(formData);
 
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "../php/UserSignupFormProcess.php", true);
-    xhr.setRequestHeader("Content-Type","application/json");
-    xhr.onreadystatechange = function() {
-      console.log("Ready State = "+ xhr.readyState);
-      console.log("Status = "+ xhr.status);
-      if(xhr.readyState === 4 && xhr.status === 200)
-      {
-        try{
-            const response = JSON.parse(xhr.responseText);
-            console.log(response.message);
-            /*if(response.status === "exists"){
-              alert("Username already exists.");
-            }*/
-            if(response.status === "success"){
-              alert(response.message);
-              window.location.href="../html/after.html";
-            }else{
-              console.log(response.message);
-            }
+
+    try{
+        xhr.open("POST", "../php/UserSignupFormProcess.php", true);
+        xhr.setRequestHeader("Content-Type","application/json");
+        xhr.onreadystatechange = function() {
+          console.log("Ready State = "+ xhr.readyState);
+          console.log("Status = "+ xhr.status);
+          if(xhr.readyState === 4 && xhr.status === 200)
+          {
+            try{
+                const response = JSON.parse(xhr.responseText);
+                if(response.status === "success"){
+                  alert(response.message);
+                  window.location.href="../html/after.html";
+                }else{
+                  if(response.status === "exists"){
+                    displayErrorMessage(response.message);
+                  }
+                  if(response.status === "error"){
+                    console.log(response.message);
+                  }
+                }
+              }catch(error){
+                console.error("Error parsing JSON:", error.message);
+              }
+          }
+        }
+        xhr.send(JSON.stringify(formData));
       }catch(error){
-        console.error("Error parsing JSON:", error.message);
-      }
-    }
-    xhr.send(JSON.stringify(formData));   
+        console.error("Error XMLHttpRequest:", error.message);
+      }   
    
   }
-}});
+
+});
+
+
