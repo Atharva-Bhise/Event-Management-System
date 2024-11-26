@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,61 +7,64 @@
   <title>User-Signup Page</title>
   <link rel="stylesheet" href="../css/signup.css">
 </head>
-<body>
+<body style="background-image: url('../images/FORM_BG.png');background-repeat: no-repeat;background-size: cover;background-position: center;">
 <div class="signup-container">
   <header>
     <h1>User-SignUp</h1>
   </header>
   <form  id="signUp">
     <div class="input-field">
-      <label for="name">Your Full-Name:</label>
-      <input type="text" id="name" name="name" required="required" placeholder="First Name Middle Name Last Name">
+      <input type="text" id="name" name="name" required="required" placeholder=" ">
+      <label for="name">First Name Middle Name Last Name</label>
     </div>
     <div class="input-field">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required="required" placeholder="email-Id">
+      <input type="email" id="email" name="email" required="required" placeholder=" ">
+      <label for="email">Email</label>
     </div>
     <div class="input-field">
       <!-- Remember Username is the User-Id. eg. abc123-->
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required="required" placeholder="username">
+      <input type="text" id="username" name="username" required="required" placeholder=" ">
+      <label for="username">Create Username</label>
     </div>
     <div class="input-field">
-      <label for="password">Create Password:</label>
-      <input type="password" id="password" name="password" required="required" placeholder="password">
+      <input type="password" id="password" name="password" required="required" placeholder=" ">
+      <label for="password">Create Password</label>
+      <span class="toggle-password"><img src="../images/hide1.png" alt="Show Password" id="toggleIcon1"></span>
     </div>
     <div class="input-field">
-      <label for="confirm-password">Confirm Password:</label>
-      <input type="password" id="confirm-password" name="confirm-password" required="required" placeholder="re-enter password">
+      <input type="password" id="confirm-password" name="confirm-password" required="required" placeholder=" ">
+      <label for="confirm-password">Confirm Password</label>
+      <span class="toggle-password"><img src="../images/hide2.png" alt="Show Password" id="toggleIcon2"></span>
     </div>
     <div class="input-field">
-      <label for="phoneNumber">Your Phone Number:</label>
-      <input type="tel" id="phoneNumber" name="phoneNumber" required="required" placeholder="Phone Number">
+      <input type="tel" id="phoneNumber" name="phoneNumber" required="required" placeholder=" ">
+      <label for="phoneNumber">Your Phone Number</label>
     </div>
     <div class="input-field">
-      <label for="address">Your Address:</label>
-      <input type="text" id="address" name="address" required="required" placeholder="Address">
+      <input type="text" id="address" name="address" required="required" placeholder=" ">
+      <label for="address">Your Address</label>
     </div>
     <div class="input-field">
-      <label for="city">Your City:</label>
-      <input type="text" id="city" name="address" required="required" placeholder="City">
+      <input type="text" id="city" name="address" required="required" placeholder=" ">
+      <label for="city">Your City, Country</label>
     </div>
     <div class="input-field">
-      <label for="dob">Your Birth-Of-Date:</label>
-      <input type="date" id="dob" name="dob" required="required" placeholder="Birth-Of-Date">
+      <input type="date" id="dob" name="dob" required="required" placeholder=" ">
+      <label for="dob">Your Birth-Of-Date</label>
     </div>
     <div class="input-field">
-      <label for="gender">Your gender:</label>
       <select id="gender" required="required">
-        <option value="">--Select--</option>
+        <option value="" id="default" disabled selected>--Select Your Gender--</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
         <option value="other">Other</option>
       </select>
     </div>
+    <!--
     <div class="checkbox-field">
       <input type="checkbox" onclick="showPassword()">Show Password
     </div>
+    -->
     <button type="submit" href="#">Sign Up</button>
   </form>
 </div>

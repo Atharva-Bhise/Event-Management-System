@@ -70,15 +70,22 @@ form.addEventListener("submit", (event) => {
   
       const xhr = new XMLHttpRequest();
       xhr.open("POST","../php/OrganizerloginFormProcess.php", true);
-      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.setRequestHeader("Content-Type", "application/json");
       xhr.onreadystatechange = function(){
       console.log("Status: "+ xhr.status);
       console.log("Readystate: "+ xhr.readyState);
       if (xhr.readyState === 4 && xhr.status === 200) {
-          document.write(xhr.responseText);
+        const response = JSON.parse(xhr.responseText);
+          if(response.status === "success"){
+            alert(response.message + " Hello, Organizer: " + response.user); 
+            window.location.href="../html/after.html";
           }
+          if(response.status === "failure"){
+            alert(response.message);
+          }
+        }
       }
-      xhr.send(JSON.stringify(formData)); 
+      xhr.send(JSON.stringify(formData));
 
   
   

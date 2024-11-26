@@ -5,12 +5,14 @@ CREATE TABLE Organizer (
     organizer_id SERIAL PRIMARY KEY UNIQUE,
     organizer_name VARCHAR(100) NOT NULL,
     organizer_phone VARCHAR(15) NOT NULL,
-    organizer_password VARCHAR(100) NOT NULL,
+    organizer_login_password VARCHAR(100) NOT NULL,
     organizer_address VARCHAR(255),
     organizer_city VARCHAR(100),
     organizer_dob DATE,
     organizer_gender VARCHAR(10) 
 );
+--ALTER TABLE organizer RENAME COLUMN organizer_password TO organizer_login_password;
+
 --Creating separate table for multivalue attribute i.e. emails
 CREATE TABLE Organizer_Emails (
     organizer_id INT,

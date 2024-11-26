@@ -1,8 +1,14 @@
 <?php
+header('Content-Type: application/json');
+ini_set('display_errors', 0); // Do not display errors in the browser
+ini_set('log_errors', 1);    // Log errors to the server's error log
+ini_set('error_log', 'C:/xampp/php/logs/php_error_log'); //PHP Errors are Stored in this path
+error_reporting(E_ALL);      // Report all errors
 $conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
 
 if (!$conn) {
-    die("Error: Unable to connect to the database.");
+    echo json_encode(["status" => "error", "message" => "Unable to connect to the database."]);
+    exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
@@ -18,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $password = trim($formData['password'] ?? '');
 
         if (empty($username) || empty($password)) {
-            echo "Error: Username and password must not be empty.";
+            echo json_encode(["status" => "error", "message" => "Username and password are required."]);
             exit;
         }
 
@@ -39,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                  // This will show the available columns in the result
 
                 // Verify password
-                if ($password === $row['user_login_password']) {
+                if (password_verify($password, $row['user_login_password'])) {
                     // User found and password matched
                     echo json_encode(["user" => $row['user_name'], "status" => "success", "message" => "Login successful."]);                  
                 } else {
@@ -52,14 +58,15 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             }
         } else {
             // Query execution failed
-            echo "Error executing query: " . pg_last_error($conn);
+            error_log("Query Error: " . pg_last_error($conn));
+            echo json_encode(["status" => "error", "message" => "Error executing query."]);
         }
     } else {
         // Invalid JSON data
-        echo "Error: Invalid data received.";
+        echo json_encode(["status" => "error", "message" => "Invalid data received."]);
     }
 } else {
-    echo "Error: Invalid request method.";
+    echo json_encode(["status" => "error", "message" => "Invalid request method."]);
 }
 
 // Close the database connection
