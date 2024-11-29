@@ -90,7 +90,7 @@ form.addEventListener("submit", (event) => {
 
           if(response.status === "success"){
             alert(response.message + " Hello, " + response.user); 
-            window.location.href="../html/after.html";
+            window.location.href="../html/afterUserLogin.html";
           }
           if(response.status === "failure"){
             alert(response.message);
