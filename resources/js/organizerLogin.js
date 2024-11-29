@@ -80,7 +80,7 @@ form.addEventListener("submit", (event) => {
         const response = JSON.parse(xhr.responseText);
           if(response.status === "success"){
             alert(response.message + " Hello, Organizer: " + response.user); 
-            window.location.href="../html/after.html";
+            window.location.href="../html/afterOrganizerLogin.html";
           }
           if(response.status === "failure"){
             alert(response.message);

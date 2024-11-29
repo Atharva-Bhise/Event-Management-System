@@ -202,7 +202,7 @@ form.addEventListener("submit", (e) => {
                 const response = JSON.parse(xhr.responseText);
                 if(response.status === "success"){
                   alert(response.message);
-                  window.location.href="../html/after.html";
+                  window.location.href="../html/afterUserLogin.html";
                 }else{
                   if(response.status === "exists"){
                     displayErrorMessage(response.message);

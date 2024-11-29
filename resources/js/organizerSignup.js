@@ -200,7 +200,7 @@ form.addEventListener("submit", (e) => {
                   const response = JSON.parse(xhr.responseText);
                     if(response.status === "success"){
                       alert(response.message);
-                      window.location.href="../html/after.html";
+                      window.location.href="../html/afterOrganizerLogin.html";
                     }else{
                           if(response.status === "exists" || response.status === "invalid"){
                             displayErrorMessage(response.message);
