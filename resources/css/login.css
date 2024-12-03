@@ -131,12 +131,16 @@ a:hover {
   color: #916851;
   
 }
+#success-message{
+  color: #916851;
+}
 .forgot-password,
 .sign-in {
   text-align: center;
   margin-top: 10px;
   font-size: 14px;
 }
+
 
 /* Responsive Design */
 @media (max-width: 400px) {

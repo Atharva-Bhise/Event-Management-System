@@ -1,4 +1,26 @@
-﻿
+﻿--Admins Table
+CREATE TABLE admins (
+    admin_id SERIAL PRIMARY KEY, 
+    admin_name VARCHAR(50) NOT NULL, 
+    admin_phone_no VARCHAR(20) NOT NULL, 
+    admin_address TEXT NOT NULL
+);
+
+CREATE TABLE admin_login (
+    admin_id INT PRIMARY KEY REFERENCES admins(admin_id) ON DELETE CASCADE,
+    admin_username VARCHAR(50) UNIQUE NOT NULL, 
+    admin_login_password VARCHAR(255) NOT NULL 
+);
+
+CREATE TABLE admin_logged (
+    log_id SERIAL PRIMARY KEY, 
+    admin_id INT REFERENCES admins(admin_id), 
+    admin_loggedin_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+    admin_loggedout_time TIMESTAMP
+);
+
+
+
 --NOTE: Organizer means Admin in ER-Diagram
 --NOTE: adding name, phone, address, city, dob, gender column in Organizer table 
 CREATE TABLE Organizer (
