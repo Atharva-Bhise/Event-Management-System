@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login Page</title>
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+<body style="background-image: url('../images/FORM_BG.png');background-repeat: no-repeat;background-size: cover;background-position: center;">
+<div class="login-container">
+  <header>
+    <h1>Admin-Login</h1>
+  </header>
+  <form>
+    <!-- Username Input -->
+    <div class="input-field">
+      <input type="text" id="username" name="username" required="required" placeholder=" ">
+      <label for="username">Username</label>
+    </div>
+
+    <!-- Password Input with Toggle -->
+    <div class="input-field">
+      <input type="password" id="password" name="password" required="required" placeholder=" ">
+      <label for="password">Password</label>
+      <span class="toggle-password"><img src="../images/show.png" alt="Show Password" id="toggleIcon"></span>
+    </div>
+
+    <!-- Remember Me Checkbox
+    <div class="checkbox-field">
+      <input type="checkbox" id="remember-me">
+      <label for="remember-me">Remember Me</label>
+    </div>
+    -->
+    <!-- Success Message-->
+     <p id="success-message"></p>
+    <!-- Submit Button -->
+    <button type="submit">Login</button>
+
+    <!-- Forget Password Link -->
+    <div class="forgot-password">
+      <a href="#">Forgot Password? Contact Other Admins</a>
+    </div>
+
+    <!-- Sign-Up Prompt
+    <div class="sign-in">
+    <p id="msg">Don't have an account? <a href="userSignup.html">Sign Up!</a>
+    -->
+    </div>
+  </form>
+     
+</div>
+
+<script src="../js/adminLogin.js"></script>
+</body>
+</html>
