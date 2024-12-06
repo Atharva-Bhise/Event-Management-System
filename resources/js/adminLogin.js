@@ -90,9 +90,9 @@ form.addEventListener("submit", (event) => {
         const response = JSON.parse(xhr.responseText);
 
           if(response.status === "success"){
-            document.getElementById("success-message").innerHTML = response.message + "<br>Welcome, Admin: " + response.user;
+            document.getElementById("success-message").innerHTML = response.message;
             setTimeout(() => {
-                window.location.href="../html/afterUserLogin.html";
+                window.location.href="../html/adminDashboard.html";
             }, 3000);
           }
           if(response.status === "failure"){
