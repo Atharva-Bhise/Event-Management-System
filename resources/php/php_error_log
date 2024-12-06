@@ -1,0 +1,1 @@
+[06-Dec-2024 12:17:40 UTC] PHP Warning:  pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;postgres&quot; in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 13
