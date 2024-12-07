@@ -1,8 +1,9 @@
 <?php
+session_start();
 header('Content-Type: application/json');
 ini_set('display_errors', 0); // Do not display errors in the browser
 ini_set('log_errors', 1);    // Log errors to the server's error log
-ini_set('error_log', 'C:/xampp/php/logs/php_error_log'); //PHP Errors are Stored in this path
+ini_set('error_log', 'php_error_log'); //PHP Errors are Stored in this path
 error_reporting(E_ALL);      // Report all errors
 $conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=cloud");
 
@@ -53,7 +54,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     $insertionQueryResult = pg_query_params($conn, $insertionQuery, [$row['admin_id']]);
                     if($insertionQueryResult){
                         // User found and password matched
-                        echo json_encode(["user" => $row['admin_name'], "status" => "success", "message" => "Login successful."]);                  
+                        $_SESSION['admin_name'] = $row['admin_name'];
+                        $_SESSION['admin_id'] = $row['admin_id'];
+                        $_SESSION['login_status'] = "loggedIn"; 
+                        echo json_encode(["status" => "success", "message" => "Login successful."]);                  
                     }else{
                         echo json_encode(["status" => "error", "message" => "Failed to Login"]);
                     }    
