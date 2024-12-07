@@ -42,3 +42,4 @@
 [07-Dec-2024 12:56:00 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 31
 [07-Dec-2024 12:56:01 UTC] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 31
 [07-Dec-2024 12:56:01 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 31
+[07-Dec-2024 13:25:43 UTC] PHP Warning:  pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;postgres&quot; in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 14
