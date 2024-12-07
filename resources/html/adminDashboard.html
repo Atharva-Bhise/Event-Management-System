@@ -9,202 +9,226 @@
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
   <style>
-        /* Global Styles */
-        body {
-        font-family: Arial, sans-serif;
-        background-color: #f8f9fa;
-        color: #212529;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        }
+    /* Global Styles */
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-        .sidebar {
-        width: 250px;
-        height: 100vh;
-        position: fixed;
-        background-color: #343a40;
-        color: white;
-        padding-top: 20px;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        }
+    .sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    background-color: #343a40;
+    color: white;
+    padding-top: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-        .sidebar a {
-        display: block;
-        padding: 10px 20px;
-        color: white;
-        text-decoration: none;
-        transition: background 0.3s ease, color 0.3s ease;
-        }
+    .sidebar a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+    }
 
-        .sidebar a:hover {
-        background-color: #495057;
-        }
+    .sidebar a:hover {
+    background-color: #495057;
+    }
 
-        .sidebar .active {
-        background-color: #495057;
-        }
+    .sidebar .active {
+    background-color: #495057;
+    }
+    #confirmation-options {
+    display: none;
+    margin-left: 10px;
+    font-size: 1.2rem;
+    }
 
-        .content {
-        margin-left: 250px;
-        padding: 20px;
-        transition: margin-left 0.3s ease;
-        }
+    #confirmation-options span {
+    cursor: pointer;
+    padding: 0 5px;
+    }
+    .loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  z-index: 9999;
+}
 
-        .card {
-        border: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s ease, color 0.3s ease;
-        }
+    .content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    }
 
-        .navbar {
-        margin-left: 250px;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        }
+    .card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-        /* Dark Mode Styling */
-        body.dark-mode {
-        background-color: #212529;
-        color: #f8f9fa;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        }
+    .navbar {
+    margin-left: 250px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-        body.dark-mode .navbar {
-        background-color: #212529 !important;
-        color: #f8f9fa;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        }
+    /* Dark Mode Styling */
+    body.dark-mode {
+    background-color: #212529;
+    color: #f8f9fa;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-        body.dark-mode .navbar a.nav-link {
-        color: #f8f9fa;
-        }
+    body.dark-mode .navbar {
+    background-color: #212529 !important;
+    color: #f8f9fa;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-        body.dark-mode .navbar a.nav-link:hover {
-        color: #adb5bd;
-        }
+    body.dark-mode .navbar a.nav-link {
+    color: #f8f9fa;
+    }
 
-        body.dark-mode .btn-outline-secondary {
-        border-color: #f8f9fa;
-        color: #f8f9fa;
-        }
+    body.dark-mode .navbar a.nav-link:hover {
+    color: #adb5bd;
+    }
 
-        body.dark-mode .btn-outline-secondary:hover {
-        background-color: #495057;
-        color: #f8f9fa;
-        }
+    body.dark-mode .btn-outline-secondary {
+    border-color: #f8f9fa;
+    color: #f8f9fa;
+    }
 
-        body.dark-mode .card {
-        background-color: #495057;
-        color: #f8f9fa;
-        }
+    body.dark-mode .btn-outline-secondary:hover {
+    background-color: #495057;
+    color: #f8f9fa;
+    }
 
-        body.dark-mode .table {
-        background-color: #495057;
-        color: #f8f9fa;
-        }
+    body.dark-mode .card {
+    background-color: #495057;
+    color: #f8f9fa;
+    }
 
-        body.dark-mode .table th {
-        color: #f8f9fa;
-        }
+    body.dark-mode .table {
+    background-color: #495057;
+    color: #f8f9fa;
+    }
 
-        body.dark-mode .table td {
-        color: #f8f9fa;
-        }
+    body.dark-mode .table th {
+    color: #f8f9fa;
+    }
 
-        body.dark-mode .badge {
-        color: #f8f9fa;
-        }
+    body.dark-mode .table td {
+    color: #f8f9fa;
+    }
 
-        /* Toggle Switch Styles */
-        .toggle-switch {
-        display: flex;
-        align-items: center;
-        height: 40px;
-        }
+    body.dark-mode .badge {
+    color: #f8f9fa;
+    }
 
-        input[type="checkbox"] {
-        display: none;
-        }
+    /* Toggle Switch Styles */
+    .toggle-switch {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    }
 
-        .switch {
-        position: relative;
-        width: 60px;
-        height: 30px;
-        background: #ccc;
-        border-radius: 15px;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 5px;
-        transition: background 0.3s ease;
-        }
+    input[type="checkbox"] {
+    display: none;
+    }
 
-        .switch::before {
-        content: "";
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        width: 26px;
-        height: 26px;
-        background: #fff;
-        border-radius: 50%;
-        transition: transform 0.3s ease;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        #theme-toggle:checked + .switch {
-        background: #333;
-        }
-
-        #theme-toggle:checked + .switch::before {
-        transform: translateX(30px);
-        }
-
-        .icon {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        }
-
-        .dark-icon,
-        .light-icon {
-        font-size: 18px;
-        color: #fff;
-        }
-
-        .dark-icon {
-        order: 1;  /* Dark icon goes to the left when unchecked */
-        }
-
-        .light-icon {
-        order: 0;  /* Light icon goes to the right when unchecked */
-        }
-
-        #theme-toggle:checked + .switch .dark-icon {
-        order: 2; /* Dark icon goes to the right when checked */
-        }
-
-        #theme-toggle:checked + .switch .light-icon {
-        order: 1; /* Light icon goes to the left when checked */
-        }
-  @media (max-width: 600px) {
     .switch {
-      width: 100px;
-      height: 35px;
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background: #ccc;
+    border-radius: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    transition: background 0.3s ease;
     }
 
-    .light-icon,
+    .switch::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    #theme-toggle:checked + .switch {
+    background: #333;
+    }
+
+    #theme-toggle:checked + .switch::before {
+    transform: translateX(30px);
+    }
+
+    .icon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    }
+
+    .dark-icon,
+    .light-icon {
+    font-size: 18px;
+    color: #fff;
+    }
+
     .dark-icon {
-      font-size: 16px;
+    order: 1;  /* Dark icon goes to the left when unchecked */
     }
 
-    .light-mode-text,
-    .dark-mode-text {
-      font-size: 12px;
+    .light-icon {
+    order: 0;  /* Light icon goes to the right when unchecked */
     }
-  }
 
-  </style>
+    #theme-toggle:checked + .switch .dark-icon {
+    order: 2; /* Dark icon goes to the right when checked */
+    }
+
+    #theme-toggle:checked + .switch .light-icon {
+    order: 1; /* Light icon goes to the left when checked */
+    }
+@media (max-width: 600px) {
+.switch {
+  width: 100px;
+  height: 35px;
+}
+
+.light-icon,
+.dark-icon {
+  font-size: 16px;
+}
+
+.light-mode-text,
+.dark-mode-text {
+  font-size: 12px;
+}
+}
+
+</style>
 </head>
 <body>
 
@@ -218,8 +242,15 @@
     <a href="#"><i class="fa-solid fa-calendar-alt me-2"></i> Events</a>
     <a href="#"><i class="fa-solid fa-chart-line me-2"></i> Analytics</a>
     <a href="#"><i class="fa-solid fa-sliders-h me-2"></i> Settings</a>
-    <a href="#"><i class="fa-solid fa-sign-out-alt me-2"></i> Logout</a>
+    <a href="#" id="logout"><i class="fa-solid fa-sign-out-alt me-2"></i> Logout 
+    <span id="confirmation-options" class="confirmation-options">
+        <span id="confirmed">✅</span> <span id="no">❌</span>
+    </span></a>
   </div>
+  <div id="loading-screen" class="loading-screen" style="display: none;">
+    <p>Logging off...</p>
+  </div>
+  
 
   <!-- Main Content -->
   <div class="content">
