@@ -1,6 +1,7 @@
 <?php
 session_start();
 $adminName = $_SESSION['admin_name'];
+$lodId = $_SESSION['log_id'] ;
 $adminId = $_SESSION['admin_id'];
 $loginStatus = $_SESSION['login_status'];
 header('Content-Type: application/json');
@@ -10,7 +11,7 @@ ini_set('error_log', 'php_error_log'); //PHP Errors are Stored in this path
 error_reporting(E_ALL);      // Report all errors
 
 // Database connection
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=cloud");
 
 if (!$conn) {
     echo json_encode(["status" => "error", "message" => "Unable to connect to the database."]);
@@ -20,6 +21,26 @@ if (!$conn) {
 // Handling POST request
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     
+        // Get the raw POST data
+        $jsonData = file_get_contents('php://input');
+    
+        // Decode the JSON data
+        $logged = json_decode($jsonData, true);
+        if ($logged !== null) {
+            // Sanitize input
+            $status = trim($logged['login_status']);    
+            if ($status === "loggedOff") {
+                $query = "UPDATE admin_logged
+                        SET admin_loggedout_time = CURRENT_TIMESTAMP
+                        WHERE log_id = $1;";
+                $updationQueryResult = pg_query_params($conn, $query, [$lodId]);
+                if($updationQueryResult){
+                    $_SESSION['login_status'] = "loggedOff";
+                    echo json_encode(["loggedStatus" => "logOff", "message" => "Logged out successfully."]);
+                    exit;
+                }
+            }
+        }
     // Query to get user count
     $userCountQuery = "SELECT count(user_id) FROM users;";
     $result = pg_query($conn, $userCountQuery);
