@@ -5,7 +5,7 @@ ini_set('display_errors', 0); // Do not display errors in the browser
 ini_set('log_errors', 1);    // Log errors to the server's error log
 ini_set('error_log', 'php_error_log'); //PHP Errors are Stored in this path
 error_reporting(E_ALL);      // Report all errors
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=ab18");
 
 
 if (!$conn) {
@@ -50,12 +50,15 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 if (password_verify($password, $row['admin_login_password'])) {
                     
                     $insertionQuery = "INSERT INTO admin_logged(admin_id)
-                                VALUES ($1);";
+                                VALUES ($1) RETURNING log_id;";
                     $insertionQueryResult = pg_query_params($conn, $insertionQuery, [$row['admin_id']]);
+
                     if($insertionQueryResult){
+                        $logId = pg_fetch_result($insertionQueryResult, 0, "log_id");
                         // User found and password matched
                         $_SESSION['admin_name'] = $row['admin_name'];
                         $_SESSION['admin_id'] = $row['admin_id'];
+                        $_SESSION['log_id'] = $logId;
                         $_SESSION['login_status'] = "loggedIn"; 
                         echo json_encode(["status" => "success", "message" => "Login successful."]);                  
                     }else{
