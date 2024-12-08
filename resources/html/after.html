@@ -7,10 +7,28 @@
     <title>Event Planning</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  />
     <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap");
+:root {
+  --primary: #eeeeee;
+  --secondary: #615751;
+  --green:#926B51;
+  --secondary-light: rgb(34, 124, 112, 0.2);
+  --secondary-light-2: rgb(127, 183, 126, 0.1);
+  --white: #fff;
+  --black: #393e46;
+
+  --shadow: 0px 2px 8px 0px var(--secondary-light);
+}
+
+
+
         /* Navbar styling to fix it at the top */
-        img {
+img {
   max-width: 100%;
   height: auto;
   width: 100%;
@@ -125,6 +143,132 @@
     transform: scale(0.98); /* Slight shrink on click */
     border-color: #81573C;
 }
+.navbar-list {
+  width: 100%;
+  text-align: right;
+  padding-right: 2rem;
+}
+
+.navbar-list li {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+
+.navbar-list li a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.profile-dropdown {
+  position: relative;
+  width: fit-content;
+}
+
+.profile-dropdown-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  width: 150px;
+  border-radius: 50px;
+  color: var(--black);
+  /* background-color: white;
+  box-shadow: var(--shadow); */
+
+  cursor: pointer;
+  border: 1px solid var(--secondary);
+  transition: box-shadow 0.2s ease-in, background-color 0.2s ease-in,
+    border 0.3s;
+}
+
+.profile-dropdown-btn:hover {
+  background-color: var(--secondary-light-2);
+  box-shadow: var(--shadow);
+}
+
+.profile-img {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: url(./assets/profile-pic.jpg);
+  background-size: cover;
+}
+
+.profile-img i {
+  position: absolute;
+  right: 0;
+  bottom: 0.3rem;
+  font-size: 0.5rem;
+  color: var(--green);
+}
+
+.profile-dropdown-btn span {
+  margin: 0 0.5rem;
+  margin-right: 0;
+}
+
+.profile-dropdown-list {
+  position: absolute;
+  top: 75px;
+  width: 220px;
+  right: 0;
+  background-color: var(--white);
+  border-radius: 10px;
+  max-height: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: max-height 0.7s ease-out; /* Add a smooth transition for max-height */
+  list-style-type: none;
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+}
+
+.profile-dropdown-list hr {
+  border: 0.5px solid var(--green);
+}
+
+.profile-dropdown-list.active {
+    max-height: 500px;
+}
+
+.profile-dropdown-list-item {
+    padding: 0.5rem 1rem; /* Adjust padding as needed */
+    transition: background-color 0.2s ease-in, padding-left 0.2s;
+}
+
+.profile-dropdown-list-item a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.profile-dropdown-list-item a i {
+  margin-right: 0.8rem;
+  font-size: 1.1rem;
+  width: 2.3rem;
+  height: 2.3rem;
+  background-color: var(--secondary);
+  color: var(--white);
+  line-height: 2.3rem;
+  text-align: center;
+  margin-right: 1rem;
+  border-radius: 50%;
+  transition: margin-right 0.3s;
+}
+
+.profile-dropdown-list-item:hover {
+  padding-left: 1.5rem;
+  background-color: var(--secondary-light);
+}
     </style>
 </head>
 <body background="../images/bg.png">
@@ -144,14 +288,44 @@
                 <a class="nav-link mx-lg-2" href="#">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="#">Profile</a>
+                <a class="nav-link mx-lg-2" href="#" onclick="toggle()">Profile</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link mx-lg-2" href="#">Contact</a>
             </li>
         </ul>
-    </nav>
 
+        <ul class="profile-dropdown-list">
+            <li class="profile-dropdown-list-item">
+                <a href="#">
+                  <i class="fa-regular fa-user"></i>
+                  User Name
+                </a>
+              </li>
+            <li class="profile-dropdown-list-item">
+              <a href="#">
+                <i class="fa-regular fa-edit"></i>
+                Edit Profile
+              </a>
+            </li>
+        <li class="profile-dropdown-list-item">
+              <a href="#">
+                <i class="fa-regular fa-circle-question"></i>
+                Help & Support
+              </a>
+            </li>
+           
+  
+            <li class="profile-dropdown-list-item">
+              <a href="#">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Log out
+              </a>
+            </li>
+          </ul>
+    </nav>
+   
+ 
     <!-- Hero Section with Slider -->
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -202,7 +376,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
+<script src="../js/script.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
