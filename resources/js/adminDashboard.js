@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(response.message);
             setTimeout(() => {
               loadingScreen.style.display = "none";
-            window.location.href = "../html/adminLogin.html";
+              window.location.href = "../html/adminLogin.html";
             }, 2000); // 2-second delay
           } else {
             console.log("Error in loggedStatus response");

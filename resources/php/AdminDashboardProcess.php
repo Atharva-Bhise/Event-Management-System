@@ -4,6 +4,9 @@ $adminName = $_SESSION['admin_name'];
 $lodId = $_SESSION['log_id'] ;
 $adminId = $_SESSION['admin_id'];
 $loginStatus = $_SESSION['login_status'];
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+header("Pragma: no-cache"); // HTTP 1.0.
+header("Expires: 0"); // Proxies.
 header('Content-Type: application/json');
 ini_set('display_errors', 0); // Do not display errors in the browser
 ini_set('log_errors', 1);    // Log errors to the server's error log
@@ -11,7 +14,7 @@ ini_set('error_log', 'php_error_log'); //PHP Errors are Stored in this path
 error_reporting(E_ALL);      // Report all errors
 
 // Database connection
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=ab18");
 
 if (!$conn) {
     echo json_encode(["status" => "error", "message" => "Unable to connect to the database."]);
@@ -37,6 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 if($updationQueryResult){
                     $_SESSION['login_status'] = "loggedOff";
                     echo json_encode(["loggedStatus" => "logOff", "message" => "Logged out successfully."]);
+                    session_unset();
+                    session_destroy();
                     exit;
                 }
             }
