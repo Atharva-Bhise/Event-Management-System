@@ -74,8 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
           if (response.loggedStatus === "logOff") {
             console.log(response.message);
             setTimeout(() => {
-              loadingScreen.style.display = "none";
-            window.location.href = "../html/adminLogin.html";
+              loadingScreen.style.display = "flex";
+              window.location.replace("../html/adminLogin.html");
             }, 2000); // 2-second delay
           } else {
             console.log("Error in loggedStatus response");

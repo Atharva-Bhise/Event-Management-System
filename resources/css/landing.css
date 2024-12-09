@@ -114,9 +114,10 @@ nav {
   isolation: isolate;
   top: 0;
   width: 100%;
-  max-width: var(--max-width);
+  max-width: 100%;
   margin: auto;
   z-index: 9;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
 }
 
 .nav__bar {
@@ -635,8 +636,9 @@ html::-webkit-scrollbar-thumb {
     gap: 2rem;
   }
 }
-.contact h1{
+.contact .heading{
     text-align: center;
+    color:#615751;
 }
 .contact form {
     max-width: 40rem;
@@ -653,7 +655,7 @@ html::-webkit-scrollbar-thumb {
   .contact form .inputBox input,
   .contact form textarea {
     width: 100%;
-    background: #705640;
+    background: #333333;
     border-radius: 0.5rem;
     padding: 1rem;
     margin: 0.7rem 0;
@@ -679,6 +681,9 @@ html::-webkit-scrollbar-thumb {
   
   .contact form textarea {
     resize: none;
+  }
+  #submitBtn{
+    background-color: #666666;
   }
 @media (max-width: 991px) {
     html {

@@ -1,7 +1,10 @@
 
 let menu = document.querySelector("#menu-bars");
 let navbar = document.querySelector(".navbar");
-
+function login()
+{
+  window.location.href="register.html";
+};
 menu.onclick = () => {
   menu.classList.toggle("fa-times");
   navbar.classList.toggle("active");
