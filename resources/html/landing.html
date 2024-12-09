@@ -1,225 +1,269 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!-- Testing GitHub-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../images/logo.jpg">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MapTheEvents</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+  />
+
+  <!--font awesome-->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     
-    <link rel="icon" href="../images/logo.jpg">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MapTheEvents</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-                body {
-              margin: 0;
-              padding: 0;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              height: 100vh;
-              overflow: hidden;
-          background-attachment: fixed;
-              /* Optional background for the body */
-          }
+  />
 
-          header{
-              width:100%;
-              height:70vh;
-              overflow: hidden;
-              position: relative;
-          }
+    <link rel="stylesheet" href="../css/landing.css" />
+    <title>MAp The Events</title>
 
-          .logo
-          {
-              position:  absolute;
-              top:-1vh;
-              z-index: -1;
-              height:40vh;
-              width:16%;
-              margin-left: 3%;
-          }
-          .navbar-nav
-          {
-              display: flex;
-              list-style: none;
-              justify-content: space-between;
-              color:rgb(59, 52, 11);
-              font-size: 1em;
-              margin-left: 60%;
-              align-items: left;
-              position: relative;
-              float: left;
-              font-family: Verdana, Geneva, Tahoma, sans-serif;
-              justify-content: space-between;
-
-          }
-
-          .nav-item{
-              justify-content: space-between;
-              color:rgb(96, 83, 8);
-              top:9vh;
-              z-index: 6;
-              height:70vh;
-              width:16%;
-              margin-top: 5%;
-              margin-left: 3%;
-
-          }
-
-          .container {
-              width: 100%;
-              height: 100%;
-              display: flex;
-              flex-direction: column;
-          }
-
-          .h
-          {
-              margin-right: 70%;
-              top:16vh;
-              position: relative;
-          height:11cm;
-            width:9000px;
-            
-
-          }
-          .p1
-          {
-              position: relative;
-              top: -1px;
-              margin-right: 40%;
-              font-size: 28pt;
-              
-          }
-          .p2
-          {
-              margin-left: 20%;
-              font-size: 28pt;
-              top:-1px;
-              
-          }
-
-          .para
-          {
-              position: absolute;
-            
-              width:500px;
-              
-
-          }
-
-          .bottom-section {
-              flex: 1;
-              background-color: #e5d5cb; /* Brown */
-              top:-20vh;
-              z-index: -1;
-              object-fit: cover;
-              width:100%;
-          }
-
-          .balloon
-          {
-              
-              position:  absolute;
-              top:-1vh;
-              z-index: -1;
-              height:78vh;
-              width:22%;
-              margin-top: 9%;
-              margin-left:4%;
-          }
-          .celeb
-          {
-              position:  absolute;
-              top:-1vh;
-              z-index: -1;
-              height:35vh;
-              width:24%;
-              margin-top: 29%;
-              margin-left: 58%;
-
-          }
-          .decor
-          {
-              position:  absolute;
-              top:-1vh;
-              z-index: -1;
-              height:39vh;
-              width:24%;
-              margin-top: 9%;
-              margin-left: 58%;
-          }
-    </style>
   </head>
-<body background="../images/bg.png">
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-       <img class="logo" src="../images/logo.jpg" alt="MapTheEvent"> 
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link mx-lg-2" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link mx-lg-2" href="register.html">Login</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link mx-lg-2" href="#">Contact</a>
-                </li>
-              </ul>
-            </div>
-
+  <body>
+    <header class="header">
+      <nav>
+        <div class="nav__bar">
+          <div class="logo">
+            <p>Map The Events</p>
           </div>
-          <a href="#" class="ForPropertyOwner-button"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
         </div>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><a href="#explore">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="btn nav__btn" onclick="login()">Login</button>
       </nav>
-      <div class="container">
-      
-        <div class="bottom-section"></div>
-    </div>
-      <div class="h">
-        <div>
-          <h4 class="p1"><b>PLAN YOUR</b> </h4>
-          <h4 class="p2"> <b>DREAM EVENT</b></h4>
+      <div class="section__container header__container" id="home">
+        <p>Simple - Unique - Friendly</p>
+        <h1>Plan Your Dream Events<br />with <span>Us</span>.</h1>
       </div>
-      <div class="p">
-        <div>
-          <p class="para">This website will simplify the task of 
-            organizers and more efficiently
-            communicate with participants. In essence,
-             this event management system aims to 
-             make the entire event lifecycle more
-              manageable efficient and enjoyable for 
-              organizers as well as attendees. Its unique
-               feature of offering rentals borrowing 
-               alongside event booking demonstrates its adaptability and responsiveness to customer 
-               needs, setting it apart from conventional event management solutions</p>
+    </header>
+
+   
+
+    <section class="section__container about__container" id="about">
+      <div class="about__image">
+        <img src="../images/about.jpg" alt="about" />
+      </div>
+      <div class="about__content">
+        <p class="section__subheader">ABOUT US</p>
+        <h2 class="section__header">Your occasion deserves our careful planning!</h2>
+        <p class="section__description">
+            In essence,
+            this event management system aims to 
+            make the entire event lifecycle more
+             manageable efficient and enjoyable for 
+             organizers as well as attendees.
+             it will simplify the task of 
+             organizers and more efficiently
+             communicate with participants.
+             Its unique
+             feature of offering rentals borrowing 
+             alongside event booking demonstrates its adaptability and responsiveness to customer 
+             needs, setting it apart from conventional event management solutions
+        </p>
+        <div class="about__btn">
+          <button class="btn">Read More</button>
         </div>
       </div>
-      </div>
-      
-      <img class="balloon" src="../images/balloons.png" alt="img">
-      <img class="decor" src="../images/decor.jpg" alt="img">
-      <img class="celeb" src="../images/celeb.jpg" alt="img">
+    </section>
 
-</body>
+    <section class="section__container room__container">
+      <p class="section__subheader">Our Services</p>
+      <h2 class="section__header">The Most Memorable Time Starts Here.</h2>
+      <div class="room__grid">
+        <div class="room__card">
+          <div class="room__card__image">
+            <img src="../images/decor.jpg" alt="room" />
+            <div class="room__card__icons">
+              <span><i class="ri-heart-fill"></i></span>
+              <span><i class="ri-paint-fill"></i></span>
+              <span><i class="ri-shield-star-line"></i></span>
+            </div>
+          </div>
+          <div class="room__card__details">
+            <h4>Venue Selection</h4>
+            <p>
+              Bask in luxury with breathtaking ocean views from your private
+              suite.
+            </p>
+            <h5>Starting from <span>$299/night</span></h5>
+            <button class="btn">Book Now</button>
+          </div>
+        </div>
+        <div class="room__card">
+          <div class="room__card__image">
+            <img src="../images/dinner.jpg" alt="room" />
+            <div class="room__card__icons">
+              <span><i class="ri-heart-fill"></i></span>
+              <span><i class="ri-paint-fill"></i></span>
+              <span><i class="ri-shield-star-line"></i></span>
+            </div>
+          </div>
+          <div class="room__card__details">
+            <h4>Food Catering</Video></h4>
+            <p>
+              Experience urban elegance and modern comfort in the heart of the
+              city.
+            </p>
+            <h5>Starting from <span>$199/night</span></h5>
+            <button class="btn">Book Now</button>
+          </div>
+        </div>
+        <div class="room__card">
+          <div class="room__card__image">
+            <img src="../images/stairs.jpg" alt="room" />
+            <div class="room__card__icons">
+              <span><i class="ri-heart-fill"></i></span>
+              <span><i class="ri-paint-fill"></i></span>
+              <span><i class="ri-shield-star-line"></i></span>
+            </div>
+          </div>
+          <div class="room__card__details">
+            <h4>Florists and decor</h4>
+            <p>
+              Spacious and inviting, perfect for creating cherished memories
+              with loved ones.
+            </p>
+            <h5>Starting from <span>$249/night</span></h5>
+            <button class="btn">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service" id="service">
+      <div class="section__container service__container">
+        <div class="service__content">
+          <p class="section__subheader">Why US?</p>
+          <h2 class="section__header">Strive Only For The Best.</h2>
+          <ul class="service__list">
+            <li>
+              <span><i class="ri-shield-star-line"></i></span>
+              High Class service
+            </li>
+            <li>
+              <span><i class="ri-24-hours-line"></i></span>
+              100% Work Progress
+            </li>
+            <li>
+              <span><i class="ri-headphone-line"></i></span>
+             100% Trustworthy
+            </li>
+            <li>
+              <span><i class="ri-map-2-line"></i></span>
+              100% Support
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container banner__container">
+      <div class="banner__content">
+        <div class="banner__card">
+          <h4>25+</h4>
+          <p>Properties Available</p>
+        </div>
+        <div class="banner__card">
+          <h4>350+</h4>
+          <p>Bookings Completed</p>
+        </div>
+        <div class="banner__card">
+          <h4>600+</h4>
+          <p>Happy Customers</p>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="contact" id="contact">
+        <h1 class="heading"><span>FeedBack</span> </h1>
+  
+        <form action="">
+          <div class="inputBox">
+            <input type="text" placeholder="name" />
+            <input type="email" placeholder="email" />
+          </div>
+          <div class="inputBox">
+            <input type="tel" placeholder="number" />
+            <input type="text" placeholder="subject" />
+          </div>
+          <textarea
+            name=""
+            placeholder="message"
+            id=""
+            cols="30"
+            rows="10"
+          ></textarea>
+          <input type="submit" value="send message" class="btn"  id="submitBtn"/>
+        </form>
+      </section>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="../js/landing2.js"></script>
+ <!-- Footer Section Starts -->
+<section class="footer">
+  <div class="box-container">
+    <div class="box">
+      <h3>Branches</h3>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Pune</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Mumbai</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Delhi</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Nagpur</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Chennai</a>
+    </div>
+
+    <div class="box">
+      <h3>Quick Links</h3>
+      <a href="#"><i class="fas fa-arrow-right"></i> Home</a>
+      <a href="#"><i class="fas fa-arrow-right"></i> Service</a>
+      <a href="#"><i class="fas fa-arrow-right"></i> About</a>
+      <a href="#"><i class="fas fa-arrow-right"></i> Gallery</a>
+      <a href="#"><i class="fas fa-arrow-right"></i> Review</a>
+      <a href="#"><i class="fas fa-arrow-right"></i> Contact</a>
+    </div>
+
+    <div class="box">
+      <h3>Contact Info</h3>
+      <a href="#"><i class="fas fa-phone"></i> +123-456-7890</a>
+      <a href="#"><i class="fas fa-phone"></i> +123-456-7890</a>
+      <a href="#"><i class="fas fa-envelope"></i> map@gmail.com</a>
+      <a href="#"><i class="fas fa-envelope"></i> map@gmail.com</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Pune, India - 560054</a>
+    </div>
+
+    <div class="box">
+      <h3>Follow Us</h3>
+      <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="credit">
+    Created by <span>MAPTheEvents</span> | All Rights Reserved
+  </div>
+</section>
+
+  
+     
+  
+      <!-- Swiper JS -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  
+      <!--JS file-->
+      <script src="../js/landing1.js"></script>
+  </body>
 </html>

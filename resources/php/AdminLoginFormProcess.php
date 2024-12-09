@@ -50,12 +50,15 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 if (password_verify($password, $row['admin_login_password'])) {
                     
                     $insertionQuery = "INSERT INTO admin_logged(admin_id)
-                                VALUES ($1);";
+                                VALUES ($1) RETURNING log_id;";
                     $insertionQueryResult = pg_query_params($conn, $insertionQuery, [$row['admin_id']]);
+
                     if($insertionQueryResult){
+                        $logId = pg_fetch_result($insertionQueryResult, 0, "log_id");
                         // User found and password matched
                         $_SESSION['admin_name'] = $row['admin_name'];
                         $_SESSION['admin_id'] = $row['admin_id'];
+                        $_SESSION['log_id'] = $logId;
                         $_SESSION['login_status'] = "loggedIn"; 
                         echo json_encode(["status" => "success", "message" => "Login successful."]);                  
                     }else{
