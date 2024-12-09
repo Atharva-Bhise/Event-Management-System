@@ -18,7 +18,7 @@ ini_set('error_log', 'php_error_log'); //PHP Errors are Stored in this path
 error_reporting(E_ALL);      // Report all errors
 
 // Database connection
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=ab18");
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
 
 if (!$conn) {
     echo json_encode(["status" => "error", "message" => "Unable to connect to the database."]);
