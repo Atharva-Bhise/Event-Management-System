@@ -1,0 +1,6 @@
+[09-Dec-2024 16:15:40 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xamp\htdocs\xammp\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
+[09-Dec-2024 16:15:40 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xamp\htdocs\xammp\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
+[09-Dec-2024 16:16:26 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xamp\htdocs\xammp\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
+[09-Dec-2024 16:16:26 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xamp\htdocs\xammp\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
+[09-Dec-2024 16:19:32 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xamp\htdocs\xammp\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
+[09-Dec-2024 16:19:32 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xamp\htdocs\xammp\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
