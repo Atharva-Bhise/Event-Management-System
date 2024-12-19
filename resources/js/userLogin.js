@@ -44,7 +44,25 @@ function togglePasswordIcon() {
 }
 
 // Event listener for the toggle icon click
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {  
+   // Get the forget password link and username input
+   const forgetPassword = document.getElementById('forgotPassword');
+   const usernameInput = document.getElementById('username'); // Replace with your actual input field ID
+ 
+   // Add click event listener to the forgot password link
+   forgetPassword.addEventListener('click', () => {
+     const username = usernameInput.value.trim(); // Get and trim the username input
+ 
+     if (username === "") {
+       // Display an error if the username is empty
+       displayErrorMessage("Please enter your username.");
+       return; // Stop further execution
+     }
+ 
+     // If username is entered, redirect to the OTP page
+     window.location.href = "../html/otpPage.html";
+   });
+
   const img = document.getElementById('toggleIcon');
   if (img) {
     img.addEventListener('click', togglePasswordVisibility);
@@ -67,6 +85,22 @@ function showPassword(){
         password.type = "password";
     }
 }
+function displayErrorMessage(message) {
+  // Create the error message element
+  const errorMessage = document.createElement("span");
+  errorMessage.textContent = message;
+  errorMessage.classList.add("error-message");
+
+  // Clear any existing error messages
+  const existingErrorMessage = document.querySelector(".error-message");
+  if (existingErrorMessage) {
+    existingErrorMessage.remove();
+  }
+
+  // Append the error message before the signup button
+  password.form.insertBefore(errorMessage, password.form.querySelector("button"));
+}
+
 // Add an event listener to the form's submit event
 form.addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent default form submission behavior

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../css/contact.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <h1>Send Us Your Feedback Or Queries</h1>
+            <div class="illustration">
+                <img src="../images/contact.png" alt="Illustration">
+            </div>
+            <div class="social-links">
+                <h2>Connect with us:</h2>
+                <ul class="social-media">
+                <li><a href="#"><i class="bx bxl-facebook"></i></a></li>
+                <li><a href="#"><i class="bx bxl-twitter"></i></a></li>
+                <li><a href="#"><i class="bx bxl-youtube"></i></a></li>
+                <li><a href="#"><i class="bx bxl-instagram"></i></a></li>
+            </ul>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <h2>Contact Us:</h2>
+            <form id="contact-form" action="#">
+                <div class="form-group">
+                    <input type="text" placeholder="Name" name="name" id="name" 
+                           required pattern="[A-Za-z\s]{3,}" 
+                           title="Name must be at least 3 characters and only contain letters and spaces.">
+                </div>
+
+                <div class="form-group">
+                    <input type="email" placeholder="Email" name="email" id="email" 
+                           required title="Email format should be 'xyz@gmail.com'">
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" placeholder="Phone" name="phone" id="phone" 
+                           required pattern="^\d{10}$" 
+                           title="Please enter a valid 10-digit phone number.">
+                </div>
+
+                <div class="form-group">
+                    <textarea placeholder="Send Queries And Feedback" name="feedback" required></textarea>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="../js/contact.js"></script>
+</body>
+</html>

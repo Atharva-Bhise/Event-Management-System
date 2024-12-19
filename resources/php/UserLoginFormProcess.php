@@ -1,4 +1,5 @@
 <?php
+session_start();
 header('Content-Type: application/json');
 ini_set('display_errors', 0); // Do not display errors in the browser
 ini_set('log_errors', 1);    // Log errors to the server's error log
@@ -28,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             echo json_encode(["status" => "error", "message" => "Username and password are required."]);
             exit;
         }
-
+        $_SESSION['username'] = $username;
         // Query to validate user credentials
         $query = "SELECT users.user_name, user_login.user_login_password 
                   FROM users
@@ -51,11 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     echo json_encode(["user" => $row['user_name'], "status" => "success", "message" => "Login successful."]);                  
                 } else {
                     // Invalid credentials
-                    echo json_encode(["status" => "failure", "message" => "Invalid username or password."]);
+                    echo json_encode(["status" => "failure", "message" => "Invalid password."]);
                 }
             } else {
                 // No user found
-                echo json_encode(["status" => "failure", "message" => "Invalid username or password."]);
+                echo json_encode(["status" => "failure", "message" => "Invalid username."]);
             }
         } else {
             // Query execution failed
