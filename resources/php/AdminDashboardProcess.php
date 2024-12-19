@@ -18,7 +18,11 @@ ini_set('error_log', 'php_error_log'); //PHP Errors are Stored in this path
 error_reporting(E_ALL);      // Report all errors
 
 // Database connection
+<<<<<<< HEAD
 $conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=cloud");
+=======
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=sqlPrutha");
+>>>>>>> 91a575972772a54dc930b2fab381182543522263
 
 if (!$conn) {
     echo json_encode(["status" => "error", "message" => "Unable to connect to the database."]);
@@ -69,4 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 } else {
     echo json_encode(["status" => "error", "message" => "Invalid request method."]);
 }
+// Close the database connection
+pg_close($conn);
 ?>
