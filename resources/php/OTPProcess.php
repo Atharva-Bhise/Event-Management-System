@@ -18,7 +18,7 @@ ini_set('log_errors', 1);    // Log errors to the server's error log
 error_reporting(E_ALL);
 
 // Database connection
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=sqlPrutha");
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=cloud");
 if (!$conn) {
     echo json_encode(["status" => "error", "message" => "Unable to connect to the database."]);
     exit;
