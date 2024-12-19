@@ -18,7 +18,7 @@ ini_set('log_errors', 1);    // Log errors to the server's error log
 error_reporting(E_ALL);
 
 // Database connection
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=sqlPrutha");
 if (!$conn) {
     echo json_encode(["status" => "error", "message" => "Unable to connect to the database."]);
     exit;
@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'maptheevents@gmail.com';
-            $mail->Password = 'password'; // Replace with your app-specific password
+            $mail->Password = 'rpxz tufi ggmm xmik'; // Replace with your app-specific password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
