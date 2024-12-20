@@ -81,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $mail->SMTPAuth = true;
             $mail->Username = $_ENV['MAIL_USERNAME']; // From .env file
             $mail->Password = $_ENV['MAIL_APP_PASSWORD']; // Replace with your app-specific password
+
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
