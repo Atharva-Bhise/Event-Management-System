@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'maptheevents@gmail.com';
-            $mail->Password = 'rpxz tufi ggmm xmik'; // Replace with your app-specific password
+            $mail->Password = 'kumn kyox mrgt gabh'; // Replace with your app-specific password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
