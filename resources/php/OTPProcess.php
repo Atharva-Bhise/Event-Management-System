@@ -8,7 +8,11 @@ use PHPMailer\PHPMailer\Exception;
 require 'PHPMailer-master/src/PHPMailer.php';
 require 'PHPMailer-master/src/SMTP.php';
 require 'PHPMailer-master/src/Exception.php';
+require '"C:\xampp\php\composer\vendor\autoload.php"';
 
+// Load the .env file
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 // Ensure JSON content type
 header('Content-Type: application/json');
 
@@ -18,7 +22,7 @@ ini_set('log_errors', 1);    // Log errors to the server's error log
 error_reporting(E_ALL);
 
 // Database connection
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=ab18");
 if (!$conn) {
     echo json_encode(["status" => "error", "message" => "Unable to connect to the database."]);
     exit;
@@ -73,8 +77,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'maptheevents@gmail.com';
-            $mail->Password = 'rpxz tufi ggmm xmik'; // Replace with your app-specific password
+            $mail->Username = 'maptheevents@gmail.com'; // From .env file
+            $mail->Password = 'kumn kyox mrgt gabh'; // Replace with your app-specific password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
