@@ -8,17 +8,27 @@ use PHPMailer\PHPMailer\Exception;
 require 'PHPMailer-master/src/PHPMailer.php';
 require 'PHPMailer-master/src/SMTP.php';
 require 'PHPMailer-master/src/Exception.php';
+require 'C:/xampp/php/composer/vendor/autoload.php';
 
+// Specify the path to your .env file in the project root
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');  // Move two directories up to the project root
+$dotenv->load();
 // Ensure JSON content type
 header('Content-Type: application/json');
 
 // Disable error display to prevent interference in JSON response
 ini_set('display_errors', 0); // Do not display errors in the browser
 ini_set('log_errors', 1);    // Log errors to the server's error log
+ini_set('error_log', 'php_error_log'); //PHP Errors are Stored in this path
 error_reporting(E_ALL);
 
 // Database connection
+<<<<<<< HEAD
 $conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=cloud");
+=======
+$postgresqlPassword = $_ENV['POSTGRESQL_PASSWORD'];
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=". $postgresqlPassword);
+>>>>>>> 1aa78cdf80f381589a57caf351cce610a5c44fb1
 if (!$conn) {
     echo json_encode(["status" => "error", "message" => "Unable to connect to the database."]);
     exit;
@@ -73,12 +83,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'maptheevents@gmail.com';
-            $mail->Password = 'rpxz tufi ggmm xmik'; // Replace with your app-specific password
+            $mail->Username = $_ENV['MAIL_USERNAME']; // From .env file
+            $mail->Password = $_ENV['MAIL_APP_PASSWORD']; // Replace with your app-specific password
+
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
-            $mail->setFrom('maptheevents@gmail.com', 'Map The Events');
+            $mail->setFrom($_ENV['MAIL_USERNAME'], 'Map The Events');
             $mail->addAddress($email); // Replace with actual recipient
             $mail->isHTML(true);
             $mail->Subject = 'OTP for Password Reset';
