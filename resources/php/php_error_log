@@ -1,9 +1,20 @@
-<<<<<<< HEAD
-[09-Dec-2024 16:15:40 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xamp\htdocs\xammp\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
-[09-Dec-2024 16:15:40 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xamp\htdocs\xammp\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
-[09-Dec-2024 16:16:26 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xamp\htdocs\xammp\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
-[09-Dec-2024 16:16:26 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xamp\htdocs\xammp\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
-[09-Dec-2024 16:19:32 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xamp\htdocs\xammp\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
-[09-Dec-2024 16:19:32 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xamp\htdocs\xammp\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
-=======
->>>>>>> 91a575972772a54dc930b2fab381182543522263
+[22-Dec-2024 15:00:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function pg_connect() in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminLoginFormProcess.php:15
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminLoginFormProcess.php on line 15
+[22-Dec-2024 15:00:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function pg_connect() in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminLoginFormProcess.php:15
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminLoginFormProcess.php on line 15
+[22-Dec-2024 15:00:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function pg_connect() in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminLoginFormProcess.php:15
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminLoginFormProcess.php on line 15
+[22-Dec-2024 15:00:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function pg_connect() in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminLoginFormProcess.php:15
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminLoginFormProcess.php on line 15
+[22-Dec-2024 15:02:14 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
+[22-Dec-2024 15:02:14 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
+[22-Dec-2024 15:06:44 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
+[22-Dec-2024 15:06:44 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 39
