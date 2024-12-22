@@ -24,6 +24,7 @@ error_reporting(E_ALL);      // Report all errors
 
 // Database connection
 $postgresqlPassword = $_ENV['POSTGRESQL_PASSWORD'];
+//Use $_ENV Super Global Variable for Password
 $conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=". $postgresqlPassword);
 
 if (!$conn) {
