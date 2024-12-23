@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require 'C:/xampp/php/composer/vendor/autoload.php';
 
