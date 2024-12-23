@@ -1,5 +1,6 @@
 <?php
 session_start();
+//Importing autoload.php
 require 'C:/xampp/php/composer/vendor/autoload.php';
 
 // Specify the path to your .env file in the project root

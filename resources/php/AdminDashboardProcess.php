@@ -1,4 +1,10 @@
 <?php
+
+require 'C:/xampp/php/composer/vendor/autoload.php';
+
+// Specify the path to your .env file in the project root
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');  // Move two directories up to the project root
+$dotenv->load();
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
