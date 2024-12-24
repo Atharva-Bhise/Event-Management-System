@@ -61,11 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     echo json_encode(["user" => $row['user_name'], "status" => "success", "message" => "Login successful."]);                  
                 } else {
                     // Invalid credentials
-                    echo json_encode(["status" => "failure", "message" => "Invalid password."]);
+                    echo json_encode(["status" => "failure", "message" => "Invalid Password"]);
                 }
             } else {
                 // No user found
-                echo json_encode(["status" => "failure", "message" => "Invalid username."]);
+                echo json_encode(["status" => "failure", "message" => "Invalid Username"]);
             }
         } else {
             // Query execution failed
