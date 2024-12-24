@@ -1,4 +1,5 @@
 <?php
+//To check if the username exists in the database after clicking on the forgot password button
 session_start();
 //Importing autoload.php
 require 'C:/xampp/php/composer/vendor/autoload.php';
