@@ -29,10 +29,12 @@ function moveFocus(input, nextIndex) {
                         try {
                             const response = JSON.parse(otpValidation.responseText);
                             if(response.status === "vaild") {
-                                alert(response.message);
-                                window.location.replace("../html/createNewPassword.html");
+                                showSlideMessage(response.message);
+                                setTimeout(() => {
+                                    window.location.replace("../html/createNewPassword.html");
+                                }, 4000);
                             }if (response.status === "invaild") {
-                                document.getElementById("msg").innerHTML = response.message;
+                                showSlideMessage(response.message);
                             }if (response.status === "error") {
                                 console.log(response.message);
                             }
@@ -47,6 +49,23 @@ function moveFocus(input, nextIndex) {
         }, 100); // Delay by 100 milliseconds
     }
 }
+// Function to show the slide-in message
+function showSlideMessage(message) {
+    const messageElement = document.getElementById('slideMessage');
+  
+    // Set the message text
+    messageElement.textContent = message;
+  
+    // Add the visible class to show the message
+    messageElement.classList.remove('hidden');
+    messageElement.classList.add('visible');
+  
+    // Remove the message after the specified duration
+    setTimeout(() => {
+      messageElement.classList.remove('visible');
+      messageElement.classList.add('hidden');
+    }, 3000);
+  }
 document.addEventListener("DOMContentLoaded", () => {
       const otpRequest = new XMLHttpRequest(); 
       otpRequest.open("POST", "../php/OTPProcess.php", true);
