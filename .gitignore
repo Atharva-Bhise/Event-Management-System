@@ -6,3 +6,6 @@
 
 # Ignore php_error_log
 /resources/php/php_error_log
+
+# Ignore PHPMailer-master
+/resources/php/PHPMailer-master

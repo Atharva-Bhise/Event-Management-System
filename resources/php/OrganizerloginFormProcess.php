@@ -61,11 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     echo json_encode(["user" => $row['organizer_name'], "status" => "success", "message" => "Login successful."]);                  
                 } else {
                     // Invalid credentials
-                    echo json_encode(["status" => "failure", "message" => "Invalid username or password."]);
+                    echo json_encode(["status" => "failure", "message" => "Invalid Password"]);
                 }
             } else {
                 // Invalid credentials
-                echo json_encode(["status" => "failure", "message" => "Invalid username or password."]);
+                echo json_encode(["status" => "failure", "message" => "Invalid Username"]);
             }
         }else {
             // Query execution failed
