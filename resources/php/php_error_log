@@ -30,3 +30,7 @@ Stack trace:
 [22-Dec-2024 15:32:35 Europe/Berlin] PHP Warning:  pg_connect(): Unable to connect to PostgreSQL server: fe_sendauth: no password supplied in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 23
 [23-Dec-2024 16:07:26 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
 [23-Dec-2024 16:07:26 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[27-Dec-2024 14:58:44 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[27-Dec-2024 14:58:44 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[27-Dec-2024 15:53:40 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[27-Dec-2024 15:53:40 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
