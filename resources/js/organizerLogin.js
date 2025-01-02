@@ -56,6 +56,24 @@ document.addEventListener('DOMContentLoaded', () => {
   togglePasswordIcon();
 });
 
+// Function to show the slide-in message
+function showSlideMessage(message) {
+  const messageElement = document.getElementById('slideMessage');
+
+  // Set the message text
+  messageElement.textContent = message;
+
+  // Add the visible class to show the message
+  messageElement.classList.remove('hidden');
+  messageElement.classList.add('visible');
+
+  // Remove the message after the specified duration
+  setTimeout(() => {
+    messageElement.classList.remove('visible');
+    messageElement.classList.add('hidden');
+  }, 3000);
+}
+
 // Add an event listener to the form's submit event
 form.addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent default form submission behavior
@@ -79,11 +97,13 @@ form.addEventListener("submit", (event) => {
 
         const response = JSON.parse(xhr.responseText);
           if(response.status === "success"){
-            alert(response.message + " Hello, Organizer: " + response.user); 
-            window.location.href="../html/afterOrganizerLogin.html";
+            showSlideMessage(response.message + " Hello, Organizer: " + response.user); 
+            setTimeout(() => {
+              window.location.href="../html/afterOrganizerLogin.html";
+            }, 4000);
           }
           if(response.status === "failure"){
-            alert(response.message);
+            showSlideMessage(response.message);
           }
           if(response.status === "error"){
             console.log(response.message);

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require 'C:/xampp/php/composer/vendor/autoload.php';
 
 // Specify the path to your .env file in the project root
@@ -9,6 +11,8 @@ ini_set('display_errors', 0); // Do not display errors in the browser
 ini_set('log_errors', 1);    // Log errors to the server's error log
 ini_set('error_log', 'php_error_log'); //PHP Errors are Stored in this path
 error_reporting(E_ALL); 
+
+//Use $_ENV Super Global Variable for Password
 $postgresqlPassword = $_ENV['POSTGRESQL_PASSWORD'];
 $conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=". $postgresqlPassword);
 
@@ -57,11 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     echo json_encode(["user" => $row['organizer_name'], "status" => "success", "message" => "Login successful."]);                  
                 } else {
                     // Invalid credentials
-                    echo json_encode(["status" => "failure", "message" => "Invalid username or password."]);
+                    echo json_encode(["status" => "failure", "message" => "Invalid Password"]);
                 }
             } else {
                 // Invalid credentials
-                echo json_encode(["status" => "failure", "message" => "Invalid username or password."]);
+                echo json_encode(["status" => "failure", "message" => "Invalid Username"]);
             }
         }else {
             // Query execution failed

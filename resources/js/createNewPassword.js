@@ -88,21 +88,21 @@ function validations() {
     const alphanumericRegex = /^[a-zA-Z0-9@]+$/; // Allow only letters and numbers  
     // Password length validation
     if (passwordValue.length < 8 || passwordValue.length > 15) {
-      displayErrorMessage("Password Must Be Between 8 And 15 Characters Long.");
+      showSlideMessage("Password Must Be Between 8 And 15 Characters Long.");
       return false;
     }
   
     // Alphanumeric validation
     if (!alphanumericRegex.test(passwordValue)) {
   
-      displayErrorMessage("Password Must Contain Only Letters And Numbers Or Only '@' Symbol.");
+      showSlideMessage("Password Must Contain Only Letters And Numbers Or Only '@' Symbol.");
   
       return false;
     }
   
     // Password matching validation
     if (passwordValue !== confirmPasswordValue) {
-      displayErrorMessage("Password And Confirmed Password Should Be Same!");
+      showSlideMessage("Password And Confirmed Password Should Be Same!");
       return false;
     }
   
@@ -123,6 +123,25 @@ function displayErrorMessage(message) {
     // Append the error message before the signup button
     password.form.insertBefore(errorMessage, password.form.querySelector("button"));
 }
+
+// Function to show the slide-in message
+function showSlideMessage(message) {
+  const messageElement = document.getElementById('slideMessage');
+
+  // Set the message text
+  messageElement.textContent = message;
+
+  // Add the visible class to show the message
+  messageElement.classList.remove('hidden');
+  messageElement.classList.add('visible');
+
+  // Remove the message after the specified duration
+  setTimeout(() => {
+    messageElement.classList.remove('visible');
+    messageElement.classList.add('hidden');
+  }, 3000);
+}
+
 // Form submission event listener
 form.addEventListener("submit", (e) => {
     e.preventDefault(); // Prevents the page from reloading
@@ -149,11 +168,13 @@ form.addEventListener("submit", (e) => {
               try{
                   const response = JSON.parse(newPasswordRequest.responseText);
                   if(response.status === "success"){
-                    alert(response.message);
-                    window.location.replace("../html/UserLogin.html");
+                    showSlideMessage(response.message);
+                    setTimeout(() => {
+                      window.location.replace("../html/afterUserLogin.html");
+                    }, 4000);                  
                   }else{
                     if(response.status === "failure"){
-                      alert(response.message);
+                      showSlideMessage(response.message);
                     }
                     if(response.status === "error"){
                       console.log(response.message);
