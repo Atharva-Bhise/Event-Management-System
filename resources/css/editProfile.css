@@ -1,0 +1,151 @@
+body {
+    background-image: url('../images/FORM_BG.png'); /* Path to your image */
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-repeat: no-repeat; /* Prevents tiling of the image */
+    background-attachment: fixed; /* Keeps the background fixed when scrolling */
+    background-position: center; /* Centers the image */
+
+
+}
+
+h4 {
+    color  : #35281c;  
+}
+.container.light-style.flex-grow-1.container-p-y {
+    margin-top: 30px;
+}
+
+.card.overflow-hidden{
+    background: #dbb69d !important;
+}
+
+.btn-default {
+    border-color: #35281c !important;
+    background  :#926b51 !important;
+    color       : #4E5155;  
+}
+
+
+label.btn {
+    margin-bottom: 0;
+}
+
+.btn-outline-primary {
+    border-color: #8e796b !important;
+    background  : transparent;
+    color       : #4B3929 !important;
+}
+
+.btn-primary {
+    background-color: #4e3b2a !important; /* New background color */
+    border-color: #000000 !important; /* New border color */
+    color: #ffffff !important; /* New text color */
+}
+
+.btn-primary:hover {
+    background-color: #6a4e36 !important; /* Hover background color */
+    color: #ffffff !important; /* Hover text color */
+}
+
+
+
+.btn {
+    cursor: pointer;
+}
+
+.text-light {
+    color: #babbbc !important;
+}
+
+
+
+.card {
+    background-clip: padding-box;
+    box-shadow     : 0 1px 4px rgba(24, 28, 33, 0.012);
+}
+
+.row-bordered {
+    overflow: hidden;
+}
+
+.account-settings-fileinput 
+{
+    position  : absolute;
+    visibility: hidden;
+    width     : 1px;
+    height    : 1px;
+    opacity   : 0;
+}
+
+.account-settings-links .list-group-item {
+    background-color: #e6d6c5; /* New background color for non-active items */
+    color: #4e5155; /* Text color */
+    border-color: rgba(24, 28, 33, 0.1); /* Optional: adjust border color */
+}
+
+.account-settings-links .list-group-item.active {
+    font-weight: bold !important;
+    background-color: #b59482 !important; /* Background color for the active item */
+    color: #ffffff !important; 
+}
+.account-settings-links .list-group-item:hover {
+    background-color: #d3bba6; /* Optional: hover effect */
+    color: #4e5155; /* Optional: text color on hover */
+}
+html:not(.dark-style) .account-settings-links .list-group-item.active {
+    background: transparent !important;
+}
+
+.account-settings-multiselect~.select2-container {
+    width: 100% !important;
+}
+
+.light-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.light-style .account-settings-links .list-group-item.active {
+    color: #4e5155 !important;
+}
+
+.material-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.material-style .account-settings-links .list-group-item.active {
+    color: #4e5155 !important;
+}
+
+.dark-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.dark-style .account-settings-links .list-group-item.active {
+    color: #fff !important;
+}
+
+.light-style .account-settings-links .list-group-item.active {
+    color: #4E5155 !important;
+}
+
+.light-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+input.form-control {
+    background-color: #f2e6d9 !important; 
+    color: #4e5155; 
+    border: 1px solid #8e796b !important; 
+}
+
+select.custom-select {
+    background-color: #f2e6d9 !important; 
+    color: #4e5155 !important; 
+    border: 1px solid #8e796b !important; 
+    padding: 8px; 
+    border-radius: 4px; 
+}
