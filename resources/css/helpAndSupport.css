@@ -15,7 +15,7 @@ body {
 }
 
 header {
-    background-color: #6b4d39;
+    background-color: rgba(148, 90, 52, 0.5);;
     color: white;
     padding: 1rem 2rem;
     text-align: center;
@@ -39,7 +39,7 @@ h2 {
 }
 .faq-item button {
     width: 100%;
-    background-color: #6a4e36;
+    background-color: #8d6848;
     color: white;
     border: none;
     padding: 1rem;
@@ -57,7 +57,7 @@ h2 {
     display: none;
     padding: 1rem;
     background-color: #f9f9f9;
-    border-left: 4px solid #6a4e36;
+    border-left: 4px solid #8d6848;
     margin-top: 0.5rem;
     border-radius: 4px;
 }
@@ -69,7 +69,7 @@ footer {
     margin-top: 2rem;
 }
 .contact button {
-    background-color: #6b4d39;
+    background-color: #8d6848;
     color: white;
     padding: 0.75rem 1.5rem;
     border: none;

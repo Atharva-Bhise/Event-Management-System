@@ -1,11 +1,9 @@
 body {
-    background-image: url('../images/FORM_BG.png'); /* Path to your image */
-    background-size: cover; /* Ensures the image covers the entire screen */
-    background-repeat: no-repeat; /* Prevents tiling of the image */
-    background-attachment: fixed; /* Keeps the background fixed when scrolling */
-    background-position: center; /* Centers the image */
-
-
+    background-image: url('../images/FORM_BG.png'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-position: center; 
 }
 
 h4 {
@@ -37,14 +35,14 @@ label.btn {
 }
 
 .btn-primary {
-    background-color: #4e3b2a !important; /* New background color */
-    border-color: #000000 !important; /* New border color */
-    color: #ffffff !important; /* New text color */
+    background-color: #4e3b2a !important; 
+    border-color: #000000 !important; 
+    color: #ffffff !important; 
 }
 
 .btn-primary:hover {
-    background-color: #6a4e36 !important; /* Hover background color */
-    color: #ffffff !important; /* Hover text color */
+    background-color: #6a4e36 !important; 
+    color: #ffffff !important; 
 }
 
 
@@ -78,9 +76,9 @@ label.btn {
 }
 
 .account-settings-links .list-group-item {
-    background-color: #e6d6c5; /* New background color for non-active items */
-    color: #4e5155; /* Text color */
-    border-color: rgba(24, 28, 33, 0.1); /* Optional: adjust border color */
+    background-color: #e6d6c5; /* background color for non-active items */
+    color: #4e5155; 
+    border-color: rgba(24, 28, 33, 0.1); 
 }
 
 .account-settings-links .list-group-item.active {
@@ -89,8 +87,8 @@ label.btn {
     color: #ffffff !important; 
 }
 .account-settings-links .list-group-item:hover {
-    background-color: #d3bba6; /* Optional: hover effect */
-    color: #4e5155; /* Optional: text color on hover */
+    background-color: #d3bba6; 
+    color: #4e5155; 
 }
 html:not(.dark-style) .account-settings-links .list-group-item.active {
     background: transparent !important;
