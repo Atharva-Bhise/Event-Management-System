@@ -99,7 +99,7 @@ form.addEventListener("submit", (event) => {
           if(response.status === "success"){
             showSlideMessage(response.message + " Hello, Organizer: " + response.user); 
             setTimeout(() => {
-              window.location.href="../html/afterOrganizerLogin.html";
+              window.location.href="../html/OrganizerDashboard.html";
             }, 4000);
           }
           if(response.status === "failure"){
