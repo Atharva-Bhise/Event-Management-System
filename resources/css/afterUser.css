@@ -1,0 +1,165 @@
+.profile-dropdown {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100px; /* Adjust to position it below the button */
+  right: 20px; /* Adjust for alignment */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  
+}
+
+.profile-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.profile-dropdown ul li {
+  font-family: 'Franklin Gothic Medium';
+  font-weight: 400;
+  color:#140f0c !important;
+  padding: 5px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+}
+
+#profileDropdown a{
+  color: #140f0c !important;
+}
+.profile-dropdown ul li:hover {
+  background-color: #c2adad;
+}
+
+.profile-dropdown ul li i {
+  font-size:20px ;
+  color: #f1f1f1;
+  background-color: #926b51;
+  border: 9px solid #926b51;
+  border-radius: 100px;
+}
+#confirmation-options {
+  display: none;
+  margin-left: 10px;
+  font-size: 1.2rem;
+}
+
+#confirmation-options span {
+  cursor: pointer;
+  padding: 0 5px;
+}
+/* Fullscreen Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stack dots and text vertically */
+  font-size: 1.5rem;
+  z-index: 9999;
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Prevent interaction before showing */
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.show {
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Show the screen */
+}
+
+/* Dotted Circular Animation */
+.dotted-spinner {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px; /* Space between dots and text */
+}
+
+.dotted-spinner div {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+/* Position dots around a circle */
+.dotted-spinner div:nth-child(1) {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -1.1s;
+}
+
+.dotted-spinner div:nth-child(2) {
+  top: 14%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  animation-delay: -1s;
+}
+
+.dotted-spinner div:nth-child(3) {
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  animation-delay: -0.9s;
+}
+
+.dotted-spinner div:nth-child(4) {
+  top: 85%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  animation-delay: -0.8s;
+}
+
+.dotted-spinner div:nth-child(5) {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -0.7s;
+}
+
+.dotted-spinner div:nth-child(6) {
+  top: 85%;
+  left: 14%;
+  transform: translate(-50%, -50%);
+  animation-delay: -0.6s;
+}
+
+.dotted-spinner div:nth-child(7) {
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  animation-delay: -0.5s;
+}
+
+.dotted-spinner div:nth-child(8) {
+  top: 14%;
+  left: 14%;
+  transform: translate(-50%, -50%);
+  animation-delay: -0.4s;
+}
+
+/* Bounce animation for dots */
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+}

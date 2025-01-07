@@ -8,4 +8,8 @@
 /resources/php/php_error_log
 
 # Ignore PHPMailer-master
+
 /resources/php/PHPMailer-master
+
+# Ignore hashesPassword.php
+resources/php/hashesPassword.php
