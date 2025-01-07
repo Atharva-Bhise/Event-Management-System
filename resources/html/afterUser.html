@@ -48,12 +48,29 @@
          <!-- <ul><li><i class="fa-solid fa-user"></i>Profile</li></ul> -->
         <div class="profile-dropdown" id="profileDropdown">
           <ul>
-            <li><i class="fa-regular fa-user"></i> User Name</li>
+            <li><i class="fa-regular fa-user"></i> <strong id="userName"> User Name </strong></li>
             <li><i class="fa-regular fa-edit"></i> <a href="editProfile.html">Edit Profile </a></li>
             <li><i class="fa-regular fa-circle-question"></i> <a href="helpAndSupport.html"> Help & Support </a></li>
-            <li><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</li>
+            <li><a id="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
+              <span id="confirmation-options" class="confirmation-options">
+                <span id="confirmed">✅</span> <span id="no">❌</span>
+              </span></a>
+            </li>
           </ul>
         </div>
+        <!-- Loading Screen -->
+      <div class="loading-screen" id="loadingScreen">
+        <div class="dotted-spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
               </nav>
       <div class="section__container header__container" id="home">
         <p>Simple - Unique - Friendly</p>

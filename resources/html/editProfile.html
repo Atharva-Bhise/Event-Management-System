@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="../css/editProfile.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -18,109 +17,94 @@
         <div class="card overflow-hidden">
             <div class="row no-gutters row-bordered row-border-light">
                 <div class="col-md-3 pt-0">
-
                     <div class="list-group list-group-flush account-settings-links">
                         <a class="list-group-item list-group-item-action active" data-toggle="list"
-                            href="#account-general">General</a>
+                            href="#account-general" id="general">General</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-change-password">Change password</a>
+                            href="#account-change-password" id="changePassword">Change password</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-info">Info</a>
-                        
+                            href="#account-info" id="info">Info</a>
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="tab-content">
                         <div class="tab-pane fade active show" id="account-general">
                             <div class="card-body media align-items-center">
-                                
-                                
                             </div>
                             <hr class="border-light m-0">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label class="form-label">Username</label>
-                                    <input type="text" class="form-control mb-1" value="abc">
+                                    <label class="form-label">Username: <strong id="userName"></strong></label>
+                                    <input type="text" id="userNameInput" class="form-control mb-1" placeholder="Enter the new username">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" value="abcd">
+                                    <label class="form-label">Full-Name: <strong id="fullName"></strong></label>
+                                    <input type="text" id="userFullNameInput" class="form-control" placeholder="Enter the new full name">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">E-mail</label>
-                                    <input type="text" class="form-control mb-1" value="abcd@mail.com">
+                                    <label class="form-label">E-mail: <strong id="email"></strong></label>
+                                    <input type="email" id="emailInput" class="form-control mb-1" placeholder="Enter the new email">
                                     <div class="alert alert-warning mt-3">
                                         Your email is not confirmed. Please check your inbox.<br>
                                         <a href="javascript:void(0)">Resend confirmation</a>
                                     </div>
                                 </div>
-                                
                             </div>
                         </div>
                         <div class="tab-pane fade" id="account-change-password">
                             <div class="card-body pb-2">
                                 <div class="form-group">
                                     <label class="form-label">Current password</label>
-                                    <input type="password" class="form-control">
+                                    <input type="password" id="currentPasswordInput" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">New password</label>
-                                    <input type="password" class="form-control">
+                                    <input type="password" id="newPasswordInput" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Repeat new password</label>
-                                    <input type="password" class="form-control">
+                                    <input type="password" id="confirmPasswordInput" class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="account-info">
                             <div class="card-body pb-2">
-                                
                                 <div class="form-group">
-                                    <label class="form-label">Birthday</label>
-                                    <input type="text" class="form-control" value="May 3, 1995">
+                                    <label class="form-label">Birthday: <strong id="dob"></strong></label>
+                                    <input type="date" id="dobInput" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">Country</label>
-                                    <select class="custom-select">
-                                        <option>USA</option>
-                                        <option selected>India</option>
-                                        <option>UK</option>
-                                        <option>Germany</option>
-                                        <option>France</option>
-                                    </select>
+                                    <label class="form-label">Address: <strong id="address"></strong></label>
+                                    <input type="text" id="addressInput" class="form-control" placeholder="Enter the new address">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">City, Country: <strong id="city"></strong></label>
+                                    <input type="text" id="cityInput" class="form-control" placeholder="Enter the new city, country">
                                 </div>
                             </div>
                             <hr class="border-light m-0">
                             <div class="card-body pb-2">
                                 <h6 class="mb-4">Contacts</h6>
                                 <div class="form-group">
-                                    <label class="form-label">Phone</label>
-                                    <input type="text" class="form-control" value="+91 (123) 456 7891">
+                                    <label class="form-label">Phone: <strong id="phoneNo"></strong></label>
+                                    <input type="text" id="phoneNoInput" class="form-control" placeholder="Enter the new phone number">
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
-                                
-                                
-                            </div>
-                        </div>
-                    </div>
-                
-           
+                </div>
+            </div>
+        </div>
         <div class="text-right mt-3">
-            <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
-            <button type="button" class="btn btn-default">Cancel</button>
+            <button id="save" class="btn btn-primary">Save changes</button>;
+            <button id="cancel" class="btn btn-default">Cancel</button>
         </div>
     </div>
     
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <div id="slideMessage" class="hidden"></div> 
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript">
+    <script src="../js/editProfile.js"></script>
 
-    </script>
 </body>
-
 </html>
