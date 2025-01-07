@@ -220,7 +220,7 @@ form.addEventListener("submit", (e) => {
                 if(response.status === "success"){
                   showSlideMessage(response.message);
                   setTimeout(() => {
-                    window.location.href="../html/afterUserLogin.html";
+                    window.location.href="../html/afterUser.html";
                   }, 4000);
                 }else{
                   if(response.status === "exists"){
