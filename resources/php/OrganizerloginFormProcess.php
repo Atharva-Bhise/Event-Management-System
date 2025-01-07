@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         }
 
         // Query to validate user credentials
-        $query = "SELECT organizer.organizer_name, organizer_login.organizer_login_password 
+        $query = "SELECT organizer.organizer_id, organizer.organizer_name, organizer_login.organizer_login_password 
                   FROM organizer
                   JOIN organizer_login ON organizer.organizer_id = organizer_login.organizer_id 
                   WHERE organizer_login.organizer_login_id = $1";
@@ -58,6 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 // Verify password
                 if (password_verify($password, $row['organizer_login_password'])) {
                     // User found and password matched
+                    $_SESSION['organizerId'] = $row['organizer_id'];
+                    $_SESSION['organizerLoggedIn'] = true;
                     echo json_encode(["user" => $row['organizer_name'], "status" => "success", "message" => "Login successful."]);                  
                 } else {
                     // Invalid credentials

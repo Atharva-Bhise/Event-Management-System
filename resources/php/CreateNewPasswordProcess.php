@@ -23,6 +23,7 @@ error_reporting(E_ALL);      // Report all errors
 $postgresqlPassword = $_ENV['POSTGRESQL_PASSWORD'];
 $conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=". $postgresqlPassword);
 
+
 if($_SERVER['REQUEST_METHOD'] === "POST"){
          // Get the raw POST data
         $jsonData = file_get_contents('php://input');

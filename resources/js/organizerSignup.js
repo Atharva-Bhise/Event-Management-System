@@ -219,7 +219,7 @@ form.addEventListener("submit", (e) => {
                     if(response.status === "success"){
                       showSlideMessage(response.message); 
                       setTimeout(() => {
-                        window.location.href="../html/afterOrganizerLogin.html";
+                        window.location.href="../html/OrganizerDashboard.html";
                       }, 4000);
                     }else{
                           if(response.status === "exists" || response.status === "invalid"){
