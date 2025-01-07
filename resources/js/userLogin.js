@@ -171,7 +171,7 @@ form.addEventListener("submit", (event) => {
             //alert(response.message + " Hello, " + response.user); 
             showSlideMessage(response.message + " Hello, " + response.user);
             setTimeout(() => {
-              window.location.href="../html/afterUserLogin.html";
+              window.location.href="../html/afterUser.html";
             }, 4000);
           }
           if(response.status === "failure"){

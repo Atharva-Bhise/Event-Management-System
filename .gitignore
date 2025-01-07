@@ -9,3 +9,6 @@
 
 # Ignore PHPMailer-master
 /resources/php/PHPMailer-master
+
+# Ignore hashesPassword.php
+resources/php/hashesPassword.php

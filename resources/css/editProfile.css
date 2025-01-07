@@ -1,0 +1,176 @@
+body {
+    background-image: url('../images/FORM_BG.png'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-position: center; 
+}
+
+h4 {
+    color  : #35281c;  
+}
+.container.light-style.flex-grow-1.container-p-y {
+    margin-top: 30px;
+}
+
+.card.overflow-hidden{
+    background: #dbb69d !important;
+}
+
+.btn-default {
+    border-color: #35281c !important;
+    background  :#926b51 !important;
+    color       : #4E5155;  
+}
+
+
+label.btn {
+    margin-bottom: 0;
+}
+
+.btn-outline-primary {
+    border-color: #8e796b !important;
+    background  : transparent;
+    color       : #4B3929 !important;
+}
+
+.btn-primary {
+    background-color: #4e3b2a !important; 
+    border-color: #000000 !important; 
+    color: #ffffff !important; 
+}
+
+.btn-primary:hover {
+    background-color: #6a4e36 !important; 
+    color: #ffffff !important; 
+}
+
+
+
+.btn {
+    cursor: pointer;
+}
+
+.text-light {
+    color: #babbbc !important;
+}
+
+
+
+.card {
+    background-clip: padding-box;
+    box-shadow     : 0 1px 4px rgba(24, 28, 33, 0.012);
+}
+
+.row-bordered {
+    overflow: hidden;
+}
+
+.account-settings-fileinput 
+{
+    position  : absolute;
+    visibility: hidden;
+    width     : 1px;
+    height    : 1px;
+    opacity   : 0;
+}
+
+.account-settings-links .list-group-item {
+    background-color: #e6d6c5; /* background color for non-active items */
+    color: #4e5155; 
+    border-color: rgba(24, 28, 33, 0.1); 
+}
+
+.account-settings-links .list-group-item.active {
+    font-weight: bold !important;
+    background-color: #b59482 !important; /* Background color for the active item */
+    color: #ffffff !important; 
+}
+.account-settings-links .list-group-item:hover {
+    background-color: #d3bba6; 
+    color: #4e5155; 
+}
+html:not(.dark-style) .account-settings-links .list-group-item.active {
+    background: transparent !important;
+}
+
+.account-settings-multiselect~.select2-container {
+    width: 100% !important;
+}
+
+.light-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.light-style .account-settings-links .list-group-item.active {
+    color: #4e5155 !important;
+}
+
+.material-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.material-style .account-settings-links .list-group-item.active {
+    color: #4e5155 !important;
+}
+
+.dark-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.dark-style .account-settings-links .list-group-item.active {
+    color: #fff !important;
+}
+
+.light-style .account-settings-links .list-group-item.active {
+    color: #4E5155 !important;
+}
+
+.light-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+input.form-control {
+    background-color: #f2e6d9 !important; 
+    color: #4e5155; 
+    border: 1px solid #8e796b !important; 
+}
+
+select.custom-select {
+    background-color: #f2e6d9 !important; 
+    color: #4e5155 !important; 
+    border: 1px solid #8e796b !important; 
+    padding: 8px; 
+    border-radius: 4px; 
+}
+#slideMessage {
+    position: fixed;
+    top: -50px; /* Start off-screen */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #E5D5CB;
+    color: #916851;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    z-index: 1000;
+    transition: all 0.5s ease-in-out;
+}
+  
+#slideMessage.visible {
+    top: 20px; /* Slide-in position */
+    opacity: 1;
+}
+  
+#slideMessage.hidden {
+    top: -50px; /* Slide-out position */
+    opacity: 0;
+}
+  
