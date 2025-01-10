@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 //Importing autoload.php
 require 'C:/xampp/php/composer/vendor/autoload.php';
 
@@ -12,6 +13,12 @@ ini_set('log_errors', 1);    // Log errors to the server's error log
 ini_set('error_log', 'php_error_log'); //PHP Errors are Stored in this path
 error_reporting(E_ALL);      // Report all errors
 
+if (!isset($_SESSION['organizerId']) || $_SESSION['organizerLoggedIn'] === false) {
+    header("Location: ../html/landing.html");
+    exit;
+}
+$organizerId = $_SESSION['organizerId'];
+$organizerLoginStatus = $_SESSION['organizerLoggedIn'];
 //Use $_ENV Super Global Variable for Password
 $postgresqlPassword = $_ENV['POSTGRESQL_PASSWORD'];
 $conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=". $postgresqlPassword);
@@ -27,44 +34,30 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $jsonData = file_get_contents('php://input');
     
     // Decode the JSON data
-    $formData = json_decode($jsonData, true);
-
-    if ($formData !== null) {
-        // Sanitize input
-        $username = trim($formData['username'] ?? '');
-        $password = trim($formData['password'] ?? '');
-
-        if (empty($username) || empty($password)) {
-            echo json_encode(["status" => "error", "message" => "Username and password are required."]);
-            exit;
+    $logged = json_decode($jsonData, true);
+    if ($logged !== null) {
+            // Sanitize input
+        $status = $logged['orgLoggedIn'];    
+        if ($status === false) {
+           $_SESSION['organizerLoggedIn'] = false;
+            echo json_encode(["loggedStatus" => "logOff", "message" => "Logged out successfully."]);
+            session_unset();
+            session_destroy();
+           exit;
         }
-        // Query to validate user credentials
-        $query = "SELECT users.user_id, users.user_name, user_login.user_login_password 
-                  FROM users
-                  JOIN user_login ON users.user_id = user_login.user_id 
-                  WHERE user_login.user_login_id = $1";
-
+    }
+        
+    if ($organizerLoginStatus === true) {
+        $query = "SELECT organizer_login_id
+        FROM organizer_login WHERE organizer_id = $1;";
         // Execute the query
-        $result = pg_query_params($conn, $query, [$username]);
+        $result = pg_query_params($conn, $query, [$organizerId]);
 
         if ($result) {
-            $row = pg_fetch_assoc($result); 
+            $row = pg_fetch_assoc($result);
 
             if ($row) {
-                // Debugging: Check the result structure
-                 // This will show the available columns in the result
-
-                // Verify password
-                if (password_verify($password, $row['user_login_password'])) {
-                    // User found and password matched
-                    $_SESSION['username'] = $username;
-                    $_SESSION['userId'] = $row['user_id'];
-                    $_SESSION['userLoggedIn'] = true;
-                    echo json_encode(["user" => $row['user_name'], "status" => "success", "message" => "Login successful."]);                  
-                } else {
-                    // Invalid credentials
-                    echo json_encode(["status" => "failure", "message" => "Invalid Password"]);
-                }
+                echo json_encode(["status" => "success", "userName" => $row['organizer_login_id']]);
             } else {
                 // No user found
                 echo json_encode(["status" => "failure", "message" => "Invalid Username"]);
@@ -74,10 +67,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             error_log("Query Error: " . pg_last_error($conn));
             echo json_encode(["status" => "error", "message" => "Error executing query."]);
         }
-    } else {
-        // Invalid JSON data
-        echo json_encode(["status" => "error", "message" => "Invalid data received."]);
     }
+
+
 } else {
     echo json_encode(["status" => "error", "message" => "Invalid request method."]);
 }

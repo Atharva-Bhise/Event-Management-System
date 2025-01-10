@@ -1,4 +1,3 @@
-
 let menu = document.querySelector("#menu-btn");
 let navbar = document.querySelector(".navbar");
 function login()
@@ -17,11 +16,13 @@ toggleBtn.onclick = () => {
   themeToggler.classList.toggle("active");
 };*/
 
-window.onscroll = () => {
+document.addEventListener("scroll", () => {
   menu.classList.remove("fa-times");
-  navbar.classList.remove("active");
-  themeToggler.classList.remove("active");
-};
+  //navbar.classList.remove("active");
+  //themeToggler.classList.remove("active");
+});
+
+
 
 
 

@@ -103,6 +103,8 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
 
                     // Commit the transaction if all queries succeed
                     pg_query($conn, "COMMIT");
+                    $_SESSION['organizerId'] = $row['organizer_id'];
+                    $_SESSION['organizerLoggedIn'] = true;
                     echo json_encode(["status" => "success", "message" => "Signup successful."]);                  
 
                 } catch (Exception $e) {
