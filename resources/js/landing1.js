@@ -1,5 +1,5 @@
 let menu = document.querySelector("#menu-btn");
-let navbar = document.querySelector(".navbar");
+let navbar = document.querySelector(".nav__bar");
 function login()
 {
   window.location.href="register.html";
@@ -19,7 +19,7 @@ toggleBtn.onclick = () => {
 document.addEventListener("scroll", () => {
   menu.classList.remove("fa-times");
   navbar.classList.remove("active");
-  themeToggler.classList.remove("active");
+  //themeToggler.classList.remove("active");
 });
 
 
