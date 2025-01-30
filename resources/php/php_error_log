@@ -1,0 +1,20 @@
+[27-Jan-2025 07:19:50 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[27-Jan-2025 07:19:50 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[29-Jan-2025 07:41:12 Europe/Berlin] PHP Warning:  Undefined variable $row in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UserSignupFormProcess.php on line 106
+[29-Jan-2025 07:41:12 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UserSignupFormProcess.php on line 106
+[30-Jan-2025 08:24:00 Europe/Berlin] PHP Warning:  Undefined variable $row in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UserSignupFormProcess.php on line 106
+[30-Jan-2025 08:24:00 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UserSignupFormProcess.php on line 106
+[30-Jan-2025 08:28:13 Europe/Berlin] PHP Warning:  Undefined variable $row in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\OrganizerSignupFormProcess.php on line 106
+[30-Jan-2025 08:28:13 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\OrganizerSignupFormProcess.php on line 106
+[30-Jan-2025 17:29:06 Europe/Berlin] PHP Warning:  Undefined variable $row in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\OrganizerSignupFormProcess.php on line 106
+[30-Jan-2025 17:29:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\OrganizerSignupFormProcess.php on line 106
+[30-Jan-2025 17:44:17 Europe/Berlin] PHP Warning:  Undefined variable $row in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UserSignupFormProcess.php on line 106
+[30-Jan-2025 17:44:17 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UserSignupFormProcess.php on line 106
+[30-Jan-2025 17:51:27 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\OrganizerSignupFormProcess.php:106
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\OrganizerSignupFormProcess.php on line 106
+[30-Jan-2025 17:55:51 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\OrganizerSignupFormProcess.php:106
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\OrganizerSignupFormProcess.php on line 106
