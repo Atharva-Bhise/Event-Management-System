@@ -142,4 +142,11 @@ document.addEventListener("DOMContentLoaded", () => {
    // document.getElementById("recordsTable").style.color = "lightbrown";
 
   });
+<<<<<<< HEAD
+=======
+
+  document.getElementById("postService").addEventListener("click", () => {
+    window.location.href = "postService.html";
+  });
+>>>>>>> fb73c20e6a75d45ea4bae8772d6a35978e62c0d1
 });
