@@ -5,6 +5,27 @@ const confirmationOptions = document.querySelector("#confirmation-options");
 const confirmed = document.querySelector("#confirmed");
 const no = document.querySelector("#no");
 const loadingScreen = document.getElementById("loadingScreen");
+let tableData = document.querySelector("#recordsTable");
+const home = document.querySelector("#home");
+const manageEvents = document.querySelector("#manageEvents");
+const manageServices = document.querySelector("#manageServices");
+const settings = document.querySelector("#settings");
+
+//color changing onclick
+function changeColor(element)
+{
+  const items=document.querySelectorAll(".menu-item");
+  items.forEach(item=>
+  {
+    item.addEventListener('click',()=>
+    {
+        document.querySelector('.active')?.classList.remove('active');
+        item.classList.add('active');
+    });
+  });
+  
+}
+
 profileBtn.addEventListener("click", () => {
   profileDropdown.style.display = profileDropdown.style.display === "block" ? "none" : "block";
 });
@@ -15,7 +36,11 @@ window.addEventListener("click", (e) => {
     profileDropdown.style.display = "none";
   }
 });
+
 document.addEventListener("DOMContentLoaded", () => {
+    const btnTab = document.getElementById("btnTab");
+  const manageEventsTab = document.getElementById("manageEventsTab");
+
   // Fetch initial data for the dashboard
   const orgDashRequest = new XMLHttpRequest();
   orgDashRequest.open("POST", "../php/OrganizerDashboardProcess.php", true);
@@ -87,5 +112,34 @@ document.addEventListener("DOMContentLoaded", () => {
   no.addEventListener("click", () => {
     console.log("Logout action cancelled - ❌");
     confirmationOptions.style.display === "inline" ? "none" : "inline";
+  });
+
+  home.addEventListener("click", () => {
+    if (manageEventsTab) manageEventsTab.style.display = "none"; // Hide manageEventsTab
+    if (btnTab) btnTab.style.display = "none";
+    document.getElementById("tab").innerHTML = "Home";
+    //document.getElementById("recordsTable").innerHTML = "Home Tab";
+  });
+
+  settings.addEventListener("click", () => {
+    if (btnTab) btnTab.style.display = "none";
+    document.getElementById("tab").innerHTML = "Settings";
+    //document.getElementById("recordsTable").innerHTML = "Settings Tab";
+  });
+
+  manageEvents.addEventListener("click", () => {
+    if (btnTab) btnTab.style.display = "none";
+    if (manageEventsTab) manageEventsTab.style.display = "block"; // Show manageEventsTab
+    console.log("Manage Events Tab");
+    document.getElementById("tab").innerHTML = "Manage Events";
+  });
+
+  manageServices.addEventListener("click", () => {
+    if (manageEventsTab) manageEventsTab.style.display = "none"; // Hide manageEventsTab
+    if (btnTab) btnTab.style.display = "flex"; // Show btnTab
+    console.log("Manage Services Tab");
+    document.getElementById("tab").innerHTML = "Manage Services";
+   // document.getElementById("recordsTable").style.color = "lightbrown";
+
   });
 });
