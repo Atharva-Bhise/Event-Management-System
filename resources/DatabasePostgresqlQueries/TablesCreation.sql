@@ -85,6 +85,11 @@ CREATE TABLE Events (
     event_amount DECIMAL(10, 2),
     event_organized_by INT REFERENCES Organizer(organizer_id)
 );
+/* To Remove the event_city column and add event_date column in Events table
+ALTER TABLE Events 
+DROP COLUMN event_city,
+ADD COLUMN event_date DATE;
+*/
 
 --NOTE: adding address column in Venue table 
 CREATE TABLE Venue(
@@ -131,6 +136,10 @@ CREATE TABLE Booking (
     venue VARCHAR(255),
     city VARCHAR(100)
 );
+/* To Remove the city column from Booking table
+ALTER TABLE Booking 
+DROP COLUMN city;
+*/
 
 --NOTE: adding status and amount: which will include Cost of Event, Rental, Food Package, and Equipments
 CREATE TABLE Payment (
