@@ -1,109 +1,111 @@
-document.getElementById('addPicture').addEventListener('click', function() {
+document.getElementById('addPicture').addEventListener('click', function () {
   const uploadContainer = document.getElementById('uploadContainer');
   const newInputGroup = document.createElement('div');
   newInputGroup.className = 'input-group mb-2';
   newInputGroup.innerHTML = `
-    <input type="file" class="form-control" name="upload[]" required>
-    <input type="text" class="form-control" name="description[]" placeholder="Enter description" style="width: 100%;">
-
+      <input type="file" class="form-control upload-input" name="upload[]" required>
+      <input type="text" class="form-control description-input" name="description[]" placeholder="Enter description" style="width: 100%;">
   `;
   uploadContainer.appendChild(newInputGroup);
-  this.classList.add('btn-added');
 });
 
-document.getElementById('otherServiceCheck').addEventListener('change', function() {
-  const otherServiceInput = document.getElementById('otherService');
-  if (this.checked) {
-    otherServiceInput.classList.remove('hidden');
-  } else {
-    otherServiceInput.classList.add('hidden');
+// Event delegation for dynamically added elements
+document.addEventListener('change', function (event) {
+  if (event.target.id === 'otherServiceCheck') {
+      document.getElementById('otherService').classList.toggle('hidden', !event.target.checked);
   }
-});
-
-document.getElementById('eventSelect').addEventListener('change', function() {
-  const otherEventInput = document.getElementById('otherEvent');
-  
-  if (this.value === 'other') {
-    otherEventInput.classList.remove('hidden');
-  } else {
-    otherEventInput.classList.add('hidden');
-  }
-});
-document.querySelectorAll('.service-check').forEach(checkbox => {
-  checkbox.addEventListener('change', function() {
-    const priceInput = this.parentElement.querySelector('.price-input');
-    const descriptionInput = this.parentElement.querySelector('.description-input');
-
-    if (this.checked) {
-      priceInput.classList.remove('hidden');
-      descriptionInput.classList.remove('hidden');
-
-    } else {
-      priceInput.classList.add('hidden');
-      descriptionInput.classList.add('hidden');
-
-    }
+  document.getElementById('eventSelect').addEventListener('change', function() {
+    const otherEventInput = document.getElementById('otherEvent');
+    otherEventInput.classList.toggle('hidden', this.value !== 'other');
   });
+  if (event.target.classList.contains('service-check')) {
+      const priceInput = event.target.parentElement.querySelector('.price-input');
+      const descriptionInput = event.target.parentElement.querySelector('.description-input');
+      priceInput.classList.toggle('hidden', !event.target.checked);
+      descriptionInput.classList.toggle('hidden', !event.target.checked);
+  }
 });
 
-document.getElementById("postButton").addEventListener("click", function (event) {
-  event.preventDefault(); // Prevent default form submission
-
-  // Create an object to store form data
-  let formData = {
-      eventName: document.getElementById("eventSelect").value.trim(),
-      services: []
-  };
-
-  // Handle "Other" event input
-  if (formData.eventName === "other") {
-      formData.eventName = document.getElementById("otherEvent").value.trim();
+// Function to show the slide-in message
+function showSlideMessage(message) {
+    const messageElement = document.getElementById('slideMessage');
+  
+    // Set the message text
+    messageElement.textContent = message;
+  
+    // Add the visible class to show the message
+    messageElement.classList.remove('hidden');
+    messageElement.classList.add('visible');
+  
+    // Remove the message after the specified duration
+    setTimeout(() => {
+      messageElement.classList.remove('visible');
+      messageElement.classList.add('hidden');
+    }, 3000);
   }
+document.getElementById("postButton").addEventListener("click", function (event) {
+  event.preventDefault();
 
-  // Get selected services and their details
-  document.querySelectorAll(".service-check:checked").forEach((checkbox) => {
+  let formData = new FormData();
+  let eventName = document.getElementById("eventSelect").value.trim();
+  if (eventName === "other") {
+      eventName = document.getElementById("otherEvent").value.trim();
+  }
+  formData.append("eventName", eventName);
+
+  // Collect selected services
+  document.querySelectorAll(".service-check:checked").forEach((checkbox, index) => {
       let serviceName = checkbox.value;
       let priceInput = checkbox.parentElement.querySelector(".price-input");
       let descriptionInput = checkbox.parentElement.querySelector(".description-input");
 
-      formData.services.push({
-          serviceName: serviceName,
-          price: priceInput ? priceInput.value.trim() : "",
-          description: descriptionInput ? descriptionInput.value.trim() : ""
-      });
+      formData.append(`services[${index}][name]`, serviceName);
+      formData.append(`services[${index}][price]`, priceInput ? priceInput.value.trim() : "");
+      formData.append(`services[${index}][description]`, descriptionInput ? descriptionInput.value.trim() : "");
   });
 
-  console.log(formData);
-  
-  // Prepare the XMLHttpRequest
+  // Valid file types
+  const validFileTypes = ['image/jpeg', 'image/png'];
+  let validFiles = true;
+
+      document.querySelectorAll('input[type="file"]').forEach((fileInput, index) => {
+        const file = fileInput.files[0];
+        if (file && validFileTypes.includes(file.type)) {
+            formData.append(`upload[${index}]`, file);
+            let descriptionInput = fileInput.parentElement.querySelector('input[name="description[]"]');
+            formData.append(`description[${index}]`, descriptionInput ? descriptionInput.value.trim() : "");
+        } else if (file) {
+            validFiles = false;
+            showSlideMessage(`Invalid file type: ${file.name}. File Should be in JPEG or PNG format.`);
+        }
+    });
+
+
+  if (!validFiles) return;
+
+  console.log([...formData.entries()]); // Debugging output
+
+  // AJAX request
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "../php/PostServiceFormProcess.php", true);
-  xhr.setRequestHeader("Content-Type", "application/json");
 
   xhr.onreadystatechange = function () {
-      console.log("Status: " + xhr.status);
-      console.log("Readystate: " + xhr.readyState);
-
       if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
+          try {
               const response = JSON.parse(xhr.responseText);
-
-              if (response.status === "success") {
+              if (xhr.status === 200 && response.status === "success") {
                   showSlideMessage(response.message);
                   setTimeout(() => {
-                      window.location.href = "../html/servicePosted.html"; // Redirect after success
+                      // window.location.href = "../html/servicePosted.html";
                   }, 4000);
-              } else if (response.status === "failure") {
-                  showSlideMessage(response.message);
-              } else if (response.status === "error") {
-                  console.log(response.message);
+              } else {
+                  showSlideMessage(response.message || "An error occurred.");
               }
-          } else {
-              showSlideMessage("Something went wrong. Please try again.");
+          } catch (e) {
+              showSlideMessage("Invalid server response.");
           }
       }
   };
 
-  xhr.send(JSON.stringify(formData));
-  
+  xhr.send(formData);
 });
