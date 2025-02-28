@@ -18,3 +18,123 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\OrganizerSignupFormProcess.php on line 106
+[27-Feb-2025 19:52:30 Europe/Berlin] PHP Warning:  Undefined array key "organizer_id" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 47
+[27-Feb-2025 19:52:30 Europe/Berlin] PHP Warning:  pg_fetch_result(): Unable to jump to row 0 on PostgreSQL result index 1669549494104 in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 48
+[27-Feb-2025 19:52:30 Europe/Berlin] PHP Warning:  Undefined array key "organizer_id" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 53
+[27-Feb-2025 20:04:38 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: pg_query_params(): Argument #3 ($params) must be of type array, string given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php:47
+Stack trace:
+#0 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php(47): pg_query_params(Object(PgSql\Connection), 'SELECT organize...', '6')
+#1 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 47
+[27-Feb-2025 20:07:30 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: pg_query_params(): Argument #3 ($params) must be of type array, string given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php:47
+Stack trace:
+#0 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php(47): pg_query_params(Object(PgSql\Connection), 'SELECT organize...', '6')
+#1 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 47
+[27-Feb-2025 20:07:47 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: pg_query_params(): Argument #3 ($params) must be of type array, string given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php:47
+Stack trace:
+#0 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php(47): pg_query_params(Object(PgSql\Connection), 'SELECT organize...', '6')
+#1 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 47
+[27-Feb-2025 20:30:00 Europe/Berlin] UPLOAD FILES DEBUG: Array
+(
+)
+
+[27-Feb-2025 20:35:11 Europe/Berlin] UPLOAD FILES DEBUG: Array
+(
+    [upload] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (2).png
+                    [1] => Screenshot (3).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (2).png
+                    [1] => Screenshot (3).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                    [1] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\php7522.tmp
+                    [1] => C:\xampp\tmp\php7542.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                    [1] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 1307669
+                    [1] => 319960
+                )
+
+        )
+
+)
+
+[27-Feb-2025 20:35:11 Europe/Berlin] File uploaded: C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php/../uploads/1740684911_Screenshot (2).png
+[27-Feb-2025 20:35:11 Europe/Berlin] File uploaded: C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php/../uploads/1740684911_Screenshot (3).png
+[27-Feb-2025 20:41:01 Europe/Berlin] UPLOAD FILES DEBUG: Array
+(
+    [upload] => Array
+        (
+            [name] => Array
+                (
+                    [0] => Screenshot (2).png
+                )
+
+            [full_path] => Array
+                (
+                    [0] => Screenshot (2).png
+                )
+
+            [type] => Array
+                (
+                    [0] => image/png
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => C:\xampp\tmp\phpCCC1.tmp
+                )
+
+            [error] => Array
+                (
+                    [0] => 0
+                )
+
+            [size] => Array
+                (
+                    [0] => 1307669
+                )
+
+        )
+
+)
+
+[27-Feb-2025 20:41:01 Europe/Berlin] File uploaded: C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php/../uploads/1740685261_Screenshot (2).png
+[27-Feb-2025 20:43:26 Europe/Berlin] File uploaded successfully: C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php/../uploads/1740685406_Screenshot (2).png
+[28-Feb-2025 16:05:25 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740755125_Screenshot (2).png
+[28-Feb-2025 16:05:25 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740755125_Screenshot (3).png
+[28-Feb-2025 16:13:49 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740755629_Screenshot (2).png
+[28-Feb-2025 16:13:49 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740755629_Screenshot (3).png
+[28-Feb-2025 16:15:27 Europe/Berlin] PHP Warning:  Undefined array key "services" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 54
+[28-Feb-2025 16:15:27 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 54
+[28-Feb-2025 16:15:27 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740755727_chalan (8).pdf
+[28-Feb-2025 16:24:21 Europe/Berlin] PHP Warning:  Undefined array key "services" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 54
+[28-Feb-2025 16:24:21 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 54
+[28-Feb-2025 16:24:21 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740756261_Screenshot (2).png
+[28-Feb-2025 16:40:58 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740757258_wallpaperflare.com_wallpaper.jpg
+[28-Feb-2025 16:44:30 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740757470_Screenshot (2).png
