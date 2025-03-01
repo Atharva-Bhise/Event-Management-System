@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Manage Events Tab");
     document.getElementById("tab").innerHTML = "Manage Events";
   });
-
+ 
   manageServices.addEventListener("click", () => {
     if (manageEventsTab) manageEventsTab.style.display = "none"; // Hide manageEventsTab
     if (btnTab) btnTab.style.display = "flex"; // Show btnTab
@@ -142,11 +142,8 @@ document.addEventListener("DOMContentLoaded", () => {
    // document.getElementById("recordsTable").style.color = "lightbrown";
 
   });
-<<<<<<< HEAD
-=======
 
   document.getElementById("postService").addEventListener("click", () => {
     window.location.href = "postService.html";
   });
->>>>>>> fb73c20e6a75d45ea4bae8772d6a35978e62c0d1
 });
