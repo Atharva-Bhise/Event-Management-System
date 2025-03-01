@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (response.status === "success") {
           document.getElementById("welcome-message").innerHTML += response.adminName;
           document.getElementById("userCount").innerHTML = response.userCount;
+          document.getElementById("eventsCount").innerHTML = response.eventsCount;
         } else if (response.status === "failure" || response.status === "error") {
           console.log(response.message);
         }

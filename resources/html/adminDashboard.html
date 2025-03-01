@@ -239,12 +239,12 @@
   <div class="sidebar">
     <h4 class="text-center py-2">Admin Dashboard</h4>
     <a href="#" class="active"><i class="fa-solid fa-house me-2"></i> Home</a>
-    <a href="#"><i class="fa-solid fa-user-cog me-2"></i> Admins Activities</a>
+    <!--<a href="#"><i class="fa-solid fa-user-cog me-2"></i> Admins Activities</a>-->
     <a href="#"><i class="fa-solid fa-user-tie me-2"></i> Manage Organizers</a>
     <a href="#"><i class="fa-solid fa-user-group me-2"></i> Manage Users</a>
     <a href="#"><i class="fa-solid fa-calendar-alt me-2"></i> Events</a>
-    <a href="#"><i class="fa-solid fa-chart-line me-2"></i> Analytics</a>
-    <a href="#"><i class="fa-solid fa-sliders-h me-2"></i> Settings</a>
+    <!--<a href="#"><i class="fa-solid fa-chart-line me-2"></i> Analytics</a>-->
+    <!--<a href="#"><i class="fa-solid fa-sliders-h me-2"></i> Settings</a>-->
     <a href="#" id="logout"><i class="fa-solid fa-sign-out-alt me-2"></i> Logout 
     <span id="confirmation-options" class="confirmation-options">
         <span id="confirmed">✅</span> <span id="no">❌</span>
@@ -276,9 +276,11 @@
                 </label>
             </div>
             </li>
+          <!--
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="fa-regular fa-bell"></i> Notifications</a>
           </li>
+          -->
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="fa-regular fa-user"></i> Profile</a>
           </li>
@@ -302,25 +304,7 @@
           <div class="card-body">
             <i class="fa-solid fa-calendar fa-2x mb-3 text-success"></i>
             <h5>Upcoming Events</h5>
-            <p>15</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card text-center">
-          <div class="card-body">
-            <i class="fa-solid fa-chart-line fa-2x mb-3 text-info"></i>
-            <h5>Analytics</h5>
-            <p>50% Growth</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card text-center">
-          <div class="card-body">
-            <i class="fa-solid fa-cogs fa-2x mb-3 text-warning"></i>
-            <h5>Settings</h5>
-            <p>Updated</p>
+            <p  id="eventsCount"></p>
           </div>
         </div>
       </div>
@@ -333,25 +317,17 @@
         <thead>
           <tr>
             <th>Activity</th>
-            <th>Time</th>
-            <th>Status</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Organizer "JohnDoe" added a new event</td>
-            <td>10:30 AM</td>
-            <td><span class="badge bg-success">Completed</span></td>
           </tr>
           <tr>
             <td>Event "Tech Meetup" was updated</td>
-            <td>12:45 PM</td>
-            <td><span class="badge bg-info">Pending</span></td>
           </tr>
           <tr>
             <td>Admin updated settings</td>
-            <td>3:15 PM</td>
-            <td><span class="badge bg-success">Completed</span></td>
           </tr>
         </tbody>
       </table>
