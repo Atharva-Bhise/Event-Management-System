@@ -1,9 +1,14 @@
 <?php
+session_start();
+require 'C:/xampp/php/composer/vendor/autoload.php';
+
+// Specify the path to your .env file in the project root
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');  // Move two directories up to the project root
+$dotenv->load();
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 header('Content-Type: application/json');
-session_start();
 if (!isset($_SESSION['login_status']) || $_SESSION['login_status'] === "loggedOff") {
     header("Location: ../html/adminLogin.html");
     exit;
@@ -18,7 +23,9 @@ ini_set('error_log', 'php_error_log'); //PHP Errors are Stored in this path
 error_reporting(E_ALL);      // Report all errors
 
 // Database connection
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
+$postgresqlPassword = $_ENV['POSTGRESQL_PASSWORD'];
+//Use $_ENV Super Global Variable for Password
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=". $postgresqlPassword);
 
 if (!$conn) {
     echo json_encode(["status" => "error", "message" => "Unable to connect to the database."]);
@@ -69,4 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 } else {
     echo json_encode(["status" => "error", "message" => "Invalid request method."]);
 }
+// Close the database connection
+pg_close($conn);
 ?>

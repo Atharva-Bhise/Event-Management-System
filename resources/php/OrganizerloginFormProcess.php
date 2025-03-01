@@ -1,10 +1,20 @@
 <?php
+session_start();
+
+require 'C:/xampp/php/composer/vendor/autoload.php';
+
+// Specify the path to your .env file in the project root
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');  // Move two directories up to the project root
+$dotenv->load();
 header('Content-Type: application/json');
 ini_set('display_errors', 0); // Do not display errors in the browser
 ini_set('log_errors', 1);    // Log errors to the server's error log
 ini_set('error_log', 'php_error_log'); //PHP Errors are Stored in this path
 error_reporting(E_ALL); 
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
+
+//Use $_ENV Super Global Variable for Password
+$postgresqlPassword = $_ENV['POSTGRESQL_PASSWORD'];
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=". $postgresqlPassword);
 
 
 if (!$conn) {
@@ -30,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         }
 
         // Query to validate user credentials
-        $query = "SELECT organizer.organizer_name, organizer_login.organizer_login_password 
+        $query = "SELECT organizer.organizer_id, organizer.organizer_name, organizer_login.organizer_login_password 
                   FROM organizer
                   JOIN organizer_login ON organizer.organizer_id = organizer_login.organizer_id 
                   WHERE organizer_login.organizer_login_id = $1";
@@ -48,14 +58,16 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 // Verify password
                 if (password_verify($password, $row['organizer_login_password'])) {
                     // User found and password matched
+                    $_SESSION['organizerId'] = $row['organizer_id'];
+                    $_SESSION['organizerLoggedIn'] = true;
                     echo json_encode(["user" => $row['organizer_name'], "status" => "success", "message" => "Login successful."]);                  
                 } else {
                     // Invalid credentials
-                    echo json_encode(["status" => "failure", "message" => "Invalid username or password."]);
+                    echo json_encode(["status" => "failure", "message" => "Invalid Password"]);
                 }
             } else {
                 // Invalid credentials
-                echo json_encode(["status" => "failure", "message" => "Invalid username or password."]);
+                echo json_encode(["status" => "failure", "message" => "Invalid Username"]);
             }
         }else {
             // Query execution failed

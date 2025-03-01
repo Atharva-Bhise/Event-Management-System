@@ -1,10 +1,22 @@
 <?php
+session_start();
+
+//Importing autoload.php
+require 'C:/xampp/php/composer/vendor/autoload.php';
+
+// Specify the path to your .env file in the project root
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');  // Move two directories up to the project root
+$dotenv->load();
 header('Content-Type: application/json');
 ini_set('display_errors', 0); // Do not display errors in the browser
 ini_set('log_errors', 1);    // Log errors to the server's error log
 ini_set('error_log', 'php_error_log'); //PHP Errors are Stored in this path
 error_reporting(E_ALL);      // Report all errors
-$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=postgreSQLPassword");
+
+//Use $_ENV Super Global Variable for Password
+$postgresqlPassword = $_ENV['POSTGRESQL_PASSWORD'];
+$conn = pg_connect("host=localhost port=5432 dbname=EventManagementSystem user=postgres password=". $postgresqlPassword);
+
 if($_SERVER['REQUEST_METHOD'] === "POST"){
          // Get the raw POST data
         $jsonData = file_get_contents('php://input');
@@ -90,6 +102,9 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
 
                     // Commit the transaction if all queries succeed
                     pg_query($conn, "COMMIT");
+                    $_SESSION['username'] = $username;
+                    $_SESSION['userId'] = $userId;
+                    $_SESSION['userLoggedIn'] = true;
                     echo json_encode(["status" => "success", "message" => "Signup successful."]);                  
 
                 } catch (Exception $e) {

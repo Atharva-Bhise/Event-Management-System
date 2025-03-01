@@ -331,6 +331,20 @@ nav {
   font-size: 1.1rem;
   color: var(--text-dark);
 }
+.servicesmore
+{
+  align-content: center;
+  align-self: center;
+  text-align: center;
+  color:#644535;
+   margin-bottom: 9%;
+   margin-top: 8%;
+   max-width: 40rem;
+    margin: 1rem auto;
+    text-align: center;
+    
+   
+}
 
 .service {
   background-image: url("../images/service.jpg");

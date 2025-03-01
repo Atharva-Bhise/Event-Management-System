@@ -44,7 +44,49 @@ function togglePasswordIcon() {
 }
 
 // Event listener for the toggle icon click
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {  
+   // Get the forget password link and username input
+   const forgetPassword = document.getElementById('forgotPassword');
+   const usernameInput = document.getElementById('username'); // Replace with your actual input field ID
+ 
+   // Add click event listener to the forgot password link
+   forgetPassword.addEventListener('click', () => {
+     const username = usernameInput.value.trim(); // Get and trim the username input
+ 
+     if (username === "") {
+       // Display an error if the username is empty
+       showSlideMessage("Please, Enter Your Username");
+       return; // Stop further execution
+     }else{
+        const formDataUsername = {
+          username : document.getElementById("username").value.trim()
+        }
+
+        const userNameVerification = new XMLHttpRequest();
+        userNameVerification.open("POST","../php/UsernameExistsProcess.php", true);
+      userNameVerification.setRequestHeader("Content-Type", "application/json");
+      userNameVerification.onreadystatechange = function(){
+      console.log("Status: "+ userNameVerification.status);
+      console.log("Readystate: "+ userNameVerification.readyState);
+      if (userNameVerification.readyState === 4 && userNameVerification.status === 200) {
+        const response = JSON.parse(userNameVerification.responseText);
+
+          if(response.status === "exists"){
+            window.location.href = "../html/otpPage.html";
+          }
+          if(response.status === "notExists"){
+            showSlideMessage(response.message);
+          }
+          if(response.status === "error"){
+            console.log(response.message);
+          }
+        }
+      }
+      userNameVerification.send(JSON.stringify(formDataUsername)); 
+
+     }
+    });
+
   const img = document.getElementById('toggleIcon');
   if (img) {
     img.addEventListener('click', togglePasswordVisibility);
@@ -67,10 +109,47 @@ function showPassword(){
         password.type = "password";
     }
 }
+function displayErrorMessage(message) {
+  // Create the error message element
+  const errorMessage = document.createElement("span");
+  errorMessage.textContent = message;
+  errorMessage.classList.add("error-message");
+
+  // Clear any existing error messages
+  const existingErrorMessage = document.querySelector(".error-message");
+  if (existingErrorMessage) {
+    existingErrorMessage.remove();
+  }
+
+  // Append the error message before the signup button
+  password.form.insertBefore(errorMessage, password.form.querySelector("button"));
+}
+
+// Function to show the slide-in message
+function showSlideMessage(message) {
+  const messageElement = document.getElementById('slideMessage');
+
+  // Set the message text
+  messageElement.textContent = message;
+
+  // Add the visible class to show the message
+  messageElement.classList.remove('hidden');
+  messageElement.classList.add('visible');
+
+  // Remove the message after the specified duration
+  setTimeout(() => {
+    messageElement.classList.remove('visible');
+    messageElement.classList.add('hidden');
+  }, 3000);
+}
+
 // Add an event listener to the form's submit event
 form.addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent default form submission behavior
-
+  const existingErrorMessage = document.querySelector(".error-message");
+  if (existingErrorMessage) {
+    existingErrorMessage.remove();
+  }
   // Collect form data
  
   
@@ -89,11 +168,14 @@ form.addEventListener("submit", (event) => {
         const response = JSON.parse(xhr.responseText);
 
           if(response.status === "success"){
-            alert(response.message + " Hello, " + response.user); 
-            window.location.href="../html/afterUserLogin.html";
+            //alert(response.message + " Hello, " + response.user); 
+            showSlideMessage(response.message + " Hello, " + response.user);
+            setTimeout(() => {
+              window.location.href="../html/afterUser.html";
+            }, 4000);
           }
           if(response.status === "failure"){
-            alert(response.message);
+            showSlideMessage(response.message);
           }
           if(response.status === "error"){
             console.log(response.message);

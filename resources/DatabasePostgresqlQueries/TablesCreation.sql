@@ -85,7 +85,34 @@ CREATE TABLE Events (
     event_amount DECIMAL(10, 2),
     event_organized_by INT REFERENCES Organizer(organizer_id)
 );
+/* To Remove the event_city column and add event_date column in Events table*/
+ALTER TABLE Events 
+DROP COLUMN event_city,
+ADD COLUMN event_date DATE;
 
+/* To Remove the event_type & event_amount & no_of_attendance column in Events table*/
+ALTER TABLE Events 
+DROP COLUMN event_type;
+
+ALTER TABLE Events 
+DROP COLUMN event_amount;
+
+ALTER TABLE Events 
+DROP COLUMN no_of_attendance;
+--Creating separate table for multivalue attribute i.e. Photos path
+CREATE TABLE Events_Photos (
+    photo_id SERIAL PRIMARY KEY,
+    event_id INT REFERENCES Events(event_id) ON DELETE CASCADE,
+    photo_path TEXT NOT NULL
+);
+--Creating Services Table for Event Services (One-to-Many Relationship)
+CREATE TABLE Services(
+    service_id SERIAL PRIMARY KEY,
+    event_id INT REFERENCES Events(event_id),
+    service_type VARCHAR(100),
+    service_price DECIMAL(10, 2),
+    service_description TEXT
+);
 --NOTE: adding address column in Venue table 
 CREATE TABLE Venue(
 	event_id INT REFERENCES Events(event_id),
@@ -131,6 +158,13 @@ CREATE TABLE Booking (
     venue VARCHAR(255),
     city VARCHAR(100)
 );
+/* To Remove the city column from Booking table
+ALTER TABLE Booking 
+DROP COLUMN city;
+*/
+--Adding no_of_attendance column in Booking table
+ALTER TABLE Booking 
+ADD COLUMN no_of_attendance INT;
 
 --NOTE: adding status and amount: which will include Cost of Event, Rental, Food Package, and Equipments
 CREATE TABLE Payment (

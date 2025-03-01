@@ -109,41 +109,41 @@ function validations() {
 
   if(!namePattern.test(name)){
 
-    displayErrorMessage("Name Should Contain Atlest First-Last Name With Space In-Between And, Capitalized");
+    showSlideMessage("Name Should Contain Atlest First-Last Name With Space In-Between And, Capitalized");
 
     return false;
   }
   if(!emailRegex.test(email)){
-    displayErrorMessage("Invalid Email");
+    showSlideMessage("Invalid Email");
     return false;
   }
   if(!usernameRegex.test(username)){
 
-    displayErrorMessage("Username Should Contain Alphanumeric Characters OR Only '@' Symbol.");
+    showSlideMessage("Username Should Contain Alphanumeric Characters OR Only '@' Symbol.");
 
     return false;
   }
   if(!phoneRegex.test(phoneNo)){
-    displayErrorMessage("Phone Number Should Be 10 Digits with Optional Country Code(+123-PhoneNumber)");
+    showSlideMessage("Phone Number Should Be 10 Digits with Optional Country Code(+123-PhoneNumber)");
     return false;
   }
   // Password length validation
   if (passwordValue.length < 8 || passwordValue.length > 15) {
-    displayErrorMessage("Password Must Be Between 8 And 15 Characters Long.");
+    showSlideMessage("Password Must Be Between 8 And 15 Characters Long.");
     return false;
   }
 
   // Alphanumeric validation
   if (!alphanumericRegex.test(passwordValue)) {
 
-    displayErrorMessage("Password Must Contain Only Letters And Numbers OR Only '@' Symbol.");
+    showSlideMessage("Password Must Contain Only Letters And Numbers OR Only '@' Symbol.");
 
     return false;
   }
 
   // Password matching validation
   if (passwordValue !== confirmPasswordValue) {
-    displayErrorMessage("Password And Confirmed Password Should Be Same!");
+    showSlideMessage("Password And Confirmed Password Should Be Same!");
     return false;
   }
 
@@ -164,6 +164,24 @@ function displayErrorMessage(message) {
 
   // Append the error message before the signup button
   password.form.insertBefore(errorMessage, password.form.querySelector("button"));
+}
+
+// Function to show the slide-in message
+function showSlideMessage(message) {
+  const messageElement = document.getElementById('slideMessage');
+
+  // Set the message text
+  messageElement.textContent = message;
+
+  // Add the visible class to show the message
+  messageElement.classList.remove('hidden');
+  messageElement.classList.add('visible');
+
+  // Remove the message after the specified duration
+  setTimeout(() => {
+    messageElement.classList.remove('visible');
+    messageElement.classList.add('hidden');
+  }, 3000);
 }
 
 // Form submission event listener
@@ -199,14 +217,16 @@ form.addEventListener("submit", (e) => {
                 try{
                   const response = JSON.parse(xhr.responseText);
                     if(response.status === "success"){
-                      alert(response.message);
-                      window.location.href="../html/afterOrganizerLogin.html";
+                      showSlideMessage(response.message); 
+                      setTimeout(() => {
+                        window.location.href="../html/OrganizerDashboard.html";
+                      }, 4000);
                     }else{
                           if(response.status === "exists" || response.status === "invalid"){
-                            displayErrorMessage(response.message);
+                            showSlideMessage(response.message);
                           }
                           if(response.status === "failure"){
-                            alert(response.message);
+                            showSlideMessage(response.message);
                           }
                           if(response.status === "error"){
                             console.log(response.message);

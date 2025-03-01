@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post-Service Form</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+    /* Style for input fields */
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="date"]{
+      width: 100%;
+      border: 2.5px solid #ccc;
+      border-radius: 3px;
+      font-size: 16px;
+      box-sizing: border-box;
+      background-color: #E5D5CB;
+      border-color: #fff;
+      color: #823d15;
+    }
+    .container {
+      background-color: #E5D5CB;
+      color: #823d15;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    h1 {
+      color: #926B51;
+    }
+    .btn-primary {
+      background-color: #916851;
+      border-color: #916851;
+    }
+    .btn-primary:hover, .btn-submitted {
+      background-color: #6d4c3a !important;
+    }
+    .btn-secondary {
+      background-color: #926B51;
+      border-color: #926B51;
+    }
+    .btn-secondary:hover, .btn-added {
+      background-color: #6d4c3a !important;
+    }
+    .hidden {
+      display: none;
+    }
+    .form-label {
+      font-weight: bold;
+    }
+    .image-preview {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .image-preview img {
+      max-width: 100px;
+      max-height: 100px;
+      border-radius: 5px;
+      object-fit: cover;
+      border: 2px solid #916851;
+    }
+    .price-input {
+      width: 100%;
+    }
+    .input-group {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .input-group input[type="text"] {
+      padding: 20px 10px 10px 10px; /* Space for the floating label */
+
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      min-height:auto;
+      height: 10px;
+    }
+
+    /* Styling for select menu */
+    #eventSelect {
+      background-color: #E5D5CB;
+      color: #522912;
+      border: 2px solid #916851;
+    }
+    #eventSelect:focus, #eventSelect option:checked {
+      background-color: #c0a699;
+      color: #38261c;
+    }
+    #eventSelect:active
+    {
+      color:#6d4c3a;
+      
+    }
+ #addPicture {
+            background-color: s#6d4c3a;
+            color: white;
+            width: 150px; /* Set the button width to 150px */
+            width: 100px; /* Set the button width to 150px */
+
+            
+    }
+    .form-check-input service-check:active
+    {
+      background-color: #6d4c3a;
+    }
+    
+#slideMessage {
+  position: fixed;
+  top: -50px; /* Start off-screen */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #E5D5CB;
+  color: #916851;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: 1000;
+  transition: all 0.5s ease-in-out;
+}
+
+#slideMessage.visible {
+  top: 20px; /* Slide-in position */
+  opacity: 1;
+}
+
+#slideMessage.hidden {
+  top: -50px; /* Slide-out position */
+  opacity: 0;
+}
+
+  </style>
+</head>
+<body style="background-image: url('../images/LoginBG.png'); background-repeat: no-repeat; background-size: cover; background-position: center;" class="d-flex justify-content-center align-items-center min-vh-100">
+<div class="container p-4 rounded shadow-lg" style="max-width: 500px;">
+
+  <form id="signUp"  enctype="multipart/form-data">
+<div id="post" class="container p-4 rounded shadow-lg" style="max-width: 500px;">
+  
+  
+    <header class="text-center mb-4">
+      <h1>Post Service</h1>
+    </header>
+    <div class="mb-3">
+      <label class="form-label">Select Your Event</label>
+      <select class="form-select" id="eventSelect">
+        <option value="">Select an Event</option>
+        <option value="Birthday">Birthday</option>
+        <option value="Wedding">Wedding</option>
+        <option value="Anniversary">Anniversary</option>
+        <option value="Baby Shower">Baby Shower</option>
+        <option value="Concert">Concert</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="text" class="form-control mt-2 hidden" id="otherEvent" name="otherEvent" placeholder="Enter your Event">
+    </div>
+       <div class="mb-3">
+      <label class="form-label">Select Your Service</label>
+      <div class="form-check">
+        <input class="form-check-input service-check" type="checkbox" name="service" value="venue"> Venue 
+        <input type="text" class="form-control price-input hidden" placeholder="Enter price range">
+        <input type="text" class="form-control description-input hidden" placeholder="Enter description">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input service-check" type="checkbox" name="service" value="photography"> Photography
+        <input type="text" class="form-control price-input hidden" placeholder="Enter price range">
+        <input type="text" class="form-control description-input hidden" placeholder="Enter description">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input service-check" type="checkbox" name="service" value="food"> Food Catering
+        <input type="text" class="form-control price-input hidden" placeholder="Enter price range">
+        <input type="text" class="form-control description-input hidden" placeholder="Enter description">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input service-check" type="checkbox" name="service" value="rentals"> Rentals
+        <input type="text" class="form-control price-input hidden" placeholder="Enter price range">
+        <input type="text" class="form-control description-input hidden" placeholder="Enter description">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input service-check" type="checkbox" name="service" value="whole"> Whole Event
+        <input type="text" class="form-control price-input hidden" placeholder="Enter price range">
+        <input type="text" class="form-control description-input hidden" placeholder="Enter description">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input service-check" type="checkbox" name="service" value="decor"> Decor/ Florists
+        <input type="text" class="form-control price-input hidden" placeholder="Enter price range">
+        <input type="text" class="form-control description-input hidden" placeholder="Enter description">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="otherServiceCheck" name="service" value="other"> Other
+        <input type="text" class="form-control hidden" id="otherService" name="other" placeholder="Enter your service">
+        <input type="text" class="form-control price-input hidden" placeholder="Enter price range">
+
+        <input type="text" class="form-control description-input hidden" placeholder="Enter description">
+       
+      </div>
+    <div class="mb-3">
+        <label class="form-label">Upload Pictures</label>
+        <div id="uploadContainer">
+          <div class="input-group mb-2">
+            <input type="file" class="form-control" name="upload[]" required>
+            <input type="text" class="form-control" name="description[]" placeholder="Enter description" style="width: 80px; height: 10px;">
+          <!-- <input type="text" id="description" class="form-control" name="description[]" placeholder="Enter description">--> 
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary mt-2" id="addPicture">Add More</button>
+        <div class="image-preview" id="imagePreview"></div>
+      </div>
+      <button type="submit" class="btn btn-primary w-100" id="postButton">Post</button>
+</form>
+</div>
+<div id="slideMessage" class="hidden"></div>
+
+<script src="../js/postService.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+</html>

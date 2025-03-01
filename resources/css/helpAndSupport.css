@@ -1,0 +1,86 @@
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #926b51;
+} */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/FORM_BG.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header {
+    background-color: rgba(148, 90, 52, 0.5);;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    color: #333;
+}
+.faq {
+    margin-top: 2rem;
+}
+.faq-item {
+    margin-bottom: 1.5rem;
+}
+.faq-item button {
+    width: 100%;
+    background-color: #8d6848;
+    color: white;
+    border: none;
+    padding: 1rem;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    outline: none;
+    transition: background 0.3s ease;
+}
+.faq-item button:hover {
+    background-color: #ba895f;
+}
+.faq-item .answer {
+    display: none;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-left: 4px solid #8d6848;
+    margin-top: 0.5rem;
+    border-radius: 4px;
+}
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    margin-top: 2rem;
+}
+.contact button {
+    background-color: #8d6848;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.contact button:hover {
+    background-color: #926b51;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
