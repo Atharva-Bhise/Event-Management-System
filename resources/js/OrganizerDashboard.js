@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Manage Events Tab");
     document.getElementById("tab").innerHTML = "Manage Events";
   });
- 
+
   manageServices.addEventListener("click", () => {
     if (manageEventsTab) manageEventsTab.style.display = "none"; // Hide manageEventsTab
     if (btnTab) btnTab.style.display = "flex"; // Show btnTab
