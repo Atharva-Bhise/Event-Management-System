@@ -9,7 +9,7 @@ let tableData = document.querySelector("#recordsTable");
 const home = document.querySelector("#home");
 const manageEvents = document.querySelector("#manageEvents");
 const manageServices = document.querySelector("#manageServices");
-const settings = document.querySelector("#settings");
+//const settings = document.querySelector("#settings");
 
 //color changing onclick
 function changeColor(element)
@@ -120,13 +120,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("tab").innerHTML = "Home";
     //document.getElementById("recordsTable").innerHTML = "Home Tab";
   });
-
+/*
   settings.addEventListener("click", () => {
     if (btnTab) btnTab.style.display = "none";
     document.getElementById("tab").innerHTML = "Settings";
     //document.getElementById("recordsTable").innerHTML = "Settings Tab";
   });
-
+  */
   manageEvents.addEventListener("click", () => {
     if (btnTab) btnTab.style.display = "none";
     if (manageEventsTab) manageEventsTab.style.display = "block"; // Show manageEventsTab
@@ -145,5 +145,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("postService").addEventListener("click", () => {
     window.location.href = "postService.html";
+  });
+  document.getElementById("yourService").addEventListener("click", () => {
+    window.location.href = "yourService.html";
   });
 });
