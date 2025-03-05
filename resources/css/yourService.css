@@ -54,6 +54,7 @@ body {
 .container .box-container .box:hover {
    transform: scale(1.02);
    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+   border-radius: 5px;
 }
 
 .container .box-container .box .image {
@@ -68,9 +69,12 @@ body {
    width: 100%;
    object-fit: cover;
    transition: transform 0.3s ease-in-out;
+   border-radius: 5px;
+
 }
 
 .container .box-container .box:hover .image img {
+   border-radius: 5px;
    transform: scale(1.1);
 }
 
@@ -112,6 +116,26 @@ body {
    overflow: hidden;
    transition: max-height 0.4s ease-out;
 }
+.serviceTable {
+   width: 100%; /* Adjust as needed (e.g., 60%, 50%, or fixed width like 600px) */
+   max-width: 600px; /* Prevent it from getting too large */
+   border-collapse: collapse;
+   margin-top: 10px;
+   margin-left: auto;
+   margin-right: auto; /* Centers the table */
+}
+
+
+.serviceTable th, .serviceTable td {
+   border: 1px solid #ddd;
+   padding: 6px;
+   text-align: left;
+}
+
+.serviceTable th {
+   background-color: #f4f4f4;
+   text-align: center;
+}
 
 .carousel {
    position: relative;
@@ -131,6 +155,7 @@ body {
    width: 100%;
    height: 300px; /* Adjust as needed */
    object-fit: cover;
+   border-radius: 5px;
 
 }
 

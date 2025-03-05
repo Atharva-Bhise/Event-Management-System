@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () { 
     let loadMoreBtn = document.querySelector('#load-more');
 
     // Fetch and display services
@@ -102,27 +102,45 @@ document.addEventListener("DOMContentLoaded", function () {
             if (event.photos && Array.isArray(event.photos) && event.photos.length > 0) {
                 photosHtml = `
                     <div class="carousel">
-                        ${event.photos.map((photo, index) => {
-                            let correctPath = photo.photoPath.replace("/xampp/htdocs/", "/");
-                            return `<img class="carousel-img ${index === 0 ? 'active' : ''}" src="${correctPath}" alt="${photo.photoDescription}">`;
-                        }).join('')}
+                        <div class="carousel-track">
+                            ${event.photos.map((photo, index) => {
+                                let correctPath = photo.photoPath.replace("/xampp/htdocs/", "/");
+                                return `<img class="carousel-img ${index === 0 ? 'active' : ''}" src="${correctPath}" alt="${photo.photoDescription}">`;
+                            }).join('')}
+                        </div>
                         <button class="prev" onclick="prevSlide(this)">&#10094;</button>
                         <button class="next" onclick="nextSlide(this)">&#10095;</button>
                     </div>
                 `;
             }
 
-            // Loop through services
-            Object.keys(event.services).forEach(serviceId => {
-                const service = event.services[serviceId];
-                servicesHtml += `
-                    <div class="serviceItem">
-                        <div class="Name">Service Name: <span class="serviceName">${service.serviceType}</span></div>
-                        <div class="Price">Service Price: <span class="servicePrice">${service.servicePrice}</span></div>
-                        <div class="Description">Service Description: <span class="serviceDescription">${service.serviceDescription}</span></div>
-                    </div>
-                `;
-            });
+            // Loop through services and display in a table format
+            servicesHtml = `
+                <table class="serviceTable">
+                    <thead>
+                        <tr>
+                            <th colspan="3" align="center">Service</th>
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price(USD)</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${Object.keys(event.services).map(serviceId => {
+                            const service = event.services[serviceId];
+                            return `
+                                <tr>
+                                    <td>${service.serviceType}</td>
+                                    <td>${service.servicePrice}$</td>
+                                    <td>${service.serviceDescription}</td>
+                                </tr>
+                            `;
+                        }).join('')}
+                    </tbody>
+                </table>
+            `;
 
             eventBox.innerHTML = `
                 <div class="image">
