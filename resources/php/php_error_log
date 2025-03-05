@@ -138,3 +138,15 @@ Stack trace:
 [28-Feb-2025 16:24:21 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740756261_Screenshot (2).png
 [28-Feb-2025 16:40:58 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740757258_wallpaperflare.com_wallpaper.jpg
 [28-Feb-2025 16:44:30 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740757470_Screenshot (2).png
+[01-Mar-2025 15:17:00 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740838620_Screenshot_2025-02-13-21-07-45-65_99c04817c0de5652397fc8b56c3b3817[1].jpg
+[01-Mar-2025 15:17:00 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
+LINE 1: INSERT INTO Events_Photos (event_id, photo_path, photo_descr...
+                                                         ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\PostServiceFormProcess.php on line 78
+[01-Mar-2025 15:19:10 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740838750_WIN_20230417_17_45_44_Pro.jpg
+[01-Mar-2025 15:19:10 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
+LINE 1: INSERT INTO Events_Photos (event_id, photo_path, photo_descr...
+                                                         ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\PostServiceFormProcess.php on line 78
+[02-Mar-2025 07:49:45 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[02-Mar-2025 07:49:45 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[02-Mar-2025 07:56:40 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[02-Mar-2025 07:56:40 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
