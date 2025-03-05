@@ -146,4 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("postService").addEventListener("click", () => {
     window.location.href = "postService.html";
   });
+  document.getElementById("yourService").addEventListener("click", () => {
+    window.location.href = "yourService.html";
+  });
 });
