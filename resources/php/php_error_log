@@ -138,15 +138,194 @@ Stack trace:
 [28-Feb-2025 16:24:21 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740756261_Screenshot (2).png
 [28-Feb-2025 16:40:58 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740757258_wallpaperflare.com_wallpaper.jpg
 [28-Feb-2025 16:44:30 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740757470_Screenshot (2).png
-[01-Mar-2025 15:17:00 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740838620_Screenshot_2025-02-13-21-07-45-65_99c04817c0de5652397fc8b56c3b3817[1].jpg
-[01-Mar-2025 15:17:00 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
+[01-Mar-2025 15:45:29 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[01-Mar-2025 15:45:29 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[01-Mar-2025 16:06:15 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[01-Mar-2025 16:06:15 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[01-Mar-2025 16:06:54 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[01-Mar-2025 16:06:54 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[01-Mar-2025 16:07:52 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[01-Mar-2025 16:07:52 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[01-Mar-2025 16:07:52 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[01-Mar-2025 16:07:52 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[01-Mar-2025 16:07:52 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[01-Mar-2025 16:07:52 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[01-Mar-2025 16:07:52 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[01-Mar-2025 16:07:52 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[04-Mar-2025 21:02:09 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;service_name&quot; of relation &quot;services&quot; does not exist
+LINE 1: INSERT INTO Services (service_name, service_price, service_d...
+                              ^ in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 49
+[04-Mar-2025 21:02:09 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: pg_fetch_result(): Argument #1 ($result) must be of type PgSql\Result, bool given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php:50
+Stack trace:
+#0 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php(50): pg_fetch_result(false, 0, 'service_id')
+#1 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 50
+[04-Mar-2025 21:13:37 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  relation &quot;services_photos&quot; does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^ in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 33
+[04-Mar-2025 21:13:37 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: pg_fetch_assoc(): Argument #1 ($result) must be of type PgSql\Result, bool given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php:36
+Stack trace:
+#0 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php(36): pg_fetch_assoc(false)
+#1 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 36
+[04-Mar-2025 21:13:40 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  relation &quot;services_photos&quot; does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^ in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 33
+[04-Mar-2025 21:13:40 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: pg_fetch_assoc(): Argument #1 ($result) must be of type PgSql\Result, bool given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php:36
+Stack trace:
+#0 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php(36): pg_fetch_assoc(false)
+#1 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 36
+[04-Mar-2025 21:13:41 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  relation &quot;services_photos&quot; does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^ in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 33
+[04-Mar-2025 21:13:41 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: pg_fetch_assoc(): Argument #1 ($result) must be of type PgSql\Result, bool given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php:36
+Stack trace:
+#0 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php(36): pg_fetch_assoc(false)
+#1 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 36
+[04-Mar-2025 21:13:41 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  relation &quot;services_photos&quot; does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^ in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 33
+[04-Mar-2025 21:13:41 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: pg_fetch_assoc(): Argument #1 ($result) must be of type PgSql\Result, bool given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php:36
+Stack trace:
+#0 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php(36): pg_fetch_assoc(false)
+#1 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 36
+[04-Mar-2025 21:13:41 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  relation &quot;services_photos&quot; does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^ in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 33
+[04-Mar-2025 21:13:41 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: pg_fetch_assoc(): Argument #1 ($result) must be of type PgSql\Result, bool given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php:36
+Stack trace:
+#0 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php(36): pg_fetch_assoc(false)
+#1 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 36
+[04-Mar-2025 21:13:42 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  relation &quot;services_photos&quot; does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^ in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 33
+[04-Mar-2025 21:13:42 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: pg_fetch_assoc(): Argument #1 ($result) must be of type PgSql\Result, bool given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php:36
+Stack trace:
+#0 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php(36): pg_fetch_assoc(false)
+#1 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 36
+[04-Mar-2025 21:19:47 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  relation &quot;services_photos&quot; does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^ in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 33
+[04-Mar-2025 21:19:47 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: pg_fetch_assoc(): Argument #1 ($result) must be of type PgSql\Result, bool given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php:36
+Stack trace:
+#0 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php(36): pg_fetch_assoc(false)
+#1 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 36
+[04-Mar-2025 21:19:47 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  relation &quot;services_photos&quot; does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^ in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 33
+[04-Mar-2025 21:19:47 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: pg_fetch_assoc(): Argument #1 ($result) must be of type PgSql\Result, bool given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php:36
+Stack trace:
+#0 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php(36): pg_fetch_assoc(false)
+#1 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 36
+[04-Mar-2025 21:29:55 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  relation &quot;services_photos&quot; does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^ in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 33
+[04-Mar-2025 21:29:55 Europe/Berlin] Fetch Services Error: Query failed: ERROR:  relation "services_photos" does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^
+[04-Mar-2025 21:29:55 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  relation &quot;services_photos&quot; does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^ in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 33
+[04-Mar-2025 21:29:55 Europe/Berlin] Fetch Services Error: Query failed: ERROR:  relation "services_photos" does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^
+[04-Mar-2025 21:29:57 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  relation &quot;services_photos&quot; does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^ in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 33
+[04-Mar-2025 21:29:57 Europe/Berlin] Fetch Services Error: Query failed: ERROR:  relation "services_photos" does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^
+[04-Mar-2025 21:29:57 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  relation &quot;services_photos&quot; does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^ in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 33
+[04-Mar-2025 21:29:57 Europe/Berlin] Fetch Services Error: Query failed: ERROR:  relation "services_photos" does not exist
+LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
+                          ^
+[05-Mar-2025 10:43:04 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741167784_wallpaperflare.com_wallpaper.jpg
+[05-Mar-2025 10:43:04 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741167784_Screenshot (2).png
+[05-Mar-2025 11:17:14 Europe/Berlin] PHP Warning:  Undefined array key "service_type" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 90
+[05-Mar-2025 11:17:14 Europe/Berlin] PHP Warning:  Undefined array key "service_price" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 91
+[05-Mar-2025 11:17:14 Europe/Berlin] PHP Warning:  Undefined array key "service_description" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 92
+[05-Mar-2025 11:17:14 Europe/Berlin] PHP Warning:  Undefined array key "service_type" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 90
+[05-Mar-2025 11:17:14 Europe/Berlin] PHP Warning:  Undefined array key "service_price" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 91
+[05-Mar-2025 11:17:14 Europe/Berlin] PHP Warning:  Undefined array key "service_description" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 92
+[05-Mar-2025 11:17:14 Europe/Berlin] PHP Warning:  Undefined array key "service_type" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 90
+[05-Mar-2025 11:17:14 Europe/Berlin] PHP Warning:  Undefined array key "service_price" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 91
+[05-Mar-2025 11:17:14 Europe/Berlin] PHP Warning:  Undefined array key "service_description" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 92
+[05-Mar-2025 11:17:14 Europe/Berlin] PHP Warning:  Undefined array key "service_type" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 90
+[05-Mar-2025 11:17:14 Europe/Berlin] PHP Warning:  Undefined array key "service_price" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 91
+[05-Mar-2025 11:17:14 Europe/Berlin] PHP Warning:  Undefined array key "service_description" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\YourServiceFormProcess.php on line 92
+[05-Mar-2025 11:40:28 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741171228_Screenshot (2).png
+[05-Mar-2025 11:40:28 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741171228_28.jpg
+[05-Mar-2025 11:43:48 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741171428_30.jpg
+[05-Mar-2025 11:43:48 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741171428_26.jpg
+[05-Mar-2025 11:43:48 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741171428_20.jpg
+[05-Mar-2025 11:43:48 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741171428_11.jpg
+[05-Mar-2025 11:49:09 Europe/Berlin] PHP Warning:  Undefined array key "services" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 54
+[05-Mar-2025 11:49:09 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 54
+[05-Mar-2025 11:51:31 Europe/Berlin] PHP Warning:  Undefined array key "services" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 54
+[05-Mar-2025 11:51:31 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 54
+[05-Mar-2025 11:59:20 Europe/Berlin] PHP Warning:  Undefined array key "services" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 54
+[05-Mar-2025 11:59:20 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\PostServiceFormProcess.php on line 54
+[05-Mar-2025 12:08:33 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741172913_DSC01703.JPG
+[05-Mar-2025 12:08:33 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741172913_DSC01708.JPG
+[05-Mar-2025 12:08:33 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741172913_DSC01709.JPG
+[05-Mar-2025 12:19:32 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741173572_DSC01703.JPG
+[05-Mar-2025 12:19:32 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741173572_DSC01705.JPG
+[05-Mar-2025 12:19:32 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741173572_DSC01709.JPG
+[05-Mar-2025 13:45:50 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741178750_wallpaperflare.com_wallpaper.jpg
+[05-Mar-2025 14:49:11 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741182551_WIN_20230405_15_41_22_Pro.jpg
+[05-Mar-2025 14:49:11 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
 LINE 1: INSERT INTO Events_Photos (event_id, photo_path, photo_descr...
                                                          ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\PostServiceFormProcess.php on line 78
-[01-Mar-2025 15:19:10 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1740838750_WIN_20230417_17_45_44_Pro.jpg
-[01-Mar-2025 15:19:10 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
+[05-Mar-2025 14:50:42 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741182642_WIN_20230417_17_45_44_Pro.jpg
+[05-Mar-2025 14:50:42 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
 LINE 1: INSERT INTO Events_Photos (event_id, photo_path, photo_descr...
                                                          ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\PostServiceFormProcess.php on line 78
-[02-Mar-2025 07:49:45 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
-[02-Mar-2025 07:49:45 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
-[02-Mar-2025 07:56:40 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
-[02-Mar-2025 07:56:40 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[05-Mar-2025 14:53:34 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741182814_Screenshot_2025-02-14-19-43-49-96_99c04817c0de5652397fc8b56c3b3817[1].jpg
+[05-Mar-2025 14:53:34 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
+LINE 1: INSERT INTO Events_Photos (event_id, photo_path, photo_descr...
+                                                         ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\PostServiceFormProcess.php on line 78
+[05-Mar-2025 14:56:27 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741182987_Screenshot_2025-02-14-19-43-49-96_99c04817c0de5652397fc8b56c3b3817[1].jpg
+[05-Mar-2025 14:56:27 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
+LINE 1: INSERT INTO Events_Photos (event_id, photo_path, photo_descr...
+                                                         ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\PostServiceFormProcess.php on line 78
+[05-Mar-2025 14:56:34 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\YourServiceFormProcess.php on line 54
+[05-Mar-2025 14:56:34 Europe/Berlin] Fetch Services Error: Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^
+[05-Mar-2025 14:56:36 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\YourServiceFormProcess.php on line 54
+[05-Mar-2025 14:56:36 Europe/Berlin] Fetch Services Error: Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^
+[05-Mar-2025 14:56:47 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\YourServiceFormProcess.php on line 54
+[05-Mar-2025 14:56:47 Europe/Berlin] Fetch Services Error: Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^
+[05-Mar-2025 15:20:17 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741184417_Screenshot_2025-02-13-21-07-45-65_99c04817c0de5652397fc8b56c3b3817[1].jpg
+[05-Mar-2025 15:20:17 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
+LINE 1: INSERT INTO Events_Photos (event_id, photo_path, photo_descr...
+                                                         ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\PostServiceFormProcess.php on line 78
+[05-Mar-2025 15:20:29 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\YourServiceFormProcess.php on line 54
+[05-Mar-2025 15:20:29 Europe/Berlin] Fetch Services Error: Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^
+[05-Mar-2025 15:32:02 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741185122_Screenshot (2).png
+[05-Mar-2025 15:32:02 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
+LINE 1: INSERT INTO Events_Photos (event_id, photo_path, photo_descr...
+                                                         ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\PostServiceFormProcess.php on line 78
