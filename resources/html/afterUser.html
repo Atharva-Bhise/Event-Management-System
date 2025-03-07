@@ -40,7 +40,7 @@
         <ul class="nav__links" id="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#events">Events</a></li>
-          <li><a href="#services">Services</a></li>
+          <li><a href="#service">Services</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -106,135 +106,297 @@
         </div>
       </div>
     </section>
+<style>
+  .card-wrapper {
+    max-width: 700px;
+    margin: 0 60px 35px;
+    padding: 20px 10px;
+    overflow: hidden;
+}
 
-    <section class="section__container room__container">
-      <p class="section__subheader" id="events">Our Events</p>
-      <h2 class="section__header">The Most Memorable Time Starts Here.</h2>
-      <div class="room__grid">
-        <div class="room__card">
-          <div class="room__card__image">
-            <img src="../images/decor.jpg" alt="room" />
-            <div class="room__card__icons">
-              <span><i class="ri-heart-fill"></i></span>
-              <span><i class="ri-paint-fill"></i></span>
-              <span><i class="ri-shield-star-line"></i></span>
-            </div>
-          </div>
-          <div class="room__card__details">
-            <h4>Birthday</h4>
-            <p>
-              Bask in luxury with breathtaking ocean views from your private
-              suite.
-            </p>
-            <h5>Starting from <span>$299/night</span></h5>
-            <button class="btn">Book Now</button>
-          </div>
-        </div>
-        <div class="room__card">
-          <div class="room__card__image">
-            <img src="../images/dinner.jpg" alt="room" />
-            <div class="room__card__icons">
-              <span><i class="ri-heart-fill"></i></span>
-              <span><i class="ri-paint-fill"></i></span>
-              <span><i class="ri-shield-star-line"></i></span>
-            </div>
-          </div>
-          <div class="room__card__details">
-            <h4>Wedding</Video></h4>
-            <p>
-              Experience urban elegance and modern comfort in the heart of the
-              city.
-            </p>
-            <h5>Starting from <span>$199/night</span></h5>
-            <button class="btn">Book Now</button>
-          </div>
-        </div>
-        <div class="room__card">
-          <div class="room__card__image">
-            <img src="../images/stairs.jpg" alt="room" />
-            <div class="room__card__icons">
-              <span><i class="ri-heart-fill"></i></span>
-              <span><i class="ri-paint-fill"></i></span>
-              <span><i class="ri-shield-star-line"></i></span>
-            </div>
-          </div>
-          <div class="room__card__details">
-            <h4>Concert</h4>
-            <p>
-              Spacious and inviting, perfect for creating cherished memories
-              with loved ones.
-            </p>
-            <h5>Starting from <span>$249/night</span></h5>
-            <button class="btn">Book Now</button>
-          </div>
-        </div>
+.card-list .card-item {
+    list-style: none;
+}
+
+.card-list .card-item .card-link {
+    user-select: none;
+    display: block;
+    background:#fff;
+    padding: 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+    transition: 0.2s ease;
+}
+
+.card-list .card-item .card-link:active {
+    cursor: grabbing;
+}
+
+.card-list .card-item .card-link:hover {
+    border-color: #5372F0;
+}
+
+.card-list .card-link .card-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-list .card-link .badge {
+    color: #5372F0;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 16px 0 18px;
+    background:#DDE4FF;
+    width: fit-content;
+    border-radius: 50px;
+}
+
+.card-list .card-link .badge.anniversary {
+    color: #822485;
+    background:#F7DFF5;
+}
+    
+.card-list .card-link .badge.baby_shower {
+    color: #825A2B;
+    background: #FFE3D2;
+}
+
+.card-list .card-link .badge.birthday {
+    color: #205C20;
+    background: #D6F8D6;
+}
+    
+.card-list .card-link .badge.wedding {
+    color:#856404;
+    background:#fff3cd;
+}
+
+.card-list .card-link .badge.concert {
+    color:#856404;
+    background:#fff3cd;
+}
+    
+.card-list .card-link .card-title {
+    font-size: 1.19rem;
+    color: #000;
+    font-weight: 600;
+}
+
+.card-list .card-link .card-button {
+    height: 35px;
+    width: 35px;
+    color: #5372F0;
+    border-radius: 50%;
+    margin: 30px 0 5px;
+    background: none;
+    cursor: pointer;
+    border: 2px solid #5372F0;
+    transform: rotate(-45deg);
+    transition: 0.4s ease;
+}
+
+.card-list .card-link:hover .card-button {
+    color: #fff;
+    background: #5372F0;
+}
+
+.card-wrapper .swiper-pagination-bullet {
+    height: 13px;
+    width: 13px;
+    opacity: 0.5;
+    background: #5372F0;
+}
+
+.card-wrapper .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.card-wrapper .swiper-slide-button {
+    color: #5372F0;
+    margin-top: -35px;
+
+}
+
+@media screen and (max-width: 768px) {
+    .card-wrapper {
+        margin: 0 10px 25px;
+    }
+    .card-wrapper .swiper-slide-button {
+        display: none;
+    }
+}
+.card-wrapper {
+    max-width: 10000px; /* Increased max-width to accommodate three cards */
+}
+
+@media screen and (max-width: 768px) {
+    .card-wrapper {
+        margin: 0 10px 25px;
+    }
+    .card-wrapper .swiper-slide-button {
+        display: none;
+    }
+}
+
+</style>
+<!--Events Section-->
+<section class="section__container room__container" id="events">
+  <p class="section__subheader" id="section__subheader">Events</p>
+  <h2 class="section__header">The Most Memorable Time Starts Here.</h2>
+    <div class="container swiper">
+      <div class="card-wrapper">
+          <ul class="card-list swiper-wrapper">
+              <li class="card-item swiper-slide">
+                  <a href="#" class="card-link">
+                      <img src="../images/anniversary1.png" alt="Card Image" class="card-image">
+                      <p class="badge anniversary">anniversary</p>
+                      <h2 class="card-title">Lorem ipsum dolor sit explicabo adipisicing elit</h2>
+                      <button class="card-button material-symbols-outlined">arrow_forward</button>
+                  </a>
+              </li>
+              <li class="card-item swiper-slide">
+                  <a href="#" class="card-link">
+                      <img src="../images/baby_shower1.png" alt="Card Image"
+                      class="card-image">
+                      <p class="badge baby_shower">baby_shower</p>
+                      <h2 class="card-title">Lorem ipsum dolor sit explicabo adipisicing elit</h2>
+                      <button class="card-button material-symbols-outlined">arrow_forward</button>
+                  </a>
+              </li>
+
+              <li class="card-item swiper-slide">
+                  <a href="#" class="card-link">
+                      <img src="../images/birthday1.png" alt="Card Image"
+                      class="card-image">
+                      <p class="badge birthday">birthday</p>
+                      <h2 class="card-title">Lorem ipsum dolor sit explicabo adipisicing elit</h2>
+                      <button class="card-button material-symbols-outlined">arrow_forward</button>
+                  </a>
+              </li>
+
+              <li class="card-item swiper-slide">
+                  <a href="#" class="card-link">
+                      <img src="../images/wedding1.jpg" alt="Card Image"
+                      class="card-image">
+                      <p class="badge wedding">wedding</p>
+                      <h2 class="card-title">Lorem ipsum dolor sit explicabo adipisicing elit</h2>
+                      <button class="card-button material-symbols-outlined">arrow_forward</button>
+                  </a>
+              </li>
+
+              <li class="card-item swiper-slide">
+                  <a href="#" class="card-link">
+                      <img src="../images/concert1.png" alt="Card Image"
+                      class="card-image">
+                      <p class="badge concert">concert</p>
+                      <h2 class="card-title">Lorem ipsum dolor sit explicabo adipisicing elit</h2>
+                      <button class="card-button material-symbols-outlined">arrow_forward</button>
+                  </a>
+              </li>
+          </ul>
+
+          <div class="swiper-pagination"></div>
+          <div class="swiper-slide-button swiper-button-prev"></div>
+          <div class="swiper-slide-button swiper-button-next"></div>
       </div>
-    </section>
+  </div>
+  </section>
+  <!--Services Section-->
+<section class="section__container room__container" id="service">
+  <p class="section__subheader" id="section__subheader">Our Services</p>
+  <h2 class="section__header">The Most Memorable Time Starts Here.</h2>
+    <div class="container swiper">
+      <div class="card-wrapper">
+          <ul class="card-list swiper-wrapper">
+              <li class="card-item swiper-slide">
+                  <a href="#" class="card-link">
+                      <img src="../images/anniversary1.png" alt="Card Image" class="card-image">
+                      <p class="badge anniversary">Venue</p>
+                      <h2 class="card-title">Lorem ipsum dolor sit explicabo adipisicing elit</h2>
+                      <button class="card-button material-symbols-outlined">arrow_forward</button>
+                  </a>
+              </li>
+              <li class="card-item swiper-slide">
+                  <a href="#" class="card-link">
+                      <img src="../images/baby_shower1.png" alt="Card Image"
+                      class="card-image">
+                      <p class="badge baby_shower">Photography</p>
+                      <h2 class="card-title">Lorem ipsum dolor sit explicabo adipisicing elit</h2>
+                      <button class="card-button material-symbols-outlined">arrow_forward</button>
+                  </a>
+              </li>
 
-    <section class="section__container room__container">
-      <p class="section__subheader" id="services">Our Services</p>
-      <h2 class="section__header">Creating Events Tailored To Perfection</h2>
-      <div class="room__grid">
-        <div class="room__card">
-          <div class="room__card__image">
-            <img src="../images/decor.jpg" alt="room" />
-            <div class="room__card__icons">
-              <span><i class="ri-heart-fill"></i></span>
-              <span><i class="ri-paint-fill"></i></span>
-              <span><i class="ri-shield-star-line"></i></span>
-            </div>
-          </div>
-          <div class="room__card__details">
-            <h4>Venue Selection</h4>
-            <p>
-              Bask in luxury with breathtaking ocean views from your private
-              suite.
-            </p>
-            <h5>Starting from <span>$299/night</span></h5>
-            <button class="btn">Book Now</button>
-          </div>
-        </div>
-        <div class="room__card">
-          <div class="room__card__image">
-            <img src="../images/dinner.jpg" alt="room" />
-            <div class="room__card__icons">
-              <span><i class="ri-heart-fill"></i></span>
-              <span><i class="ri-paint-fill"></i></span>
-              <span><i class="ri-shield-star-line"></i></span>
-            </div>
-          </div>
-          <div class="room__card__details">
-            <h4>Food Catering</Video></h4>
-            <p>
-              Experience urban elegance and modern comfort in the heart of the
-              city.
-            </p>
-            <h5>Starting from <span>$199/night</span></h5>
-            <button class="btn">Book Now</button>
-          </div>
-        </div>
-        <div class="room__card">
-          <div class="room__card__image">
-            <img src="../images/stairs.jpg" alt="room" />
-            <div class="room__card__icons">
-              <span><i class="ri-heart-fill"></i></span>
-              <span><i class="ri-paint-fill"></i></span>
-              <span><i class="ri-shield-star-line"></i></span>
-            </div>
-          </div>
-          <div class="room__card__details">
-            <h4>Florists and decor</h4>
-            <p>
-              Spacious and inviting, perfect for creating cherished memories
-              with loved ones.
-            </p>
-            <h5>Starting from <span>$249/night</span></h5>
-            <button class="btn">Book Now</button>
-          </div>
-        </div>
+              <li class="card-item swiper-slide">
+                  <a href="#" class="card-link">
+                      <img src="../images/birthday1.png" alt="Card Image"
+                      class="card-image">
+                      <p class="badge birthday">Decor/Florists</p>
+                      <h2 class="card-title">Lorem ipsum dolor sit explicabo adipisicing elit</h2>
+                      <button class="card-button material-symbols-outlined">arrow_forward</button>
+                  </a>
+              </li>
+
+              <li class="card-item swiper-slide">
+                  <a href="#" class="card-link">
+                      <img src="../images/wedding1.jpg" alt="Card Image"
+                      class="card-image">
+                      <p class="badge wedding">Rentals</p>
+                      <h2 class="card-title">Lorem ipsum dolor sit explicabo adipisicing elit</h2>
+                      <button class="card-button material-symbols-outlined">arrow_forward</button>
+                  </a>
+              </li>
+
+              <li class="card-item swiper-slide">
+                  <a href="#" class="card-link">
+                      <img src="../images/concert1.png" alt="Card Image"
+                      class="card-image">
+                      <p class="badge concert">Other</p>
+                      <h2 class="card-title">Lorem ipsum dolor sit explicabo adipisicing elit</h2>
+                      <button class="card-button material-symbols-outlined">arrow_forward</button>
+                  </a>
+              </li>
+          </ul>
+
+          <div class="swiper-pagination"></div>
+          <div class="swiper-slide-button swiper-button-prev"></div>
+          <div class="swiper-slide-button swiper-button-next"></div>
       </div>
-    </section>
+  </div>
+  </section>
+  
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="../js/slide_img.js"></script>
 
+  <div class="section__container service__container">
+    <div class="service__content">
+      <p class="section__subheader">Why US?</p>
+      <h2 class="section__header">Strive Only For The Best.</h2>
+      <ul class="service__list">
+        <li>
+          <span><i class="ri-shield-star-line"></i></span>
+          High Class service
+        </li>
+        <li>
+          <span><i class="ri-24-hours-line"></i></span>
+          100% Work Progress
+        </li>
+        <li>
+          <span><i class="ri-headphone-line"></i></span>
+         100% Trustworthy
+        </li>
+        <li>
+          <span><i class="ri-map-2-line"></i></span>
+          100% Support
+        </li>
+      </ul>
+    </div>
+  </div>
     <section class="section__container banner__container">
       <div class="banner__content">
         <div class="banner__card">
@@ -252,7 +414,6 @@
       </div>
     </section>
 
-    
     <section class="contact" id="contact">
         <h1 class="heading"><span>FeedBack</span> </h1>
   

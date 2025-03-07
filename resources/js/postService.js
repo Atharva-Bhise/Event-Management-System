@@ -8,22 +8,32 @@ document.getElementById('addPicture').addEventListener('click', function () {
   `;
   uploadContainer.appendChild(newInputGroup);
 });
+document.addEventListener('DOMContentLoaded', function () {
+    // Event selection logic
+    document.getElementById('eventSelect').addEventListener('change', function() {
+        const otherEventInput = document.getElementById('otherEvent');
+        otherEventInput.classList.toggle('hidden', this.value !== 'other');
+    });
 
-// Event delegation for dynamically added elements
-document.addEventListener('change', function (event) {
-  if (event.target.id === 'otherServiceCheck') {
-      document.getElementById('otherService').classList.toggle('hidden', !event.target.checked);
-  }
-  document.getElementById('eventSelect').addEventListener('change', function() {
-    const otherEventInput = document.getElementById('otherEvent');
-    otherEventInput.classList.toggle('hidden', this.value !== 'other');
-  });
-  if (event.target.classList.contains('service-check')) {
-      const priceInput = event.target.parentElement.querySelector('.price-input');
-      const descriptionInput = event.target.parentElement.querySelector('.description-input');
-      priceInput.classList.toggle('hidden', !event.target.checked);
-      descriptionInput.classList.toggle('hidden', !event.target.checked);
-  }
+    // Service selection logic
+    document.addEventListener('change', function (event) {
+        if (event.target.id === 'otherServiceCheck') {
+            document.getElementById('otherService').classList.toggle('hidden', !event.target.checked);
+            document.getElementById('otherServicePrice').classList.toggle('hidden', !event.target.checked);
+            document.getElementById('otherServiceDescription').classList.toggle('hidden', !event.target.checked);
+
+        }
+
+        if (event.target.classList.contains('service-check')) {
+            const priceInput = event.target.closest('.form-check').querySelector('.price-input');
+            const descriptionInput = event.target.closest('.form-check').querySelector('.description-input');
+
+            if (priceInput && descriptionInput) {
+                priceInput.classList.toggle('hidden', !event.target.checked);
+                descriptionInput.classList.toggle('hidden', !event.target.checked);
+            }
+        }
+    });
 });
 
 // Function to show the slide-in message

@@ -104,7 +104,7 @@ CREATE TABLE Events_Photos (
     photo_id SERIAL PRIMARY KEY,
     event_id INT REFERENCES Events(event_id) ON DELETE CASCADE,
     photo_path TEXT NOT NULL,
-    photo_description INT
+    photo_description TEXT
 );
 
 --Creating Services Table for Event Services (One-to-Many Relationship)

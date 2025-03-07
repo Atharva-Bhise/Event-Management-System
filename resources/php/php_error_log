@@ -329,3 +329,11 @@ LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
 [05-Mar-2025 15:32:02 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
 LINE 1: INSERT INTO Events_Photos (event_id, photo_path, photo_descr...
                                                          ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\PostServiceFormProcess.php on line 78
+[05-Mar-2025 15:45:26 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741185926_Screenshot (7).png
+[05-Mar-2025 15:50:08 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741186208_WIN_20230405_15_41_22_Pro.jpg
+[05-Mar-2025 15:50:08 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741186208_WIN_20230417_17_45_44_Pro.jpg
+[05-Mar-2025 15:50:08 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741186208_WIN_20230417_17_48_03_Pro.jpg
+[05-Mar-2025 15:51:56 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741186316_Screenshot_2025-02-14-19-43-49-96_99c04817c0de5652397fc8b56c3b3817[1].jpg
+[05-Mar-2025 15:51:56 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741186316_Screenshot_2025-02-13-21-07-45-65_99c04817c0de5652397fc8b56c3b3817[1].jpg
+[05-Mar-2025 15:53:43 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741186423_Screenshot (8).png
+[07-Mar-2025 13:46:36 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741351596_Screenshot (27).png
