@@ -281,3 +281,59 @@ LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
 [05-Mar-2025 12:19:32 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741173572_DSC01705.JPG
 [05-Mar-2025 12:19:32 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741173572_DSC01709.JPG
 [05-Mar-2025 13:45:50 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741178750_wallpaperflare.com_wallpaper.jpg
+[05-Mar-2025 14:49:11 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741182551_WIN_20230405_15_41_22_Pro.jpg
+[05-Mar-2025 14:49:11 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
+LINE 1: INSERT INTO Events_Photos (event_id, photo_path, photo_descr...
+                                                         ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\PostServiceFormProcess.php on line 78
+[05-Mar-2025 14:50:42 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741182642_WIN_20230417_17_45_44_Pro.jpg
+[05-Mar-2025 14:50:42 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
+LINE 1: INSERT INTO Events_Photos (event_id, photo_path, photo_descr...
+                                                         ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\PostServiceFormProcess.php on line 78
+[05-Mar-2025 14:53:34 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741182814_Screenshot_2025-02-14-19-43-49-96_99c04817c0de5652397fc8b56c3b3817[1].jpg
+[05-Mar-2025 14:53:34 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
+LINE 1: INSERT INTO Events_Photos (event_id, photo_path, photo_descr...
+                                                         ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\PostServiceFormProcess.php on line 78
+[05-Mar-2025 14:56:27 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741182987_Screenshot_2025-02-14-19-43-49-96_99c04817c0de5652397fc8b56c3b3817[1].jpg
+[05-Mar-2025 14:56:27 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
+LINE 1: INSERT INTO Events_Photos (event_id, photo_path, photo_descr...
+                                                         ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\PostServiceFormProcess.php on line 78
+[05-Mar-2025 14:56:34 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\YourServiceFormProcess.php on line 54
+[05-Mar-2025 14:56:34 Europe/Berlin] Fetch Services Error: Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^
+[05-Mar-2025 14:56:36 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\YourServiceFormProcess.php on line 54
+[05-Mar-2025 14:56:36 Europe/Berlin] Fetch Services Error: Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^
+[05-Mar-2025 14:56:47 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\YourServiceFormProcess.php on line 54
+[05-Mar-2025 14:56:47 Europe/Berlin] Fetch Services Error: Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^
+[05-Mar-2025 15:20:17 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741184417_Screenshot_2025-02-13-21-07-45-65_99c04817c0de5652397fc8b56c3b3817[1].jpg
+[05-Mar-2025 15:20:17 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
+LINE 1: INSERT INTO Events_Photos (event_id, photo_path, photo_descr...
+                                                         ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\PostServiceFormProcess.php on line 78
+[05-Mar-2025 15:20:29 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\YourServiceFormProcess.php on line 54
+[05-Mar-2025 15:20:29 Europe/Berlin] Fetch Services Error: Query failed: ERROR:  column ep.photo_description does not exist
+LINE 7: ...               SELECT ep.photo_id, ep.photo_path, ep.photo_d...
+                                                             ^
+[05-Mar-2025 15:32:02 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741185122_Screenshot (2).png
+[05-Mar-2025 15:32:02 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;photo_description&quot; of relation &quot;events_photos&quot; does not exist
+LINE 1: INSERT INTO Events_Photos (event_id, photo_path, photo_descr...
+                                                         ^ in C:\xampp\htdocs\22\project\Event-Management-System\resources\php\PostServiceFormProcess.php on line 78
+[05-Mar-2025 15:45:26 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741185926_Screenshot (7).png
+[05-Mar-2025 15:50:08 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741186208_WIN_20230405_15_41_22_Pro.jpg
+[05-Mar-2025 15:50:08 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741186208_WIN_20230417_17_45_44_Pro.jpg
+[05-Mar-2025 15:50:08 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741186208_WIN_20230417_17_48_03_Pro.jpg
+[05-Mar-2025 15:51:56 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741186316_Screenshot_2025-02-14-19-43-49-96_99c04817c0de5652397fc8b56c3b3817[1].jpg
+[05-Mar-2025 15:51:56 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741186316_Screenshot_2025-02-13-21-07-45-65_99c04817c0de5652397fc8b56c3b3817[1].jpg
+[05-Mar-2025 15:53:43 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741186423_Screenshot (8).png
+[07-Mar-2025 13:46:36 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741351596_Screenshot (27).png
