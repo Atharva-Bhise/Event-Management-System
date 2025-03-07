@@ -9,10 +9,6 @@
    border: none;
    text-decoration: none;
    text-transform: capitalize;
-<<<<<<< HEAD
-   transition: all 0.2s linear;
-=======
->>>>>>> 76d18f2d02bcda9ad64758e654a193d8f2d748c2
 }
 
 body {
@@ -44,14 +40,6 @@ body {
    border-radius: 5px;
    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
    display: none;
-<<<<<<< HEAD
-}
-
-.container .box-container .box:nth-child(1),
-.container .box-container .box:nth-child(2),
-.container .box-container .box:nth-child(3) {
-   display: inline-block;
-=======
    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -66,21 +54,17 @@ body {
 .container .box-container .box:hover {
    transform: scale(1.02);
    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
-<<<<<<< HEAD
->>>>>>> 76d18f2d02bcda9ad64758e654a193d8f2d748c2
-=======
+
    border-radius: 5px;
->>>>>>> 0bdafadcd31479f1af2c23a45ba85675127418c5
 }
 
 .container .box-container .box .image {
    margin-bottom: 20px;
    overflow: hidden;
-<<<<<<< HEAD
+ 
    height: 250px;
-=======
+
    height: 200px;
->>>>>>> 76d18f2d02bcda9ad64758e654a193d8f2d748c2
    border-radius: 5px;
 }
 
@@ -88,15 +72,11 @@ body {
    height: 100%;
    width: 100%;
    object-fit: cover;
-<<<<<<< HEAD
-=======
+
    transition: transform 0.3s ease-in-out;
-<<<<<<< HEAD
->>>>>>> 76d18f2d02bcda9ad64758e654a193d8f2d748c2
-=======
+
    border-radius: 5px;
 
->>>>>>> 0bdafadcd31479f1af2c23a45ba85675127418c5
 }
 
 .container .box-container .box:hover .image img {
@@ -112,45 +92,14 @@ body {
 .container .box-container .box .content p {
    font-size: 15px;
    color: #777;
-<<<<<<< HEAD
-   line-height: 2;
-   padding: 15px 0;
-}
-
-.container .box-container .box .content .btn {
-   display: inline-block;
-   padding: 10px 30px;
-   border: 1px solid #334;
-   color: #334;
-   font-size: 16px;
-}
-
-.container .box-container .box .content .btn:hover {
-   background-color: crimson;
-   border-color: crimson;
-   color: #fff;
-=======
    line-height: 1.8;
    padding: 10px 0;
->>>>>>> 76d18f2d02bcda9ad64758e654a193d8f2d748c2
 }
 
 .container .box-container .box .content .icons {
    display: flex;
    align-items: center;
    justify-content: space-between;
-<<<<<<< HEAD
-   margin-top: 20px;
-   padding-top: 15px;
-   border-top: 1px solid #334;
-}
-
-.container .box-container .box .content .icons span i {
-   color: crimson;
-   padding-right: 5px;
-}
-
-=======
    margin-top: 15px;
    padding-top: 10px;
    border-top: 1px solid #334;
@@ -230,7 +179,6 @@ button.prev, button.next {
 button.prev { left: 0; }
 button.next { right: 0; }
 
->>>>>>> 76d18f2d02bcda9ad64758e654a193d8f2d748c2
 #load-more {
    margin-top: 20px;
    display: inline-block;
@@ -240,51 +188,13 @@ button.next { right: 0; }
    font-size: 16px;
    background-color: #fff;
    cursor: pointer;
-<<<<<<< HEAD
-=======
    transition: background-color 0.3s, border-color 0.3s, transform 0.2s ease-in-out;
->>>>>>> 76d18f2d02bcda9ad64758e654a193d8f2d748c2
 }
 
 #load-more:hover {
    background-color: crimson;
    border-color: crimson;
    color: #fff;
-<<<<<<< HEAD
-}
-
-.actions span {
-   display: inline-block;
-   font-size: 1.5rem;
-   margin-right: 0.5rem;
-   cursor: pointer;
-}
-
-.servicesDetails {
-   max-height: 0;
-   overflow: hidden;
-   transition: max-height 0.5s ease-in-out, padding 0.3s ease-in-out;
-   background-color: #ffffff;
-   margin-top: 10px;
-   padding: 0 15px;
-   border-radius: 5px;
-   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-.servicesDetails.show {
-   max-height: 1000px; /* Large enough to expand fully */
-   padding: 15px; /* Add padding when expanded */
-}
-
-.box.expanded {
-   transition: padding-bottom 0.3s ease-in-out;
-   padding-bottom: 20px;
-}
-
-@media (max-width: 450px) {
-   .container .heading {
-      font-size: 25px;
-=======
    transform: scale(1.05);
 }
 
@@ -292,7 +202,6 @@ button.next { right: 0; }
 @media (max-width: 768px) {
    .container .heading {
       font-size: 30px;
->>>>>>> 76d18f2d02bcda9ad64758e654a193d8f2d748c2
    }
 
    .container .box-container {
@@ -304,8 +213,6 @@ button.next { right: 0; }
    }
 
    .container .box-container .box .content p {
-<<<<<<< HEAD
-=======
       font-size: 14px;
    }
 
@@ -320,15 +227,10 @@ button.next { right: 0; }
    }
 
    .container .box-container .box .content p {
->>>>>>> 76d18f2d02bcda9ad64758e654a193d8f2d748c2
       font-size: 12px;
    }
 
    .container .box-container .box .content .icons span {
       font-size: 12px;
    }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 76d18f2d02bcda9ad64758e654a193d8f2d748c2
