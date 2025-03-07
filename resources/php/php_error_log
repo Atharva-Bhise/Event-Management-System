@@ -281,3 +281,37 @@ LINE 5:         LEFT JOIN Services_Photos sp ON s.service_id = sp.se...
 [05-Mar-2025 12:19:32 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741173572_DSC01705.JPG
 [05-Mar-2025 12:19:32 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741173572_DSC01709.JPG
 [05-Mar-2025 13:45:50 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741178750_wallpaperflare.com_wallpaper.jpg
+[06-Mar-2025 06:58:59 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741240739_Screenshot (3).png
+[06-Mar-2025 06:58:59 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741240739_Screenshot (1).png
+[06-Mar-2025 20:31:10 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  invalid input syntax for type numeric: &quot;10$&quot; in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateServicesFormProcess.php on line 43
+[06-Mar-2025 20:31:10 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateServicesFormProcess.php on line 43
+[06-Mar-2025 20:41:00 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  invalid input syntax for type numeric: &quot;20000$&quot; in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateServicesFormProcess.php on line 43
+[06-Mar-2025 20:41:00 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  current transaction is aborted, commands ignored until end of transaction block in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateServicesFormProcess.php on line 43
+[06-Mar-2025 21:25:21 Europe/Berlin] PHP Warning:  pg_fetch_result(): Unable to jump to row 0 on PostgreSQL result index 2111576971608 in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateServicesFormProcess.php on line 53
+[06-Mar-2025 21:25:21 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  invalid input syntax for integer: &quot;&quot; in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateServicesFormProcess.php on line 56
+[06-Mar-2025 21:25:21 Europe/Berlin] Update Service Error: Error updating Services table: ERROR:  invalid input syntax for integer: ""
+[06-Mar-2025 21:29:45 Europe/Berlin] Update Service Error: Error fetching service_id: 
+[06-Mar-2025 21:36:07 Europe/Berlin] Update Service Error: Error fetching service_id: 
+[06-Mar-2025 21:40:19 Europe/Berlin] Update Service Error: Error fetching service_id: 
+[06-Mar-2025 21:41:57 Europe/Berlin] Update Service Error: Error fetching service_id: 
+[06-Mar-2025 21:48:06 Europe/Berlin] Update Service Error: Error fetching service_id: 
+[06-Mar-2025 21:48:26 Europe/Berlin] Update Service Error: Error fetching service_id: 
+[06-Mar-2025 21:52:41 Europe/Berlin] Update Service Error: Error fetching service_id: 
+[06-Mar-2025 21:57:48 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateServicesFormProcess.php on line 47
+[06-Mar-2025 21:57:48 Europe/Berlin] Update Service Error: Error fetching service_id: 
+[06-Mar-2025 21:58:21 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateServicesFormProcess.php on line 47
+[06-Mar-2025 21:58:21 Europe/Berlin] Update Service Error: Error fetching service_id: 
+[06-Mar-2025 22:05:51 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateServicesFormProcess.php on line 47
+[06-Mar-2025 22:05:51 Europe/Berlin] Update Service Error: Error fetching service_id: 
+[07-Mar-2025 12:30:01 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateServicesFormProcess.php on line 47
+[07-Mar-2025 12:30:01 Europe/Berlin] Update Service Error: Error fetching service_id: 
+[07-Mar-2025 12:30:13 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateServicesFormProcess.php on line 47
+[07-Mar-2025 12:30:13 Europe/Berlin] Update Service Error: Error fetching service_id: 
+[07-Mar-2025 12:40:29 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateServicesFormProcess.php on line 47
+[07-Mar-2025 12:40:29 Europe/Berlin] Update Service Error: Error fetching service_id: 
+[07-Mar-2025 13:01:42 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateServicesFormProcess.php on line 47
+[07-Mar-2025 13:01:42 Europe/Berlin] Update Service Error: Error fetching service_id: 
+[07-Mar-2025 13:04:14 Europe/Berlin] Update Service Error: Error fetching service_id: 
+[07-Mar-2025 13:19:34 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741349974_DSC01968.JPG
+[07-Mar-2025 13:19:34 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741349974_DSC01979.JPG
+[07-Mar-2025 13:19:34 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741349974_DSC01981.JPG
