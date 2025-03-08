@@ -1,0 +1,8 @@
+[08-Mar-2025 14:19:03 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[08-Mar-2025 14:19:03 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[08-Mar-2025 14:23:46 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[08-Mar-2025 14:23:46 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[08-Mar-2025 14:25:13 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[08-Mar-2025 14:25:13 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[08-Mar-2025 14:25:13 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[08-Mar-2025 14:25:13 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46

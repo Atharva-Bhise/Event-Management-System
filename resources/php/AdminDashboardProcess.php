@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $logged = json_decode($jsonData, true);
         if ($logged !== null) {
             // Sanitize input
-            $status = trim($logged['login_status']);    
+            $status = trim($loginStatus);    
             if ($status === "loggedOff") {
                 $query = "UPDATE admin_logged
                         SET admin_loggedout_time = CURRENT_TIMESTAMP
