@@ -230,6 +230,91 @@ document.addEventListener("DOMContentLoaded", function () {
         xhr.send(JSON.stringify({ eventId, data, eventName }));
     }
 
+    // Event delegation for delete button
+    document.querySelector('.box-container').addEventListener("click", function (e) {
+        let deleteBtn = e.target.closest(".delete");
+        if (!deleteBtn) return;
+
+        let box = deleteBtn.closest(".box");
+        if (!box) return console.error(`Box not found! Event target: ${e.target.tagName}, Event type: ${e.type}, Context: Delete button click handler`);
+
+        let eventId = box.getAttribute("data-event-id");
+        if (!eventId) return console.error("Event ID not found!");
+
+        // Toggle confirmation buttons
+        let existingConfirmBtn = box.querySelector('.confirm-btn');
+        let existingCancelBtn = box.querySelector('.cancel-btn');
+
+        if (existingConfirmBtn && existingCancelBtn) {
+            existingConfirmBtn.remove();
+            existingCancelBtn.remove();
+            return;
+        }
+
+        // Create confirmation buttons
+        let confirmBtn = document.createElement('button');
+        confirmBtn.className = 'confirm-btn';
+        confirmBtn.style.backgroundColor = 'red';
+        confirmBtn.style.color = 'white';
+        confirmBtn.style.cursor = 'pointer';
+        confirmBtn.style.marginLeft = '10px';
+        confirmBtn.style.padding = '5px';
+        confirmBtn.textContent = 'CONFIRM';
+
+        let cancelBtn = document.createElement('button');
+        cancelBtn.className = 'cancel-btn';
+        cancelBtn.style.backgroundColor = 'green';
+        cancelBtn.style.color = 'white';
+        cancelBtn.style.cursor = 'pointer';
+        cancelBtn.style.marginLeft = '10px';
+        cancelBtn.style.padding = '5px';
+        cancelBtn.textContent = 'CANCEL';
+
+        let actionsContainer = deleteBtn.closest('.actions');
+        actionsContainer.appendChild(confirmBtn);
+        actionsContainer.appendChild(cancelBtn);
+
+        // Event listener for confirm button
+        confirmBtn.addEventListener('click', function () {
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "../php/DeleteEventProcess.php", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        try {
+                            const response = JSON.parse(xhr.responseText);
+                            if (response.status === "success") {
+                                showSlideMessage(response.message);
+                                box.remove(); // Remove the box from the DOM
+                            } else {
+                                showSlideMessage(response.message);
+                            }
+                        } catch (e) {
+                            console.error("Invalid server response:", e);
+                        }
+                    } else {
+                        console.error("Request failed with status:", xhr.status);
+                    }
+                }
+            };
+
+            xhr.onerror = function () {
+                alert("Request failed due to a network error.");
+            };
+
+            xhr.send(JSON.stringify({ eventId }));
+            confirmBtn.remove(); // Remove the confirm button
+            cancelBtn.remove(); // Remove the cancel button
+        });
+
+        // Event listener for cancel button
+        cancelBtn.addEventListener('click', function () {
+            confirmBtn.remove(); // Remove the confirm button
+            cancelBtn.remove(); // Remove the cancel button
+        });
+    });
     // Load More Functionality
     loadMoreBtn.onclick = () => {
         let hiddenBoxes = document.querySelectorAll('.box-container .box.hidden');
