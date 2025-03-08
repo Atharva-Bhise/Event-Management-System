@@ -54,12 +54,16 @@ body {
 .container .box-container .box:hover {
    transform: scale(1.02);
    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+
    border-radius: 5px;
 }
 
 .container .box-container .box .image {
    margin-bottom: 20px;
    overflow: hidden;
+ 
+   height: 250px;
+
    height: 200px;
    border-radius: 5px;
 }
@@ -68,7 +72,9 @@ body {
    height: 100%;
    width: 100%;
    object-fit: cover;
+
    transition: transform 0.3s ease-in-out;
+
    border-radius: 5px;
 
 }

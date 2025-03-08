@@ -18,8 +18,8 @@ toggleBtn.onclick = () => {
 
 document.addEventListener("scroll", () => {
   menu.classList.remove("fa-times");
-  navbar.classList.remove("active");
-  themeToggler.classList.remove("active");
+  //navbar.classList.remove("active");
+  //themeToggler.classList.remove("active");
 });
 
 
