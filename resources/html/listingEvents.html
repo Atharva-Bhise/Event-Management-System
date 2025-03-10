@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staybnb EASY TUTORIALS</title>
+    <link rel="stylesheet" href="../css/listing.css">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+        }
+        .navbar-white {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: white;
+            border-bottom: 1px solid #ddd;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .register-btn {
+            background: #ff5a5f;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+        .list-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .left-col {
+            width: 65%;
+        }
+        .right-col {
+            width: 30%;
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .house {
+            display: flex;
+            background: white;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .house img {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .house-info {
+            margin-left: 15px;
+        }
+        .house-info h3 {
+            margin: 5px 0;
+        }
+        .house-price {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .pagination {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .pagination span {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f8f8;
+        }
+        .footer i {
+            margin: 0 10px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+   
+    
+    <div class="container">
+        <div class="list-container">
+            <div class="left-col">
+                <h1>Event: </h1>
+                <div class="house">
+                    <img src="../images/birthday1.png">
+                    <div class="house-info">
+                        <h3>Rare Beauty</h3>
+                        <p>Venue</p>
+                        <div class="house-price">$100 / day</div>
+                    </div>
+                </div>
+                <div class="house">
+                    <img src="../images/anniversary1.png">
+                    <div class="house-info">
+                        <h3>Disco xyz</h3>
+                        <p>Photography and Rentals</p>
+                        <div class="house-price">$100 / day</div>
+                    </div>
+                </div>
+                <div class="house">
+                    <img src="../images/birthday3.png">
+                    <div class="house-info">
+                        <h3>Charm Events</h3>
+                        <p>Decor/ Florits</p>
+                        <div class="house-price">$100 / day</div>
+                    </div>
+                </div>
+                <div class="house">
+                    <img src="../images/baby_shower2.png">
+                    <div class="house-info">
+                        <h3>ABC Evnets</h3>
+                        <p>Whole Events</p>
+                        <div class="house-price">$100 / day</div>
+                    </div>
+                </div>
+                <div class="house">
+                    <img src="../images/baby_shower1.png">
+                    <div class="house-info">
+                        <h3>ABC Evnets</h3>
+                        <p>Whole Events</p>
+                        <div class="house-price">$100 / day</div>
+                    </div>
+                </div>
+                <div class="house">
+                    <img src="../images/anniversary4.jpg">
+                    <div class="house-info">
+                        <h3>ABC Evnets</h3>
+                        <p>Whole Events</p>
+                        <div class="house-price">$100 / day</div>
+                    </div>
+                </div>
+                <div class="house">
+                    <img src="../images/birthday4.jpg">
+                    <div class="house-info">
+                        <h3>ABC Evnets</h3>
+                        <p>Whole Events</p>
+                        <div class="house-price">$100 / day</div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-col">
+                <h2> Filters</h2>
+                <h3>Services</h3>
+                <p><input type="checkbox">Whole Event</p>
+
+                <p><input type="checkbox"> Venue</p>
+                <p><input type="checkbox"> Photography</p>
+                <p><input type="checkbox"> Decor/Florists</p>
+                <p><input type="checkbox"> Food Catering</p>
+                <p><input type="checkbox"> Rentals</p>
+                <p><input type="checkbox"> Other</p>
+            </div>
+        </div>
+        <div class="pagination">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+        </div>
+        <div class="footer">
+            <p>Copyright &copy; 2021, Easy Tutorials.</p>
+        </div>
+    </div>
+    
+    <script>
+        function togglebtn() {
+            document.getElementById("navBar").classList.toggle("hidemenu");
+        }
+    </script>
+</body>
+</html>
