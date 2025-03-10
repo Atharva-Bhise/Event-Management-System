@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $logged = json_decode($jsonData, true);
         if ($logged !== null) {
             // Sanitize input
-            $status = trim($logged['login_status']);    
+            $status = trim($loginStatus);    
             if ($status === "loggedOff") {
                 $query = "UPDATE admin_logged
                         SET admin_loggedout_time = CURRENT_TIMESTAMP
@@ -62,11 +62,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $userCountQuery = "SELECT count(user_id) FROM users;";
     $result = pg_query($conn, $userCountQuery);
     
-    if ($result) {
+    $eventCountQuery = "SELECT count(event_id) FROM events;";
+    $eventCountQueryResult = pg_query($conn, $eventCountQuery);
+    if ($result && $eventCountQueryResult) {
         $row = pg_fetch_assoc($result); 
-
-        if ($row) {
-            echo json_encode(["status" => "success", "adminName" => $adminName, "userCount" => $row['count']]);                  
+        $eventRow = pg_fetch_assoc($eventCountQueryResult);
+        if ($row && $eventRow) {
+            echo json_encode(["status" => "success", "adminName" => $adminName, "userCount" => $row['count'], "eventsCount" => $eventRow['count']]);                  
         } else {
             echo json_encode(["status" => "error", "message" => "No user found."]);
         }

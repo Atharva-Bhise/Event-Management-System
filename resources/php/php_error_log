@@ -1,0 +1,51 @@
+[08-Mar-2025 14:19:03 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[08-Mar-2025 14:19:03 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[08-Mar-2025 14:23:46 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[08-Mar-2025 14:23:46 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[08-Mar-2025 14:25:13 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[08-Mar-2025 14:25:13 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[08-Mar-2025 14:25:13 Europe/Berlin] PHP Warning:  Undefined array key "login_status" in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[08-Mar-2025 14:25:13 Europe/Berlin] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\AdminDashboardProcess.php on line 46
+[10-Mar-2025 11:36:19 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + int in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateOrganizerDetailsProcess.php:64
+Stack trace:
+#0 [internal function]: {closure}('organizer_city', 'organizer_city')
+#1 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateOrganizerDetailsProcess.php(64): array_map(Object(Closure), Array, Array)
+#2 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateOrganizerDetailsProcess.php on line 64
+[10-Mar-2025 12:02:12 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + int in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateOrganizerDetailsProcess.php:76
+Stack trace:
+#0 [internal function]: {closure}('organizer_login...', 'organizer_login...')
+#1 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateOrganizerDetailsProcess.php(76): array_map(Object(Closure), Array, Array)
+#2 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateOrganizerDetailsProcess.php on line 76
+[10-Mar-2025 12:47:44 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  syntax error at or near &quot;=&quot;
+LINE 1: UPDATE Organizer_Login SET  = $1,  = $0 WHERE organizer_id =...
+                                    ^ in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateOrganizerDetailsProcess.php on line 88
+[10-Mar-2025 12:47:44 Europe/Berlin] Login update query failed: ERROR:  syntax error at or near "="
+LINE 1: UPDATE Organizer_Login SET  = $1,  = $0 WHERE organizer_id =...
+                                    ^
+[10-Mar-2025 15:01:20 Europe/Berlin] PHP Warning:  Undefined variable $fetchPhotosResult in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteOrganizerProcess.php on line 48
+[10-Mar-2025 15:01:20 Europe/Berlin] Delete Organizer Error: Error fetching event photos: 
+[10-Mar-2025 15:11:15 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741615875_wallpaperflare.com_wallpaper (1).jpg
+[10-Mar-2025 15:12:27 Europe/Berlin] PHP Warning:  Undefined variable $fileUploadFolder in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteOrganizerProcess.php on line 54
+[10-Mar-2025 15:12:27 Europe/Berlin] PHP Deprecated:  str_replace(): Passing null to parameter #2 ($replace) of type array|string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteOrganizerProcess.php on line 54
+[10-Mar-2025 15:12:27 Europe/Berlin] Attempting to delete: 
+[10-Mar-2025 15:12:27 Europe/Berlin] File not found: 
+[10-Mar-2025 15:18:29 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741616309_wallpaperflare.com_wallpaper.jpg
+[10-Mar-2025 15:20:59 Europe/Berlin] PHP Warning:  Undefined variable $fileUploadFolder in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteOrganizerProcess.php on line 54
+[10-Mar-2025 15:20:59 Europe/Berlin] PHP Deprecated:  str_replace(): Passing null to parameter #2 ($replace) of type array|string is deprecated in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteOrganizerProcess.php on line 54
+[10-Mar-2025 15:20:59 Europe/Berlin] Attempting to delete: 
+[10-Mar-2025 15:20:59 Europe/Berlin] File not found: 
+[10-Mar-2025 15:27:12 Europe/Berlin] File uploaded successfully: C:/xampp/htdocs/uploads/1741616832_wallpaperflare.com_wallpaper.jpg
+[10-Mar-2025 15:28:02 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: str_replace(): Argument #2 ($replace) must be of type array|string, PgSql\Result given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteOrganizerProcess.php:54
+Stack trace:
+#0 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteOrganizerProcess.php(54): str_replace('/xampp/htdocs/u...', Object(PgSql\Result), '/xampp/htdocs/u...')
+#1 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteOrganizerProcess.php on line 54
+[10-Mar-2025 15:29:19 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: str_replace(): Argument #2 ($replace) must be of type array|string, PgSql\Result given in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteOrganizerProcess.php:54
+Stack trace:
+#0 C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteOrganizerProcess.php(54): str_replace('/xampp/htdocs/u...', Object(PgSql\Result), '/xampp/htdocs/u...')
+#1 {main}
+  thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteOrganizerProcess.php on line 54
+[10-Mar-2025 15:34:58 Europe/Berlin] Attempting to delete: C:\xampp\htdocs\uploads\1741616832_wallpaperflare.com_wallpaper.jpg
+[10-Mar-2025 15:34:58 Europe/Berlin] Successfully deleted: C:\xampp\htdocs\uploads\1741616832_wallpaperflare.com_wallpaper.jpg
