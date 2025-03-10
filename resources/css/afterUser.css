@@ -159,7 +159,7 @@
 
 .section__subheader {
     font-size: 1.5rem;
-    color: #5372F0;
+    color: #492e1d;
     margin-bottom: 10px;
 }
 
@@ -229,11 +229,11 @@
 }
 
 .room__card__details span {
-    color: #5372F0;
+    color: #7b4c2e;
 }
 
 .btn {
-    background: #5372F0;
+    background: #926b51;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -243,7 +243,7 @@
 }
 
 .btn:hover {
-    background: #4056a1;
+    background: #492e1d;
 }
 
 /* Swiper pagination and navigation styles */
@@ -254,7 +254,7 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-    color: #5372F0;
+    color: #7b4c2e;
 }
 
 /* Responsive adjustments */
