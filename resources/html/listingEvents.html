@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staybnb EASY TUTORIALS</title>
+    <title>Events</title>
     <link rel="stylesheet" href="../css/listing.css">
-    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -97,99 +97,47 @@
             font-size: 18px;
             color: #333;
         }
+        #eventName{
+            text-transform: capitalize;
+        }
+        @media (max-width: 768px) {
+            .list-container {
+                flex-direction: column;
+            }
+            .left-col, .right-col {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
-   
-    
+
     <div class="container">
         <div class="list-container">
             <div class="left-col">
-                <h1>Event: </h1>
-                <div class="house">
-                    <img src="../images/birthday1.png">
-                    <div class="house-info">
-                        <h3>Rare Beauty</h3>
-                        <p>Venue</p>
-                        <div class="house-price">$100 / day</div>
-                    </div>
-                </div>
-                <div class="house">
-                    <img src="../images/anniversary1.png">
-                    <div class="house-info">
-                        <h3>Disco xyz</h3>
-                        <p>Photography and Rentals</p>
-                        <div class="house-price">$100 / day</div>
-                    </div>
-                </div>
-                <div class="house">
-                    <img src="../images/birthday3.png">
-                    <div class="house-info">
-                        <h3>Charm Events</h3>
-                        <p>Decor/ Florits</p>
-                        <div class="house-price">$100 / day</div>
-                    </div>
-                </div>
-                <div class="house">
-                    <img src="../images/baby_shower2.png">
-                    <div class="house-info">
-                        <h3>ABC Evnets</h3>
-                        <p>Whole Events</p>
-                        <div class="house-price">$100 / day</div>
-                    </div>
-                </div>
-                <div class="house">
-                    <img src="../images/baby_shower1.png">
-                    <div class="house-info">
-                        <h3>ABC Evnets</h3>
-                        <p>Whole Events</p>
-                        <div class="house-price">$100 / day</div>
-                    </div>
-                </div>
-                <div class="house">
-                    <img src="../images/anniversary4.jpg">
-                    <div class="house-info">
-                        <h3>ABC Evnets</h3>
-                        <p>Whole Events</p>
-                        <div class="house-price">$100 / day</div>
-                    </div>
-                </div>
-                <div class="house">
-                    <img src="../images/birthday4.jpg">
-                    <div class="house-info">
-                        <h3>ABC Evnets</h3>
-                        <p>Whole Events</p>
-                        <div class="house-price">$100 / day</div>
-                    </div>
-                </div>
+                <h1 id="eventName">Loading...</h1>
+                <div id="eventsContainer"></div>
             </div>
             <div class="right-col">
-                <h2> Filters</h2>
+                <h2>Filters</h2>
                 <h3>Services</h3>
-                <p><input type="checkbox">Whole Event</p>
-
-                <p><input type="checkbox"> Venue</p>
-                <p><input type="checkbox"> Photography</p>
-                <p><input type="checkbox"> Decor/Florists</p>
-                <p><input type="checkbox"> Food Catering</p>
-                <p><input type="checkbox"> Rentals</p>
-                <p><input type="checkbox"> Other</p>
+                <p><input type="checkbox" value="whole event"> Whole Event</p>
+                <p><input type="checkbox" value="venue"> Venue</p>
+                <p><input type="checkbox" value="photography"> Photography</p>
+                <p><input type="checkbox" value="decor/ florists"> Decor/Florists</p>
+                <p><input type="checkbox" value="food catering"> Food Catering</p>
+                <p><input type="checkbox" value="rentals"> Rentals</p>
+                <p><input type="checkbox" value="other"> Other</p>
             </div>
         </div>
         <div class="pagination">
-            <span class="current">1</span>
-            <span>2</span>
-            <span>3</span>
+            <span class="current"></span>
         </div>
-        <div class="footer">
-            <p>Copyright &copy; 2021, Easy Tutorials.</p>
-        </div>
+        
     </div>
-    
-    <script>
-        function togglebtn() {
-            document.getElementById("navBar").classList.toggle("hidemenu");
-        }
-    </script>
+    <div class="footer">
+        Created by <span>MAPTheEvents</span> | All Rights Reserved
+    </div>
+    <script src="../js/listingEvents.js"></script>
 </body>
 </html>
