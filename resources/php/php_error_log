@@ -49,3 +49,25 @@ Stack trace:
   thrown in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteOrganizerProcess.php on line 54
 [10-Mar-2025 15:34:58 Europe/Berlin] Attempting to delete: C:\xampp\htdocs\uploads\1741616832_wallpaperflare.com_wallpaper.jpg
 [10-Mar-2025 15:34:58 Europe/Berlin] Successfully deleted: C:\xampp\htdocs\uploads\1741616832_wallpaperflare.com_wallpaper.jpg
+[10-Mar-2025 21:12:21 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  update or delete on table &quot;users&quot; violates foreign key constraint &quot;users_phone_numbers_user_id_fkey&quot; on table &quot;users_phone_numbers&quot;
+DETAIL:  Key (user_id)=(44) is still referenced from table &quot;users_phone_numbers&quot;. in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteUserProcess.php on line 62
+[10-Mar-2025 21:12:21 Europe/Berlin] Delete User Error: Delete user query failed: ERROR:  update or delete on table "users" violates foreign key constraint "users_phone_numbers_user_id_fkey" on table "users_phone_numbers"
+DETAIL:  Key (user_id)=(44) is still referenced from table "users_phone_numbers".
+[10-Mar-2025 21:16:00 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  update or delete on table &quot;users&quot; violates foreign key constraint &quot;users_phone_numbers_user_id_fkey&quot; on table &quot;users_phone_numbers&quot;
+DETAIL:  Key (user_id)=(44) is still referenced from table &quot;users_phone_numbers&quot;. in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteUserProcess.php on line 55
+[10-Mar-2025 21:16:00 Europe/Berlin] Delete User Error: Delete user query failed: ERROR:  update or delete on table "users" violates foreign key constraint "users_phone_numbers_user_id_fkey" on table "users_phone_numbers"
+DETAIL:  Key (user_id)=(44) is still referenced from table "users_phone_numbers".
+[10-Mar-2025 21:17:32 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  update or delete on table &quot;users&quot; violates foreign key constraint &quot;users_phone_numbers_user_id_fkey&quot; on table &quot;users_phone_numbers&quot;
+DETAIL:  Key (user_id)=(44) is still referenced from table &quot;users_phone_numbers&quot;. in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteUserProcess.php on line 55
+[10-Mar-2025 21:17:32 Europe/Berlin] Delete User Error: Delete user query failed: ERROR:  update or delete on table "users" violates foreign key constraint "users_phone_numbers_user_id_fkey" on table "users_phone_numbers"
+DETAIL:  Key (user_id)=(44) is still referenced from table "users_phone_numbers".
+[10-Mar-2025 21:19:00 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  update or delete on table &quot;users&quot; violates foreign key constraint &quot;users_phone_numbers_user_id_fkey&quot; on table &quot;users_phone_numbers&quot;
+DETAIL:  Key (user_id)=(44) is still referenced from table &quot;users_phone_numbers&quot;. in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\DeleteUserProcess.php on line 55
+[10-Mar-2025 21:19:00 Europe/Berlin] Delete User Error: Delete user query failed: ERROR:  update or delete on table "users" violates foreign key constraint "users_phone_numbers_user_id_fkey" on table "users_phone_numbers"
+DETAIL:  Key (user_id)=(44) is still referenced from table "users_phone_numbers".
+[10-Mar-2025 21:31:03 Europe/Berlin] PHP Warning:  pg_query_params(): Query failed: ERROR:  column &quot;user_login_password&quot; of relation &quot;users&quot; does not exist
+LINE 1: UPDATE Users SET user_login_password = $1 WHERE user_id = $2
+                         ^ in C:\xampp\htdocs\CollegeProject\Event-Management-System\resources\php\UpdateUserDetailsProcess.php on line 87
+[10-Mar-2025 21:31:03 Europe/Berlin] Users update failed: ERROR:  column "user_login_password" of relation "users" does not exist
+LINE 1: UPDATE Users SET user_login_password = $1 WHERE user_id = $2
+                         ^
