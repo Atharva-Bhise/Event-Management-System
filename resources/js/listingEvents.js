@@ -13,7 +13,7 @@ function sanitizeInput(input) {
 
 // Function to dynamically load events with pagination
 function loadEvents(eventList, page = 1) {
-    const eventsContainer = document.getElementById("eventsContainer");
+     const eventsContainer = document.getElementById("eventsContainer");
     const paginationContainer = document.querySelector(".pagination"); // ✅ Defined here
 
     if (!eventsContainer || !paginationContainer) {
@@ -69,16 +69,13 @@ function loadEvents(eventList, page = 1) {
         }
     }
 
-    // Pagination Logic
     const totalEvents = filteredEvents.length;
     const totalPages = Math.ceil(totalEvents / EVENTS_PER_PAGE);
-    currentPage = Math.min(page, totalPages); // Ensure valid page number
+    currentPage = Math.min(page, totalPages);
 
-    // Slice events for current page
     const startIndex = (currentPage - 1) * EVENTS_PER_PAGE;
     const paginatedEvents = filteredEvents.slice(startIndex, startIndex + EVENTS_PER_PAGE);
 
-    // Display events
     paginatedEvents.forEach(event => {
         const photoPath = event.photo_paths && event.photo_paths.length > 0 
             ? event.photo_paths[0] 
@@ -116,14 +113,17 @@ function loadEvents(eventList, page = 1) {
         const eventNameHTML = event.event_name !== "other" ? 
         `<h2 class="event-title">${event.event_name}</h2>` : "";
 
-        // Modify eventHTML to include event name above organizerInfo
         const eventHTML = `
-        <div class="house eventImage">
+        <div class="house eventImage" 
+            data-event='${JSON.stringify(event)
+                .replace(/'/g, "&#39;")   // Escape single quotes
+                .replace(/"/g, "&quot;") // Escape double quotes
+            }'>
             <div>
                 <img src="${photoPath}" alt="Event Image">
             </div>
             <div class="house-info">
-                ${eventNameHTML} <!-- Display Event Name Here -->
+                ${eventNameHTML}
                 <div class="organizerInfo">
                     <h3 class="organizerNames">${event.organizer_name}</h3>
                     ${servicesHTML}
@@ -138,7 +138,6 @@ function loadEvents(eventList, page = 1) {
         eventsContainer.insertAdjacentHTML("beforeend", eventHTML);
     });
 
-    // Generate pagination buttons
     if (totalPages > 1) {
         for (let i = 1; i <= totalPages; i++) {
             const pageButton = document.createElement("span");
@@ -151,16 +150,142 @@ function loadEvents(eventList, page = 1) {
             });
             paginationContainer.appendChild(pageButton);
         }
-    } 
-    // ✅ If only one page exists, show a single button
-    else if (totalPages === 1 && totalEvents > 0) {
+    } else if (totalPages === 1 && totalEvents > 0) {
         const pageButton = document.createElement("span");
         pageButton.textContent = "1";
         pageButton.classList.add("current");
         paginationContainer.appendChild(pageButton);
     }
 
+    document.querySelectorAll(".house").forEach(house => {
+        house.addEventListener("click", function () {
+            try {
+                // Ensure correct attribute retrieval and decoding
+                let rawData = this.getAttribute("data-event");
+                if (!rawData) {
+                    throw new Error("Missing data-event attribute");
+                }
+
+                // Decode any HTML-encoded characters before parsing
+                let decodedData = rawData
+                    .replace(/&quot;/g, '"')   // Convert &quot; to "
+                    .replace(/&#39;/g, "'")    // Convert &#39; to '
+                    .replace(/&amp;/g, "&");   // Convert &amp; to &
+
+                // Parse JSON safely
+                const eventData = JSON.parse(decodedData);
+
+                // 🔹 Proceed with existing logic
+                let photosHtml = "";
+                if (eventData.photo_paths && Array.isArray(eventData.photo_paths) && eventData.photo_paths.length > 0) {
+                    photosHtml = `
+                        <div class="carousel">
+                            <div class="carousel-track">
+                                ${eventData.photo_paths.map((photo, index) => 
+                                    `<img class="carousel-img ${index === 0 ? 'active' : ''}" src="${photo}" alt="Event Image">`
+                                ).join('')}
+                            </div>
+                            <button class="prev" onclick="prevSlide(this)">&#10094;</button>
+                            <button class="next" onclick="nextSlide(this)">&#10095;</button>
+                        </div>
+                    `;
+                }
+
+                let servicesHtml = `
+                    <table class="serviceTable">
+                        <thead>
+                            <tr><th colspan="3">Service Details</th></tr>
+                            <tr><th>Name</th><th>Price (USD)</th><th>Description</th></tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                let totalPrice = 0; // Initialize total price
+
+                if (eventData.service_details) {
+                    let servicesArray = eventData.service_details.split(",");
+                    servicesHtml += servicesArray.map(serviceString => {
+                        let match = serviceString.match(/(.*)\((.*)\):\s([\d.]+)/);
+                        if (match) {
+                            let serviceName = match[1].trim();
+                            let serviceDescription = match[2].trim();
+                            let servicePrice = parseFloat(match[3].trim());
+
+                            totalPrice += servicePrice; // Accumulate total price
+
+                            return `
+                                <tr>
+                                    <td>${serviceName}</td>
+                                    <td>$${servicePrice.toFixed(2)}</td>
+                                    <td>${serviceDescription}</td>
+                                </tr>
+                            `;
+                        }
+                        return "";
+                    }).join('');
+                    } else {
+                        servicesHtml += `<tr><td colspan="3">No Services Available</td></tr>`;
+                    }
+
+                    // Add the Total Price row
+                    servicesHtml += `
+                        <tr>
+                            <td  style="font-weight: bold;">
+                                Total Price
+                            </td>
+                            <td  style="font-weight: bold;">
+                                $${totalPrice.toFixed(2)}
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    `;
+
+                    servicesHtml += `
+                            </tbody>
+                        </table>
+                    `;
+
+
+                const modalContent = `
+                    ${photosHtml}
+                    <h2>${eventData.event_name}</h2>
+                    <p><strong>Organizer:</strong> ${eventData.organizer_name}</p>
+                    <p><strong>Phone:</strong> ${eventData.organizer_phone}</p>
+                    <p><strong>Email:</strong> ${eventData.organizer_email}</p>
+                    ${servicesHtml}
+                    <p><strong>Note:</strong> Prices are Negotiable.</p>
+                    <button class="confirm-btn">Send The Confirmation Email For Booking</button>
+                `;
+
+                document.getElementById("modalEventDetails").innerHTML = modalContent;
+                document.getElementById("eventModal").style.display = "flex";
+                document.body.classList.add("modal-open");
+            } catch (error) {
+                console.error("Error parsing JSON:", error, "Raw Data:", this.getAttribute("data-event"));
+            }
+        });
+    
+    });
+
+    
+    // Close modal when clicking the "X" button
+    document.querySelector(".close").addEventListener("click", function () {
+        document.getElementById("eventModal").style.display = "none";
+        document.body.classList.remove("modal-open");
+    });
+    
+    // Close modal if clicked outside the content box
+    window.addEventListener("click", function (event) {
+        const modal = document.getElementById("eventModal");
+        if (event.target === modal) {
+            modal.style.display = "none";
+            document.body.classList.remove("modal-open");
+        }
+    });
+    
 }
+
 
 
 // Function to update displayed filters and reload events
@@ -176,12 +301,12 @@ function fetchEventData(eventName, page = 1) {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-            event_name: eventName,
-            page: page
-        })
+        body: JSON.stringify({ event_name: eventName, page: page })
     })
-    .then(response => response.json())
+    .then(response => response.text())  // Get raw text first
+    .then(text => {
+        return JSON.parse(text);  // Now parse it
+    })
     .then(data => {
         if (data.status === "success") {
             loadEvents(data.data.events);
@@ -192,6 +317,7 @@ function fetchEventData(eventName, page = 1) {
     .catch(error => {
         console.error("Fetch error:", error);
     });
+    
 }
 
 // Function to get query parameters from URL
@@ -233,3 +359,25 @@ document.querySelectorAll(".right-col input[type='checkbox']").forEach(checkbox 
         updateDisplayedFilters(); // Update selected filter display & reload events
     });
 });
+
+
+// 🔹 Image Carousel Functions
+function prevSlide(button) {
+    let container = button.closest('.carousel');
+    let images = container.querySelectorAll('.carousel-img');
+    let activeIndex = [...images].findIndex(img => img.classList.contains('active'));
+
+    images[activeIndex].classList.remove('active');
+    let newIndex = activeIndex === 0 ? images.length - 1 : activeIndex - 1;
+    images[newIndex].classList.add('active');
+}
+
+function nextSlide(button) {
+    let container = button.closest('.carousel');
+    let images = container.querySelectorAll('.carousel-img');
+    let activeIndex = [...images].findIndex(img => img.classList.contains('active'));
+
+    images[activeIndex].classList.remove('active');
+    let newIndex = activeIndex === images.length - 1 ? 0 : activeIndex + 1;
+    images[newIndex].classList.add('active');
+}

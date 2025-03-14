@@ -124,7 +124,9 @@ foreach ($events as &$event) {
     }
 }
 
-echo json_encode(["status" => "success", "data" => ["events" => $events]]);
+$response = ["status" => "success", "data" => ["events" => $events]];
+echo json_encode($response, JSON_HEX_APOS | JSON_HEX_QUOT);
+exit;  // Ensure no extra output
 
 pg_close($conn);
 ?>
