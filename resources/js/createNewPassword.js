@@ -170,7 +170,7 @@ form.addEventListener("submit", (e) => {
                   if(response.status === "success"){
                     showSlideMessage(response.message);
                     setTimeout(() => {
-                      window.location.replace("../html/afterUserLogin.html");
+                      window.location.replace("../html/afterUser.html");
                     }, 4000);                  
                   }else{
                     if(response.status === "failure"){

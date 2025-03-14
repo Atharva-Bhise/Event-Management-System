@@ -336,46 +336,52 @@ margin-right:24cm;
               <li class="card-item swiper-slide">
                   <a href="#" class="card-link">
                       <img src="../images/anniversary1.png" alt="Card Image" class="card-image">
-                      <p class="badge anniversary">anniversary</p>
+                      <p class="badge anniversary">Anniversary</p>
                       <h2 class="card-title">Celebrate love, memories, and milestones  </h2><br>
-                      <button class="btn" onclick="EventList()">Book Now</button>                  </a>
+                      <button class="btn" onclick="EventList('Anniversary')">Book Now</button>                  </a>
               </li>
               <li class="card-item swiper-slide">
-                  <a href="listingEvents.html" class="card-link">
-                      <img src="../images/baby_shower1.png" alt="Card Image"
-                      class="card-image">
-                      <p class="badge baby_shower">baby_shower</p>
+                  <a class="card-link">
+                      <img src="../images/baby_shower1.png" alt="Card Image" class="card-image">
+                      <p class="badge baby_shower">Baby_Shower</p>
                       <h2 class="card-title">Celebrate the arrival of little bundle of joy</h2><br>
-                      <button class="btn" onclick="EventList()">Book Now</button> 
+                      <button class="btn" onclick="EventList('Baby Shower')">Book Now</button> 
                   </a>
               </li>
 
               <li class="card-item swiper-slide">
-                  <a href="listingEvents.html" class="card-link">
-                      <img src="../images/birthday1.png" alt="Card Image"
-                      class="card-image">
-                      <p class="badge birthday">birthday</p>
+                  <a  class="card-link">
+                      <img src="../images/birthday1.png" alt="Card Image" class="card-image">
+                      <p class="badge birthday">Birthday</p>
                       <h2 class="card-title">Celebrate another year of life and happiness</h2><br>
-                      <button class="btn" onclick="EventList()">Book Now</button>                   </a>
+                      <button class="btn" onclick="EventList('Birthday')">Book Now</button>
+                  </a>
               </li>
 
               <li class="card-item swiper-slide">
-                  <a href="listingEvents.html" class="card-link">
-                      <img src="../images/wedding1.jpg" alt="Card Image"
-                      class="card-image">
-                      <p class="badge wedding">wedding</p>
+                  <a  class="card-link">
+                      <img src="../images/wedding1.jpg" alt="Card Image" class="card-image">
+                      <p class="badge wedding">Wedding</p>
                       <h2 class="card-title">Celebrate the beginning of a beautiful journey</h2><br>
-                      <button class="btn" onclick="EventList()">Book Now</button>                   </a>
+                      <button class="btn" onclick="EventList('Wedding')">Book Now</button>                   </a>
               </li>
 
               <li class="card-item swiper-slide">
-                  <a href="listingEvents.html" class="card-link">
-                      <img src="../images/concert1.png" alt="Card Image"
-                      class="card-image">
-                      <p class="badge concert">concert</p>
+                  <a  class="card-link">
+                      <img src="../images/concert1.png" alt="Card Image" class="card-image">
+                      <p class="badge concert">Concert</p>
                       <h2 class="card-title">leave your heart racing and your soul singing</h2><br>
-                      <button class="btn" onclick="EventList()">Book Now</button>                   </a>
+                      <button class="btn" onclick="EventList('Concert')">Book Now</button>                   </a>
               </li>
+
+              
+              <li class="card-item swiper-slide">
+                <a  class="card-link">
+                    <img src="../images/other8.jpg" alt="Card Image" class="card-image">
+                    <p class="badge other">Other</p>
+                    <h2 class="card-title">Whatever the occasion, make it extraordinary!</h2><br>
+                    <button class="btn" onclick="EventList('other')">Book Now</button>                   </a>
+            </li>
           </ul>
 
           <div class="swiper-pagination"></div>
@@ -384,10 +390,11 @@ margin-right:24cm;
       </div>
   </div>
   <script>
-    function EventList()
-    {
-      window.location.href='listingEvents.html';
+    function EventList(eventName) {
+        window.location.href = `listingEvents.html?event=${encodeURIComponent(eventName)}`;
     }
+
+
     function ServiceList()
     {
       window.location.href='listingServices.html';
