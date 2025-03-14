@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <option value="food catering">Food Catering</option>
                     <option value="rentals">Rentals</option>
                     <option value="whole event">Whole Event</option>
-                    <option value="decor/ florists">Decor/ Florists</option>
+                    <option value="decor/florists">Decor/ Florists</option>
                     <option value="other">Other</option>
                 `;
                 let currentServiceName = td.innerText.trim();

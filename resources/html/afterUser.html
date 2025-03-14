@@ -334,7 +334,7 @@ margin-right:24cm;
       <div class="card-wrapper">
           <ul class="card-list swiper-wrapper">
               <li class="card-item swiper-slide">
-                  <a href="#" class="card-link">
+                  <a  class="card-link">
                       <img src="../images/anniversary1.png" alt="Card Image" class="card-image">
                       <p class="badge anniversary">Anniversary</p>
                       <h2 class="card-title">Celebrate love, memories, and milestones  </h2><br>
@@ -395,10 +395,10 @@ margin-right:24cm;
     }
 
 
-    function ServiceList()
-    {
-      window.location.href='listingServices.html';
-    }
+    function ServiceList(serviceName) {
+    window.location.href = `listingServices.html?service=${encodeURIComponent(serviceName)}`;
+  }
+
   </script>
   </section>
   <!--Services Section-->
@@ -409,51 +409,59 @@ margin-right:24cm;
       <div class="card-wrapper">
           <ul class="card-list swiper-wrapper">
               <li class="card-item swiper-slide">
-                  <a href="listingServices.html" class="card-link">
+                  <a  class="card-link">
                       <img src="../images/anniversary1.png" alt="Card Image" class="card-image">
                       <p class="badge anniversary">Venue</p>
                       <h2 class="card-title">Discover the perfect backdrop for the moment</h2>
                       <br>
-                      <button class="btn" onclick="ServiceList()">Book Now</button>                    </a>
+                      <button class="btn" onclick="ServiceList('venue')">Book Now</button>                    </a>
               </li>
               <li class="card-item swiper-slide">
-                  <a href="listingServices.html" class="card-link">
+                  <a  class="card-link">
                       <img src="../images/baby_shower1.png" alt="Card Image"
                       class="card-image">
                       <p class="badge baby_shower">Photography</p>
                       <h2 class="card-title">Turning your special day into timeless memories</h2>
                       <br>
-                      <button class="btn" onclick="ServiceList()">Book Now</button>                     </a>
+                      <button class="btn" onclick="ServiceList('photography')">Book Now</button>                     </a>
               </li>
 
               <li class="card-item swiper-slide">
-                  <a href="listingServices.html" class="card-link">
+                  <a  class="card-link">
                       <img src="../images/birthday1.png" alt="Card Image"
                       class="card-image">
                       <p class="badge birthday">Decor/Florists</p>
                       <h2 class="card-title">To bring your vision to life with elegance and style</h2>
                       <br>
-                      <button class="btn" onclick="ServiceList()">Book Now</button>                     </a>
+                      <button class="btn" onclick="ServiceList('decor/florists')">Book Now</button>                     </a>
               </li>
 
               <li class="card-item swiper-slide">
-                  <a href="listingServices.html" class="card-link">
+                  <a  class="card-link">
                       <img src="../images/wedding1.jpg" alt="Card Image"
                       class="card-image">
                       <p class="badge wedding">Rentals</p>
                       <h2 class="card-title">From tables and chairs to linens and lighting</h2>
                       <br>
-                      <button class="btn" onclick="ServiceList()">Book Now</button>                     </a>
+                      <button class="btn" onclick="ServiceList('rentals')">Book Now</button>                     </a>
               </li>
-
               <li class="card-item swiper-slide">
-                  <a href="listingServices.html" class="card-link">
+                <a  class="card-link">
+                    <img src="../images/other1.jpg" alt="Card Image"
+                    class="card-image">
+                    <p class="badge wedding">Food_Catering</p>
+                    <h2 class="card-title">Savor every moment with delicious flavors & exquisite cuisine</h2>
+                    <br>
+                    <button class="btn" onclick="ServiceList('food catering')">Book Now</button>                     </a>
+            </li>
+              <li class="card-item swiper-slide">
+                  <a  class="card-link">
                       <img src="../images/concert1.png" alt="Card Image"
                       class="card-image">
                       <p class="badge concert">Other</p>
                       <h2 class="card-title">Elevate your event with our comprehensive services</h2>
                       <br>
-                      <button class="btn" onclick="ServiceList()">Book Now</button>                     </a>
+                      <button class="btn" onclick="ServiceList('other')">Book Now</button>                     </a>
               </li>
           </ul>
 
