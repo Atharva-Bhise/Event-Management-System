@@ -85,12 +85,12 @@ function loadEvents(eventList, page = 1) {
         let servicesHTML = "";
         let totalPrice = 0;
 
-        if (serviceDetails.length > 0 && event.service_details.trim() !== "") {
+        if (serviceDetails.length > 0 ) {
             serviceDetails.forEach(service => {
-                const match = service.match(/^(.+)\((.+)\): ([\d.]+)$/);
+                const match = service.match(/(.+?)\s*\(([^)]+)\)\s*:\s*([\d.]+)/);
                 if (match) {
-                    const serviceType = match[1].trim();
-                    const description = match[2].trim();
+                    const serviceType = match[1];
+                    const description = match[2];
                     const price = parseFloat(match[3]) || 0;
 
                     totalPrice += price;
@@ -261,6 +261,65 @@ function loadEvents(eventList, page = 1) {
                 document.getElementById("modalEventDetails").innerHTML = modalContent;
                 document.getElementById("eventModal").style.display = "flex";
                 document.body.classList.add("modal-open");
+
+                document.addEventListener("click", function (event) {
+                    if (event.target.classList.contains("confirm-btn")) {
+                        const organizerEmail = eventData.organizer_email; // Get organizer email
+                
+                        if (!organizerEmail || organizerEmail === "No Email") {
+                            alert("Organizer email not available.");
+                            return;
+                        }
+                
+                        const eventName = eventData.event_name;
+                        const organizerName = eventData.organizer_name;
+                        let totalPrice = 0; // Initialize total price
+                
+                        let servicesText = "Service Details:\n";
+                        servicesText += "------------------------------------------\n";
+                        servicesText += "Name | Price (USD) | Description\n";
+                        servicesText += "------------------------------------------\n";
+                
+                        if (eventData.service_details) {
+                            let servicesArray = eventData.service_details.split(",");
+                            servicesArray.forEach(serviceString => {
+                                let match = serviceString.match(/(.*)\((.*)\):\s([\d.]+)/);
+                                if (match) {
+                                    let serviceName = match[1].trim();
+                                    let serviceDescription = match[2].trim();
+                                    let servicePrice = parseFloat(match[3].trim());
+                
+                                    totalPrice += servicePrice; // Accumulate total price
+                
+                                    servicesText += `${serviceName} | $${servicePrice.toFixed(2)} | ${serviceDescription}\n`;
+                                }
+                            });
+                        } else {
+                            servicesText += "No Services Available\n";
+                        }
+                
+                        servicesText += "------------------------------------------\n";
+                        servicesText += `Total Price: $${totalPrice.toFixed(2)}\n`;
+                
+                        const subject = encodeURIComponent(`Booking Confirmation for ${eventName}`);
+                        const body = encodeURIComponent(
+                            `Hello ${organizerName},\n\n` +
+                            `I am interested in booking the event "${eventName}". Please provide me with the next steps.\n\n` +
+                            `${servicesText}\n` +
+                            `Best regards`
+                        );
+                
+                        // Open a minimized Gmail compose window
+                        window.open(
+                            `https://mail.google.com/mail/?view=cm&fs=1&to=${organizerEmail}&su=${subject}&body=${body}`,
+                            "gmailCompose",
+                            "width=700,height=500"
+                        );
+                    }
+                });
+                
+                
+                
             } catch (error) {
                 console.error("Error parsing JSON:", error, "Raw Data:", this.getAttribute("data-event"));
             }
