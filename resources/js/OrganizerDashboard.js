@@ -6,8 +6,8 @@ const confirmed = document.querySelector("#confirmed");
 const no = document.querySelector("#no");
 const loadingScreen = document.getElementById("loadingScreen");
 let tableData = document.querySelector("#recordsTable");
-const home = document.querySelector("#home");
-const manageEvents = document.querySelector("#manageEvents");
+//const home = document.querySelector("#home");
+//const manageEvents = document.querySelector("#manageEvents");
 const manageServices = document.querySelector("#manageServices");
 //const settings = document.querySelector("#settings");
 
@@ -39,7 +39,7 @@ window.addEventListener("click", (e) => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const btnTab = document.getElementById("btnTab");
-  const manageEventsTab = document.getElementById("manageEventsTab");
+    const manageEventsTab = document.getElementById("manageEventsTab");
 
   // Fetch initial data for the dashboard
   const orgDashRequest = new XMLHttpRequest();
@@ -114,12 +114,14 @@ document.addEventListener("DOMContentLoaded", () => {
     confirmationOptions.style.display === "inline" ? "none" : "inline";
   });
 
+  /*
   home.addEventListener("click", () => {
     if (manageEventsTab) manageEventsTab.style.display = "none"; // Hide manageEventsTab
     if (btnTab) btnTab.style.display = "none";
     document.getElementById("tab").innerHTML = "Home";
     //document.getElementById("recordsTable").innerHTML = "Home Tab";
   });
+  */
 /*
   settings.addEventListener("click", () => {
     if (btnTab) btnTab.style.display = "none";
@@ -127,13 +129,17 @@ document.addEventListener("DOMContentLoaded", () => {
     //document.getElementById("recordsTable").innerHTML = "Settings Tab";
   });
   */
+  /*
   manageEvents.addEventListener("click", () => {
     if (btnTab) btnTab.style.display = "none";
     if (manageEventsTab) manageEventsTab.style.display = "block"; // Show manageEventsTab
     console.log("Manage Events Tab");
     document.getElementById("tab").innerHTML = "Manage Events";
   });
-
+  */
+ 
+  document.getElementById("tab").innerHTML = "Manage Services";
+  if (btnTab) btnTab.style.display = "flex"; // Show btnTab
   manageServices.addEventListener("click", () => {
     if (manageEventsTab) manageEventsTab.style.display = "none"; // Hide manageEventsTab
     if (btnTab) btnTab.style.display = "flex"; // Show btnTab
@@ -148,5 +154,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   document.getElementById("yourService").addEventListener("click", () => {
     window.location.href = "yourService.html";
+  });
+  helpAndSupport
+  document.getElementById("helpAndSupport").addEventListener("click", () => {
+    window.location.href = "contact.html";
   });
 });

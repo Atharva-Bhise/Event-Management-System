@@ -78,9 +78,11 @@
              alongside event booking demonstrates its adaptability and responsiveness to customer 
              needs, setting it apart from conventional event management solutions
         </p>
+        <!--
         <div class="about__btn">
           <button class="btn">Read More</button>
         </div>
+        -->
       </div>
     </section>
 
@@ -193,11 +195,11 @@
   
         <form action="">
           <div class="inputBox">
-            <input type="text" placeholder="name" />
-            <input type="email" placeholder="email" />
+            <input type="text" placeholder="your name" />
+            <input type="email" placeholder="Organizer email" />
           </div>
           <div class="inputBox">
-            <input type="tel" placeholder="number" />
+            <input type="tel" placeholder="your number" />
             <input type="text" placeholder="subject" />
           </div>
           <textarea
@@ -207,9 +209,50 @@
             cols="30"
             rows="10"
           ></textarea>
-          <input type="submit" value="send message" class="btn"  id="submitBtn"/>
+          <button class="btn" id="submitBtn">send message</button>
         </form>
       </section>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const submitBtn = document.getElementById("submitBtn");
+
+        submitBtn.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevents form submission
+
+            // Get user input values
+            const userName = document.querySelector("input[placeholder='your name']").value.trim();
+            const recipientEmail = document.querySelector("input[placeholder='Organizer email']").value.trim();
+            const userPhone = document.querySelector("input[placeholder='your number']").value.trim();
+            const subject = document.querySelector("input[placeholder='subject']").value.trim();
+            const message = document.querySelector("textarea[placeholder='message']").value.trim();
+
+            // Validate required fields
+            if (!userName || !recipientEmail || !subject || !message) {
+                alert("Please fill in Name, Recipient Email, Subject, and Message.");
+                return;
+            }
+
+            // Prepare email details
+            const emailSubject = encodeURIComponent(`Feedback from ${userName}: ${subject}`);
+            const emailBody = encodeURIComponent(
+                `Hello,\n\n` +
+                `You have received a new message from ${userName}.\n\n` +
+                `📞 Contact Number: ${userPhone || "Not Provided"}\n\n` +
+                `✉️ Subject: ${subject}\n\n` +
+                `📝 Message:\n${message}\n\n` +
+                `Best regards,\n${userName}`
+            );
+
+            // Open Gmail compose window
+            window.open(
+                `https://mail.google.com/mail/?view=cm&fs=1&to=${recipientEmail}&su=${emailSubject}&body=${emailBody}`,
+                "gmailCompose",
+                "width=700,height=500"
+            );
+        });
+      });
+
+      </script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="../js/landing2.js"></script>
  <!-- Footer Section Starts -->

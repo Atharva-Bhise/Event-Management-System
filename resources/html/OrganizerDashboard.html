@@ -373,6 +373,7 @@ h1 {
 
             <div class="side-menu">
                 <ul>
+                    <!--
                     <li id="home" onclick="changeColor(this)">
                        <a class="menu-item" >
                         <span class="fa-solid fa-house"></span>
@@ -385,6 +386,7 @@ h1 {
                             <small>Manage Events</small>
                         </a>
                     </li>
+                    -->
                     <!--
                     <li>
                        <a href="" id="manageUsers">
@@ -428,10 +430,11 @@ h1 {
                 </label>
                 
                 <div class="header-menu">
+                    <!--
                     <label for="">
                         <span class="las la-search"></span>
                     </label>
-                    
+                    -->
                    <!-- <div class="notify-icon">
                         <span class="las la-envelope"></span>
                         <span class="notify">4</span>
@@ -453,8 +456,8 @@ h1 {
         <div class="profile-dropdown" id="profileDropdown">
           <ul>
             <li><i class="fa-regular fa-user"></i> <strong id="userName"> User Name </strong></li>
-            <li><i class="fa-regular fa-edit"></i> Edit Profile</li>
-            <li><i class="fa-regular fa-circle-question"></i> Help & Support</li>
+            <!--<li><i class="fa-regular fa-edit"></i> Edit Profile</li>-->
+            <li  id="helpAndSupport"><i class="fa-regular fa-circle-question"></i> Help & Support</li>
             <li id="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
                 <span id="confirmation-options" class="confirmation-options">
                     <span id="confirmed">✅</span> <span id="no">❌</span>
@@ -504,6 +507,7 @@ h1 {
                         </div>
                         -->
                     </div>
+                    <!--
                     <div id="manageEventsTab">
                         <div class="record-header">
                         <div class="add">
@@ -518,9 +522,9 @@ h1 {
                                 <option value="">Status</option>
                             </select>
                         </div>
-                    </div>
+                        </div>
 
-                    <div>
+                        <div>
                        <table width="100%">
                             <thead>
                                 <tr>
@@ -789,10 +793,9 @@ h1 {
                             </tbody>
                         </table>
                     </div>
-                    -->    
-                </div>
-            </div>
-                        
+                    --> 
+                    
+                    <div id="manageServicesTab">
                         <div class="button-container" id="btnTab">
                             <!-- First clickable box -->
                              <h2 id="msg">Hey Organizer!</h2>
@@ -808,6 +811,11 @@ h1 {
                                 <p>View, Update and delete your posts!</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+                        
+
                 </div>
             
             </div>
