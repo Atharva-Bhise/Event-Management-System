@@ -1,21 +1,71 @@
-// Wait until the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contact-form');
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form");
+    const submitBtn = document.getElementById("submitBtn");
 
-    // Listen for the form's submit event
-    form.addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent the form's default submission behavior
+    submitBtn.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent form from submitting normally
 
         // Get values from the form fields
-        const name = e.target.name.value;
-        const email = e.target.email.value;
-        const phone = e.target.phone.value;
-        const feedback = e.target.feedback.value;
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const feedback = document.querySelector("textarea[name='feedback']").value.trim();
 
-        // Display a confirmation alert
-        alert(`Thank you, ${name}! We have received your message.`);
+        // Validate required fields
+        if (!name || !email || !phone || !feedback) {
+            alert("Please fill in all fields before submitting.");
+            return;
+        }
 
-        // Optionally reset the form fields
-        form.reset();
+        // Prepare data for sending
+        const formData = {
+            name: name,
+            email: email,
+            phone: phone,
+            feedback: feedback
+        };
+
+        // Send the data using a POST request
+        fetch("../php/HandleFeedback.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                showSlideMessage("Thank you! Your Feedback and Queries has been sent to the admins.");
+                form.reset(); // Reset form after successful submission
+            } else {
+                showSlideMessage("Something went wrong. Please try again.");
+                console.log("Error: " + data.message);
+            }
+        })
+        .catch(error => {
+            console.error("❌ Request failed:", error);
+            showSlideMessage("Something went wrong. Please try again.");
+        });
     });
+    
 });
+
+// Function to show the slide-in message
+function showSlideMessage(message) {
+    const messageElement = document.getElementById('slideMessage');
+  
+    // Set the message text
+    messageElement.textContent = message;
+  
+    // Add the visible class to show the message
+    messageElement.classList.remove('hidden');
+    messageElement.classList.add('visible');
+  
+    // Remove the message after the specified duration
+    setTimeout(() => {
+      messageElement.classList.remove('visible');
+      messageElement.classList.add('hidden');
+    }, 3000);
+}
+  

@@ -6,6 +6,9 @@ CREATE TABLE admins (
     admin_address TEXT NOT NULL
 );
 
+ALTER TABLE admins 
+ADD COLUMN admin_email VARCHAR(100) UNIQUE;
+
 CREATE TABLE admin_login (
     admin_id INT PRIMARY KEY REFERENCES admins(admin_id) ON DELETE CASCADE,
     admin_username VARCHAR(50) UNIQUE NOT NULL, 
