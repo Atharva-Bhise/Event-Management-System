@@ -100,7 +100,7 @@ function loadServices(serviceList, page = 1) {
                 <h3 class="service-title">${service.service_type}</h3>
                 <span class="description">${service.service_description || "No Description Available"}</span>
                 <div class="house-price">
-                    <p class="price">${service.service_price ? `$${parseFloat(service.service_price).toFixed(2)}` : "N/A"}</p>
+                    <p class="price">${service.service_price ? `Rs. ${parseFloat(service.service_price).toFixed(2)}/-` : "N/A"}</p>
                 </div>
             </div>
         </div>`;
@@ -179,8 +179,8 @@ function loadServices(serviceList, page = 1) {
                             <td>${serviceData.organizer_email}</td>
                         </tr>
                         <tr>
-                            <td><strong>Price (USD)</strong></td>
-                            <td>${serviceData.service_price ? `$${parseFloat(serviceData.service_price).toFixed(2)}` : "N/A"}</td>
+                            <td><strong>Price (Indian Rupee)</strong></td>
+                            <td>${serviceData.service_price ? `Rs. ${parseFloat(serviceData.service_price).toFixed(2)}/-` : "N/A"}</td>
                         </tr>
                         <tr>
                             <td><strong>Description</strong></td>
@@ -216,17 +216,17 @@ function loadServices(serviceList, page = 1) {
                 
                         let servicesText = "Service Details:\n";
                         servicesText += "------------------------------------------\n";
-                        servicesText += "Name | Price (USD) | Description\n";
+                        servicesText += "Name | Price (Indian Rupee) | Description\n";
                         servicesText += "------------------------------------------\n";
                 
                         if (serviceData.service_type) {
-                            servicesText += `${serviceType} | $${totalPrice.toFixed(2)} | ${serviceData.service_description || "No Description"}\n`;
+                            servicesText += `${serviceType} | Rs. ${totalPrice.toFixed(2)}/- | ${serviceData.service_description || "No Description"}\n`;
                         } else {
                             servicesText += "No Service Details Available\n";
                         }
                 
                         servicesText += "------------------------------------------\n";
-                        servicesText += `Total Price: $${totalPrice.toFixed(2)}\n`;
+                        servicesText += `Total Price: Rs. ${totalPrice.toFixed(2)}/-\n`;
                 
                         const subject = encodeURIComponent(`Inquiry about ${serviceType}`);
                         const body = encodeURIComponent(

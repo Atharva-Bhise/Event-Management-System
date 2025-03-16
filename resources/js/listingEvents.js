@@ -129,7 +129,7 @@ function loadEvents(eventList, page = 1) {
                     ${servicesHTML}
                 </div>
                 <div class="house-price">
-                    <p class="price">${totalPrice > 0 ? `$${totalPrice.toFixed(2)}` : "N/A"}</p>
+                    <p class="price">${totalPrice > 0 ? `Rs. ${totalPrice.toFixed(2)}/-` : "N/A"}</p>
                 </div>
             </div>
         </div>`;
@@ -195,7 +195,7 @@ function loadEvents(eventList, page = 1) {
                     <table class="serviceTable">
                         <thead>
                             <tr><th colspan="3">Service Details</th></tr>
-                            <tr><th>Name</th><th>Price (USD)</th><th>Description</th></tr>
+                            <tr><th>Name</th><th>Price (Indian Rupee)</th><th>Description</th></tr>
                         </thead>
                         <tbody>
                 `;
@@ -216,7 +216,7 @@ function loadEvents(eventList, page = 1) {
                             return `
                                 <tr>
                                     <td>${serviceName}</td>
-                                    <td>$${servicePrice.toFixed(2)}</td>
+                                    <td>Rs. ${servicePrice.toFixed(2)}/-</td>
                                     <td>${serviceDescription}</td>
                                 </tr>
                             `;
@@ -234,7 +234,7 @@ function loadEvents(eventList, page = 1) {
                                 Total Price
                             </td>
                             <td  style="font-weight: bold;">
-                                $${totalPrice.toFixed(2)}
+                                Rs. ${totalPrice.toFixed(2)}/-
                             </td>
                             <td>
                             </td>
@@ -277,7 +277,7 @@ function loadEvents(eventList, page = 1) {
                 
                         let servicesText = "Service Details:\n";
                         servicesText += "------------------------------------------\n";
-                        servicesText += "Name | Price (USD) | Description\n";
+                        servicesText += "Name | Price (Indian Rupee) | Description\n";
                         servicesText += "------------------------------------------\n";
                 
                         if (eventData.service_details) {
@@ -291,7 +291,7 @@ function loadEvents(eventList, page = 1) {
                 
                                     totalPrice += servicePrice; // Accumulate total price
                 
-                                    servicesText += `${serviceName} | $${servicePrice.toFixed(2)} | ${serviceDescription}\n`;
+                                    servicesText += `${serviceName} | Rs. ${servicePrice.toFixed(2)}/- | ${serviceDescription}\n`;
                                 }
                             });
                         } else {
@@ -299,7 +299,7 @@ function loadEvents(eventList, page = 1) {
                         }
                 
                         servicesText += "------------------------------------------\n";
-                        servicesText += `Total Price: $${totalPrice.toFixed(2)}\n`;
+                        servicesText += `Total Price: Rs. ${totalPrice.toFixed(2)}/-\n`;
                 
                         const subject = encodeURIComponent(`Booking Confirmation for ${eventName}`);
                         const body = encodeURIComponent(
