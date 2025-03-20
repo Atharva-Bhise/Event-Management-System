@@ -398,7 +398,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </tr>
                         <tr>
                             <th>Name</th>
-                            <th>Price(USD)</th>
+                            <th>Price(Indian Rupee)</th>
                             <th>Description</th>
                         </tr>
                     </thead>
@@ -408,7 +408,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             return `
                                 <tr data-service-id="${serviceId}">
                                     <td>${service.serviceType}</td>
-                                    <td>${service.servicePrice}$</td>
+                                    <td>Rs. ${service.servicePrice}/-</td>
                                     <td>${service.serviceDescription}</td>
                                 </tr>
                             `;
