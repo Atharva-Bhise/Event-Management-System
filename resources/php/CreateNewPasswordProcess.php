@@ -7,12 +7,12 @@ require 'C:/xampp/php/composer/vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');  // Move two directories up to the project root
 $dotenv->load();
 // Validate session variables
-if (!isset($_SESSION['username']) || !isset($_SESSION['userID'])) {
+if (!isset($_SESSION['username']) || !isset($_SESSION['userId'])) {
     echo json_encode(["status" => "error", "message" => "Session expired. Please log in again."]);
     exit;
 }
 $username = $_SESSION['username'];
-$userId = $_SESSION['userID'];
+$userId = $_SESSION['userId'];
 header('Content-Type: application/json');
 ini_set('display_errors', 0); // Do not display errors in the browser
 ini_set('log_errors', 1);    // Log errors to the server's error log
@@ -67,9 +67,8 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
 
                     // Commit the transaction if all queries succeed
                     pg_query($conn, "COMMIT");
-                    echo json_encode(["status" => "success", "message" => "Password Changed Successfully"]);     
-                    session_unset();
-                    session_destroy();  
+                    $_SESSION['userLoggedIn'] = true;
+                    echo json_encode(["status" => "success", "message" => "Password Changed Successfully"]);       
                     exit;           
                 } catch (Exception $e) {
                     // Rollback the transaction on any failure

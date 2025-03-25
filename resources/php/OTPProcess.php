@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             if ($EmailQueryResult) {
                 $row = pg_fetch_assoc($EmailQueryResult); 
                 if ($row) {
-                    $_SESSION['userID'] = $row['user_id'];
+                    $_SESSION['userId'] = $row['user_id'];
                     $email = $row['user_email'];
                 }else{
                     echo json_encode(["status" => "error", "message" => "Email not found."]);
