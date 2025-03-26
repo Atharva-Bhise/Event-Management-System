@@ -15,7 +15,9 @@ function sanitizeInput(input) {
 function loadEvents(eventList, page = 1) {
      const eventsContainer = document.getElementById("eventsContainer");
     const paginationContainer = document.querySelector(".pagination"); // ✅ Defined here
-
+    // Display filters status
+    const filtersContainer = document.querySelector(".right-col h2");
+   
     if (!eventsContainer || !paginationContainer) {
         console.error("Error: Required container elements not found.");
         return;
@@ -30,7 +32,7 @@ function loadEvents(eventList, page = 1) {
         .filter(filter => filter !== "other"); // Exclude "other" from selection
 
     // Define common service types
-    const commonServices = ["whole event", "venue", "photography", "decor/ florists", "food catering", "rentals"];
+    const commonServices = ["whole event", "venue", "photography", "decor/florists", "food catering", "rentals"];
 
     // Filter event list based on selected filters
     let filteredEvents = eventList;
@@ -48,10 +50,18 @@ function loadEvents(eventList, page = 1) {
             const services = event.service_details.toLowerCase();
             return !commonServices.some(service => services.includes(service));
         });
+
+        // Check if no events match the "Other" filter
+        if (filteredEvents.length === 0) {
+            const filterText = document.createElement("p");
+            filterText.classList.add("selected-filters");
+            filterText.innerHTML = `<strong>Selected Filters:</strong> Other not found.`;
+            filtersContainer.insertAdjacentElement("afterend", filterText);
+            return; // Exit since no events match
+        }
     }
 
-    // Display filters status
-    const filtersContainer = document.querySelector(".right-col h2");
+    
     document.querySelectorAll(".selected-filters").forEach(el => el.remove()); // Clear old messages
 
     if (selectedFilters.length > 0) {

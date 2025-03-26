@@ -19,7 +19,8 @@ let globalServiceName = "";
 function loadServices(serviceList, page = 1) {
     const servicesContainer = document.getElementById("servicesContainer");
     const paginationContainer = document.querySelector(".pagination");
-
+    // Display filter status
+    const filtersContainer = document.querySelector(".right-col h2");
     if (!servicesContainer || !paginationContainer) {
         console.error("Error: Required container elements not found.");
         return;
@@ -33,17 +34,17 @@ function loadServices(serviceList, page = 1) {
     .map(cb => cb.value.toLowerCase().replace(/_/g, " ")) // Normalize filter names
     .filter(filter => filter !== "other"); // Exclude "other" from selection
 
-    // Define common service types to exclude when "Other" is selected
-    const commonServices = ["venue", "photography", "food catering", "rentals", "whole event", "decor/florists"];
+    // Define common events types to exclude when "Other" is selected
+    const commonEvents = ["birthday", "wedding", "concert", "anniversary", "baby shower"];
 
     let filteredServices = serviceList;
 
     // Apply filter based on selected checkboxes (Filter by event_name instead of service_type)
     if (selectedFilters.length > 0) {
-    filteredServices = serviceList.filter(service => {
-        const eventName = service.event_name.toLowerCase(); // Correct property for filtering
-        return selectedFilters.some(filter => eventName.includes(filter));
-    });
+        filteredServices = serviceList.filter(service => {
+            const eventName = service.event_name.toLowerCase(); // Correct property for filtering
+            return selectedFilters.some(filter => eventName.includes(filter));
+        });
     }
 
     // Debugging: Log filtered services before checking if they're empty
@@ -51,25 +52,32 @@ function loadServices(serviceList, page = 1) {
 
     // If "Other" is selected, exclude common service types
     if (document.querySelector(".right-col input[value='other']").checked) {
-    filteredServices = filteredServices.filter(service => {
-        return !commonServices.includes(service.service_type.toLowerCase());
-    });
+        filteredServices = filteredServices.filter(service => {
+            return !commonEvents.includes(service.event_name.toLowerCase());
+        });
+
+        // Check if no events match the "Other" filter
+        if (filteredServices.length === 0) {
+            const filterText = document.createElement("p");
+            filterText.classList.add("selected-filters");
+            filterText.innerHTML = `<strong>Selected Filters:</strong> Other not found.`;
+            filtersContainer.insertAdjacentElement("afterend", filterText);
+            return; // Exit since no events match
+        }
     }
 
-    // Display filter status
-    const filtersContainer = document.querySelector(".right-col h2");
     document.querySelectorAll(".selected-filters").forEach(el => el.remove()); // Clear old messages
 
     const filterText = document.createElement("p");
     filterText.classList.add("selected-filters");
 
     if (selectedFilters.length > 0) {
-    if (filteredServices.length === 0) {
-        filterText.innerHTML = `<strong>Selected Filters:</strong> ${selectedFilters.join(", ")} not found.`;
-    } else {
-        filterText.innerHTML = `<strong>Selected Filters:</strong> ${selectedFilters.join(", ")}`;
-    }
-    filtersContainer.insertAdjacentElement("afterend", filterText);
+        if (filteredServices.length === 0) {
+            filterText.innerHTML = `<strong>Selected Filters:</strong> ${selectedFilters.join(", ")} not found.`;
+        } else {
+            filterText.innerHTML = `<strong>Selected Filters:</strong> ${selectedFilters.join(", ")}`;
+        }
+        filtersContainer.insertAdjacentElement("afterend", filterText);
     }
 
     // ✅ Now `filteredServices` contains the correct service list based on applied filters.
