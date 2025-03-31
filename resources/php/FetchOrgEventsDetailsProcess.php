@@ -37,7 +37,7 @@ if (!$data || !isset($data['event_name'])) {
 
 $eventName = trim($data['event_name']);
 $page = isset($data['page']) && is_numeric($data['page']) ? intval($data['page']) : 1;
-$limit = 10;
+$limit = 100;
 $offset = max(0, ($page - 1) * $limit);
 
 // Filtering logic
