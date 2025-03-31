@@ -38,7 +38,7 @@ if (!$data || !isset($data['service_name'])) {
 
 $serviceName = trim($data['service_name']);
 $page = isset($data['page']) && is_numeric($data['page']) ? intval($data['page']) : 1;
-$limit = 10;
+$limit = 100;
 $offset = max(0, ($page - 1) * $limit);
 
 // List of common services
